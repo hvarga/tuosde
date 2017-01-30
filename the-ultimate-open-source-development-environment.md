@@ -277,13 +277,6 @@ Set push behavior to simple:
 $ git config --global push.default simple
 ```
 
-Configure Git to use P4Merge for its `difftool` and `mergetool` commands:
-
-```
-$ git config --global diff.tool p4merge
-$ git config --global merge.tool p4merge
-```
-
 ### Install and Configure a Modern Shell
 
 Install [oh-my-zsh](http://ohmyz.sh/) by executing the following command:
@@ -928,6 +921,13 @@ $ git clone https://aur.archlinux.org/p4v.git
 $ cd p4v
 $ makepkg
 $ sudo pacman -U p4v-<VERSION>.pkg.tar.xz
+```
+
+Configure Git to use P4Merge for its `difftool` and `mergetool` commands:
+
+```
+$ git config --global diff.tool p4merge
+$ git config --global merge.tool p4merge
 ```
 
 ### X Selection Manipulation
