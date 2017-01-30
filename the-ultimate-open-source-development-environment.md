@@ -1,0 +1,1130 @@
+# The Ultimate Open Source Development Environment
+
+## Introduction
+
+The idea of this article is to collect and document the bits, nuts and bolts scattered all over the Internet about the Arch Linux and its tools in a one central place. And all for a single purpose - to create the ultimate development environment consisting of open source tools.
+
+This article documents my favorite set of tools and their configuration.
+
+## Structure
+
+This article is divided into three major parts; [Pre-Installation Guide](#pre-installation-guide), [Installation Guide](#installation-guide) and [Post-Installation Guide](#post-installation-guide).
+
+First part, [Pre-Installation Guide](#pre-installation-guide), describes the creation of an Arch Linux bootable installation media. This media will be used to live boot the Arch Linux from where you can finally start the installation of the operating system itself.
+
+Second part, [Installation Guide](#installation-guide), covers the installation of the operating system,  Arch Linux. If you don’t know what the Arch Linux is then let me enlighten you! Arch Linux is a lightweight, fast, stable and flexible Linux distribution. But if you are a total beginner in GNU/Linux that you will experience one hell of a ride!
+
+Third and the final part, [Post-Installation Guide](#post-installation-guide), covers the installation and configuration of all the tools that you gonna need as a software developer. Some of them are a general tools; tools that everybody should use. But there are also tools which are only used by the software developers.
+
+## Pre-Installation Guide
+
+### Create a Bootable Installation Media
+
+> **Note:**
+>
+> The author assumes that you have a running GNU/Linux somewhere at your disposal or, at least, you know how to live boot the Ubuntu or similar distribution. You gonna use `wget`, `lsblk` and `dd` commands so you need GNU/Linux or UNIX to be able to create a bootable installation of Arch Linux. Yes, you can also use Microsoft Windows to create bootable installation but this is outside of scope of this article.
+>
+> If you still insist on using Microsoft Windows to create a bootable installation media then head over to [USB flash installation media](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Windows). Try to make it on your own. When finished, jump to the chapter "Installation Guide".
+
+Download the latest ISO image from one of the mirrors listed on [Arch Linux Downloads](https://www.archlinux.org/download/) page. I have used the [iskon.hr](http://archlinux.iskon.hr/iso/latest/) mirror located in Croatia and the version 2016.08.01 of Arch Linux.
+
+```
+$ wget http://archlinux.iskon.hr/iso/2016.08.01/archlinux-2016.08.01 dual.iso
+```
+
+Now plug in your USB device and run `lsblk` command to print a list of connected storage devices. Identify and note for later the USB device that you are going to use as install media.
+
+Open the terminal and run the `dd` command using the following pattern:
+
+```
+$ sudo dd if=archlinux-<VERSION>-dual.iso of=/dev/<DEVICE> bs=1M
+```
+
+> **Note:**
+>
+> Don't forget to replace `<VERSION>` and `<DEVICE>` in above command with the version of Arch Linux that you downloaded and your USB disk which you noted in previous step using `lsblk`, respectively.
+
+## Installation Guide
+
+Boot into the live Arch Linux using the bootable installation media and wait for a terminal to appear. When a terminal is ready to use, continue with the next steps.
+
+### Check that you have a working internet connection
+
+```
+$ ping www.google.com
+```
+
+### Choose the disk for which you want to install Arch Linux
+
+```
+$ fdisk -l
+```
+
+> **Note:**
+>
+> `fdisk -l` will list all available devices and its partitions (if any). You need to choose the device on which you want to install the Arch Linux. In my case, I have choosen the `/dev/sda`.
+
+### Prepare the disk for installation
+
+> **Note:**
+>
+> If you need a full disk encryption then follow [How to install Arch Linux with Full Disk Encryption](https://www.howtoforge.com/tutorial/how-to-install-arch-linux-with-full-disk-encryption). Otherwise, continue with the next steps.
+
+```
+$ cfdisk /dev/<DEVICE>
+```
+
+> **Note:**
+>
+> Don't forget to change the `<DEVICE>` with the device that you have choosen in previous step. In my case, it was `sda`.
+
+> **Note:**
+>
+> Using the `cfdisk`, create partitions as you like. In my configuration, I have created three partitions; first one is the root partition, the second one is the boot partition and the third and the last one is used as a swap. Below commands are using the same configuration so if your differs, you need to change the below commands accordingly.
+
+```
+$ mkfs.ext4 /dev/<DEVICE>1
+$ mkfs.ext4 /dev/<DEVICE>2
+$ mkswap /dev/<DEVICE>3
+$ swapon /dev/<DEVICE>3
+$ mount -t ext4 /dev/<DEVICE>1 /mnt
+$ mkdir /mnt/boot
+$ mount -t ext4 /dev/<DEVICE>2 /mnt/boot
+```
+
+> **Note:**
+>
+> Don't forget to change the `<DEVICE>` with the device that you have choosen in previous step. In my case, it was `sda`.
+
+### Configure mirror list
+
+```
+$ vi /etc/pacman.d/mirrorlist
+```
+
+> **Note:**
+>
+> File `/etc/pacman.d/mirrorlist` contains the list of all available mirrors. The one at the top will be used as your mirror. If you want to choose another one, you need to move it all the way to the top. For example, I have choosen the mirror called "Croatia" as it is closest to my physical location.
+
+### Install the system files
+
+```
+$ pacstrap -i /mnt base base-devel zsh zsh-completions polkit
+```
+
+### Generate fstab
+
+```
+$ genfstab -U /mnt > /mnt/etc/fstab
+```
+
+### chroot into new system
+
+```
+$ arch-chroot /mnt /bin/bash
+```
+
+### Configure locale
+
+```
+$ vi /etc/locale.gen
+```
+
+Find and uncomment your language. In my case it is `en_US.UTF-8`. Save and exit.
+
+```
+$ locale-gen
+$ echo LANG=en_US.UTF-8 > /etc/locale.conf
+```
+
+### Configure timezone
+
+```
+$ ln -fs /usr/share/zoneinfo/<ZONE>/<SUBZONE> /etc/localtime
+$ hwclock --systohc
+```
+
+> **Note:**
+>
+> Don't forget to change the `<ZONE>` and `<SUBZONE>` with your zone information. In my case, `<ZONE>` is set to "Europe" and `<SUBZONE>` is set to "Zagreb".
+
+### Configure time
+
+```
+$ pacman -S ntp
+$ systemctl enable ntpd.service
+```
+
+### Boot Manager
+
+```
+$ pacman -S grub
+$ grub-install --recheck /dev/<DEVICE>
+$ grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+> **Note:**
+>
+> Replace `<DEVICE>` with your device choosen at the beggining of the installation guide. In my case, it was `sda`.
+
+> **Note:**
+>
+> If you want to use a full disk encryption then you need to make an additional changes to the GRUB. For details, see [How to install Arch Linux with Full Disk Encryption](https://www.howtoforge.com/tutorial/how-to-install-arch-linux-with-full-disk-encryption).
+
+### Configure hostname
+
+```
+$ echo <HOSTANAME> > /etc/hostname
+```
+
+> **Note:**
+>
+> Replace `<HOSTANAME>` with your the value of your choice. I prefer to use `hrle-desktop` for the hostname of my desktop machine.
+
+### Set root password
+
+```
+$ passwd
+```
+
+### Create and Setup a New Non-Administrative User
+
+```
+$ useradd -m -G wheel,users -s /bin/zsh <USERNAME>
+$ passwd <USERNAME>
+$ visudo
+```
+
+> **Note:**
+>
+> Don't forget to replace `<USERNAME>` in above command with your user name.
+
+In the newly opened editor, uncomment line `%wheel ALL=(ALL) ALL`, save and exit the editor.
+
+### Exit environment and reboot the machine
+
+```
+$ exit
+$ umount -R /mnt
+$ reboot
+```
+
+## Post-Installation Guide
+
+### Z Shell Initial Configuration
+
+Login for the first time with the user that you created in the end of the [Installation Guide](#installation-guide). The Z Shell configuration function for new users (`zsh-newuser-install`) will appear. You can safely skip this configuration as we will install the [oh-my-zsh](http://ohmyz.sh/) which will replace the configuration generated by `zsh-newuser-install`.
+
+### Configure Network Access
+
+```
+$ ip link
+```
+
+Find the name of your interface. In my case, interface name is `enp0s3`.
+
+```
+$ sudo systemctl start dhcpcd@<NETWORK_INTERFACE>.service
+$ sudo systemctl enable dhcpcd@<NETWORK_INTERFACE>.service
+```
+
+> **Note:**
+>
+> Don't forget to replace `<NETWORK_INTERFACE>` in above command with the interface name that your system has.
+
+### Update Package Repository
+
+```
+$ sudo pacman -Sy
+```
+
+### Install Text Editor
+
+```
+$ sudo pacman -S gvim
+```
+
+> **Note:**
+>
+> This is not a mistake; you need to install the `gvim` instead of the `vim` package. The reason is that the `gvim` package has a Vim compiled with the `+clipboard` support. Yes, you need the `+clipboard` support! And yes, you can still run the Vim from command line.
+
+### Download Manager
+
+```
+$ sudo pacman -S wget
+```
+
+### Versioning Control
+
+```
+$ sudo pacman -S git perl-authen-sasl perl-net-smtp-ssl  perl-mime-tools
+```
+
+Configure your identity:
+
+```
+$ git config --global user.name "<USERNAME>"
+$ git config --global user.email <EMAIL>
+```
+
+> **Note:**
+>
+> Don't forget to replace `<USERNAME>` and `<EMAIL>` in above command with your user name and email, respectively. This information will be use to associate the commits that you make with your identity.
+
+Set push behavior to simple:
+
+```
+$ git config --global push.default simple
+```
+
+Configure Git to use P4Merge for its `difftool` and `mergetool` commands:
+
+```
+$ git config --global diff.tool p4merge
+$ git config --global merge.tool p4merge
+```
+
+### Install and Configure a Modern Shell
+
+Install [oh-my-zsh](http://ohmyz.sh/) by executing the following command:
+
+```
+$ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```
+
+> **Note:**
+>
+> After executing the above command, follow the on-screen setup instructions.
+
+After the "oh-my-zsh" is successfully installed, configure a theme by setting the value for `ZSH_THEME` into `~/.zshrc`:
+
+```
+ZSH_THEME="<THEME_NAME>"
+```
+
+> **Note:**
+>
+> "oh-my-zsh" has a theming support and few of possible good themes are: `crunch`, `nebirhos`, `wezm`, `ys` and `robbyrussell`.
+
+### AUR Packages Directory
+
+```
+$ mkdir ~/AUR
+```
+
+> **Note:**
+>
+> There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. There are tools like Yaurt that can be used instead but are not officially supported by Arch Linux. This is why I am recommending to create a folder which will be used to store the source code of those packages. Those packages will be build and installed manually. Yes, in this case you don't have a automatic dependancy management! But look at the bright side, you will look cool in front of your friends!
+
+### X Server
+
+```
+$ sudo pacman -S xorg-server xorg-server-utils xorg-xinit xorg
+```
+
+When asked, it is generally better to install `xf86-input-libinput`, especially on laptops.
+
+Now, create file `~/.xserverrc` and add following lines:
+
+```
+#!/bin/sh
+exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTR
+```
+
+### Window Manager
+
+```
+$ sudo pacman -S i3 rofi
+```
+
+Configure i3 to be launched when Xorg starts:
+
+```
+$ cp /etc/X11/xinit/xinitrc ~/.xinitrc
+$ vim ~/.xinitrc
+```
+
+Remove unnecessary lines and add the following line to the end:
+
+```
+exec i3
+```
+
+### Terminal Emulator
+
+```
+$ sudo pacman -S xterm
+```
+
+Edit `~/.Xresources` and add:
+
+```
+! XTerm settings
+xterm*faceName: Ubuntu Monospace:size=9:antialias=false
+xterm*pointerColor: white
+xterm*pointerColorBackground: black
+xterm*cursorColor: yellow
+xterm*cursorBlink: true
+xterm*saveLines: 10000
+xterm*foreground: white
+xterm*background: black
+xterm*termName: xterm-256color
+xterm*selectToClipboard: true
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+xterm*fullscreen: never
+
+! Xft settings
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+! ROFI Color theme
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+```
+
+### Improve Font Rendering
+
+Disable bitmaps fonts:
+
+```
+$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+```
+
+Install additional fonts:
+
+```
+$ sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-linux-libertine ttf-liberation
+```
+
+### Autostart X At Login
+
+Edit the `~/.bash_profile` and add following into it:
+
+```
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> /dev/null
+```
+
+### Web Browser
+
+```
+$ sudo pacman –S chromium
+```
+
+### Image Manipulation
+
+```
+$ sudo pacman -S imagemagick
+```
+
+### Screenshot Tool
+
+```
+$ sudo pacman -S scrot
+```
+
+### Configure i3
+
+Create a shell script in `/bin/i3lock.sh` with the folowing contents:
+
+```
+#!/bin/bash
+
+IMAGE=/tmp/i3lock.png
+
+# All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
+BLURTYPE="5x2"
+
+# Get the screenshot, add the blur and lock the screen with it
+scrot $IMAGE
+convert $IMAGE -blur $BLURTYPE $IMAGE
+i3lock -i $IMAGE
+rm $IMAGE
+```
+
+Make the script `/bin/i3lock.sh` executable by executing `sudo chmod +x /bin/i3lock.sh`.
+
+Edit `~/.config/i3/config` and add the following to the end of a file:
+
+```
+set $Locker /bin/i3lock.sh && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r)reboot, (Shift+s) shutdown
+mode "$mode_system" {
+  bindsym l exec --no-startup-id $Locker, mode "default"
+  bindsym e exec --no-startup-id i3-msg exit, mode "default"
+  bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+  bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+  bindsym r exec --no-startup-id systemctl reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Escape mode "$mode_system"
+
+bindsym $mod+d exec "rofi -show run"
+bindsym $mod+Tab exec "rofi -show window"
+```
+Also, delete the line `bindsym $mod+d exec dmenu_run` from `~/.config/i3/config`.
+
+### Set User Locale
+
+Open `~/.zshrc` and add following line to the end:
+
+```
+export LANG=en_US.UTF-8
+export LC_MESSAGES="C"
+export LC_ALL=en_US.UTF-8
+```
+
+### Configure Text Editor
+
+Edit the file `~/.zshrc` and add following into it:
+
+```
+export VISUAL=vim
+export EDITOR=vim
+```
+
+Add the following lines to the `~/.vimrc` to enable syntax highlighting, line numbers, mouse support, saving cursor position, line highlighting and clipboard support:
+
+```
+syntax on
+set number
+set mouse=a
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+set nofoldenable
+set showtabline=2
+set cursorline
+highlight CursorLine cterm=NONE ctermbg=DarkGray
+set clipboard=unnamedplus
+```
+
+#### VIM Plugins
+
+##### VimPlug
+
+Install the VimPlug:
+
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Edit the `~/.vimrc` and add the following at the end:
+
+```
+call plug#begin('~/.vim/plugged')
+call plug#end()
+```
+
+> **Note:**
+>
+> VimPlug is a plugin manager for VIM and it requires that each plugin is added between the lines `call plug#begin()` and `call plug#end()` in a `~/.vimrc` file. Be sure that your plugins are listed between those two lines. Otherwise, plugins will not be installed correctly.
+
+##### YouCompleteMe
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'valloric/youcompleteme'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Install the `clang` and `cmake` package:
+
+```
+$ sudo pacman -S clang cmake
+```
+
+Compile the `ycm_core.so`:
+
+```
+$ cd ~/.vim/plugged/youcompleteme
+$ ./install.sh --clang-completer --system-libclang
+```
+
+Add following line to the `~/.vimrc`:
+
+```
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_add_preview_to_completeopt = 1
+```
+
+##### lightline-vim
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'itchyny/lightline.vim'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Add the following line to the `~/.vimrc`:
+
+```
+set laststatus=2
+```
+
+##### Tagbar
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'majutsushi/tagbar'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Install the `ctags` package:
+
+```
+$ sudo pacman -S ctags
+```
+
+Add the following line to the `~/.vimrc`:
+
+```
+nmap <F8> :TagbarToggle<CR>
+```
+
+##### The NERD tree
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'scrooloose/nerdtree'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Add the following to the `~/.vimrc`:
+
+```
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <F7> :NERDTreeToggle<CR>
+```
+
+##### ctrlp.vim
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'ctrlpvim/ctrlp.vim'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Add the following to the `~/.vimrc`:
+
+```
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_extensions = ['line', 'dir', 'smarttabs']
+```
+
+##### fugitive.vim
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'tpope/vim-fugitive'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### vim-bracketed-paste
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'conradirwin/vim-bracketed-paste'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### vim-better-whitespace
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'ntpeters/vim-better-whitespace'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### vim-lastplace
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'dietsche/vim-lastplace'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### vim-gitgutter
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'airblade/vim-gitgutter'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### gitv
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'gregsexton/gitv'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### vim-clang-format
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'rhysd/vim-clang-format'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin:
+
+```
+let g:clang_format#command = 'clang-format'
+let g:clang_format#code_style = "LLVM"
+let g:clang_format#style_options = {
+		\"TabWidth" : 4,
+		\"UseTab" : "Always",
+		\"ColumnLimit" : 150,
+		\"AllowShortIfStatementsOnASingleLine" : "false",
+		\"BreakBeforeBraces" : "Linux",
+		\"Language" : "Cpp",
+		\"AllowShortFunctionsOnASingleLine" : "Empty",
+		\"BinPackParameters" : "false",
+		\"BinPackArguments" : "false",
+		\"AllowAllParametersOfDeclarationOnNextLine" : "true",
+		\"AlignTrailingComments" : "true",
+		\"IndentCaseLabels" : "true",
+		\"SpaceAfterCStyleCast" : "true",
+		\"SortIncludes" : "false"
+		\}
+```
+
+##### NERD Commenter
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'scrooloose/nerdcommenter'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the shortcut:
+
+```
+nnoremap ,c :call NERDComment(0,"toggle")<CR>
+vnoremap ,c :call NERDComment(0,"toggle")<CR>
+```
+
+##### vim-nerdtree-tabs
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'jistr/vim-nerdtree-tabs'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin to be more user friendly:
+
+```
+let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_new_tab = 1
+let g:nerdtree_tabs_no_startup_for_diff = 0
+let g:nerdtree_tabs_autofind = 1
+```
+
+##### vim-signature
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'kshenoy/vim-signature'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### nerdtree-git-plugin
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'xuyuanp/nerdtree-git-plugin'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### python-mode
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'klen/python-mode'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin:
+
+```
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+let g:pymode_rope = 1
+```
+
+##### vim-go
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'fatih/vim-go'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+##### ctrlp-smarttabs
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'davidegx/ctrlp-smarttabs'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+### Visual Merge and Diff Tool
+
+```
+$ cd ~/AUR
+$ git clone https://aur.archlinux.org/p4v.git
+$ cd p4v
+$ makepkg
+$ sudo pacman -U p4v-<VERSION>.pkg.tar.xz
+```
+
+### X Selection Manipulation
+
+```
+$ sudo pacman -S xsel
+```
+
+### SSH Server
+
+```
+$ sudo pacman -S openssh
+```
+
+### Offline Documentation Browser
+
+```
+$ sudo pacman -S zeal
+```
+
+### Interactive Process Viewer
+
+```
+$ sudo pacman -S htop
+```
+
+### Serial Communication
+
+```
+$ sudo pacman -S ckermit
+```
+
+### Network Protocol Analyzer
+
+```
+$ sudo pacman -S wireshark-cli wireshark-gtk
+```
+
+### Linux Syscall Tracer
+
+```
+$ sudo pacman -S strace
+```
+
+### Containerization and Virtualization
+
+```
+$ sudo pacman -S docker
+```
+
+### Debugger
+
+```
+$ sudo pacman -S gdb
+```
+
+### TCP/IP Swiss Army Tool
+
+```
+$ sudo pacman -S gnu-netcat
+```
+
+### TFTP Server
+
+```
+$ sudo pacman -S tftp-hpa
+```
+
+### LaTeX Distribution
+
+```
+$ sudo pacman -S texlive-most
+```
+
+### LaTeX Integrated Writing Environment
+
+```
+$ sudo pacman -S texstudio
+```
+
+### Patch Management
+
+```
+$ sudo pacman -S quilt
+```
+
+### Office Suite
+
+```
+$ sudo pacman -S libreoffice-fresh
+```
+
+### Cross-platform Asynchronous I/O Library
+
+```
+$ sudo pacman -S libuv
+```
+
+### Calendar and Scheduling Application
+
+```
+$ sudo pacman -S calcurse
+```
+
+### GDB Frontend
+
+```
+$ sudo pacman -S cgdb
+```
+
+### Multipurpose Relay
+
+```
+sudo pacman -S socat
+```
+
+### Terminal Multiplexer
+
+```
+$ sudo pacman -S tmux
+```
+
+### File Manager
+
+```
+$ sudo pacman -S mc
+```
+
+### Image Viewer
+
+```
+$ sudo pacman -S gpicview
+```
+
+### Document Viewer
+
+```
+$ sudo pacman -S zathura zathura-pdf-mupdf
+```
+
+### Archive Manager
+
+```
+$ sudo pacman -S p7zip unrar zip
+```
+
+### Source Code Analysis Tool
+
+```
+$ sudo pacman -S valgrind
+```
+
+### Terminal Recorder
+
+```
+$ sudo pacman -S asciinema
+```
+
+Put this into the `~/.config/asciinema/config` to configure Asciinema:
+
+```
+[record]
+command = /bin/bash -l
+maxwait = 2
+```
+
+### Terminal Sharing
+
+```
+$ sudo pacman -S msgpack-c cmake ruby
+$ cd ~/AUR
+$ git clone https://aur.archlinux.org/tmate.git
+$ cd tmate
+$ makepkg
+$ sudo pacman -U tmate-<VERSION>.pkg.tar.xz
+```
+
+### WebSocket Client
+
+```
+$ sudo pacman -S nodejs
+$ sudo pacman -S npm
+$ sudo npm install -g wscat
+```
+
+### Go
+
+```
+$ sudo pacman -S go
+```
+
+Open `~/.zshrc` and add following line to the end:
+
+```
+export GOPATH=<PATH>
+```
+
+> **Note:**
+>
+> Replace `<PATH>` with the directory outside of $GOROOT that contain the source for Go projects and their binaries. In my example, I have used `~/Projects/go`.
