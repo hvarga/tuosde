@@ -490,10 +490,10 @@ export EDITOR=vim
 Add the following lines to the `~/.vimrc` to enable syntax highlighting, line numbers, mouse support, saving cursor position, line highlighting and clipboard support:
 
 ```
+set nocompatible
 syntax on
 set number
 set mouse=a
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
 set noswapfile
@@ -502,6 +502,14 @@ set showtabline=2
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=DarkGray
 set clipboard=unnamedplus
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+nnoremap <CR> :nohlsearch<CR><CR>
+set wildmenu
+nnoremap d "_d
+vnoremap d "_d
 ```
 
 #### VIM Plugins
