@@ -277,6 +277,13 @@ Set push behavior to simple:
 $ git config --global push.default simple
 ```
 
+Configure aliases:
+
+```
+$ git config --global alias.incoming '!git fetch && git log --pretty=oneline --abbrev-commit ..@{u}'
+$ git config --global alias.outgoing 'log --pretty=oneline --abbrev-commit @{u}..'
+```
+
 ### Install and Configure a Modern Shell
 
 Install [oh-my-zsh](http://ohmyz.sh/) by executing the following command:
@@ -518,6 +525,7 @@ map <C-Up> <C-w>k
 map <C-Right> <C-w>l
 map <S-Right> :tabn<CR>
 map <S-Left>  :tabp<CR>
+set backspace=indent,eol,start
 ```
 
 #### VIM Plugins
@@ -705,12 +713,12 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### vim-better-whitespace
+##### vim-trailing-whitespace
 
 Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
 
 ```
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'bronson/vim-trailing-whitespace'
 ```
 
 Now, install the plugin:
