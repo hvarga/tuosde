@@ -966,6 +966,42 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 ```
 
+##### badwolf
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'sjl/badwolf'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin:
+
+```
+colorscheme badwolf
+highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=White
+```
+
+##### syntastic
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'scrooloose/syntastic'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
 
 ### Visual Merge and Diff Tool
 
