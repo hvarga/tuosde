@@ -491,6 +491,8 @@ Add the following lines to the `~/.vimrc` to enable syntax highlighting, line nu
 
 ```
 set nocompatible
+filetype plugin on
+filetype indent on
 syntax on
 set number
 set mouse=a
@@ -500,16 +502,22 @@ set noswapfile
 set nofoldenable
 set showtabline=2
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=DarkGray
+highlight CursorLine cterm=NONE ctermbg=DarkGray ctermfg=White
 set clipboard=unnamedplus
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-nnoremap <CR> :nohlsearch<CR><CR>
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 set wildmenu
 nnoremap d "_d
 vnoremap d "_d
+map <C-Left> <C-w>h
+map <C-Down> <C-w>j
+map <C-Up> <C-w>k
+map <C-Right> <C-w>l
+map <S-Right> :tabn<CR>
+map <S-Left>  :tabp<CR>
 ```
 
 #### VIM Plugins
@@ -639,6 +647,9 @@ Add the following to the `~/.vimrc`:
 ```
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F7> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeFind<CR>
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 ```
 
 ##### ctrlp.vim
@@ -737,6 +748,12 @@ Now, install the plugin:
 ```
 :source %
 :PlugInstall
+```
+
+Add the following to the `~/.vimrc`:
+
+```
+let g:gitgutter_sign_column_always=1
 ```
 
 ##### gitv
@@ -920,6 +937,35 @@ Now, install the plugin:
 :source %
 :PlugInstall
 ```
+
+##### ack.vim
+
+Install the `ack` package:
+
+```
+$ sudo pacman -S ack
+```
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'mileszs/ack.vim'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin:
+
+```
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+```
+
 
 ### Visual Merge and Diff Tool
 
