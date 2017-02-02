@@ -416,16 +416,10 @@ Edit the `~/.bash_profile` and add following into it:
 $ sudo pacman –S chromium
 ```
 
-### Image Manipulation
+### Screenshot and Image Manipulation Tool
 
 ```
 $ sudo pacman -S imagemagick
-```
-
-### Screenshot Tool
-
-```
-$ sudo pacman -S scrot
 ```
 
 ### i3 Configuration
@@ -441,7 +435,7 @@ IMAGE=/tmp/i3lock.png
 BLURTYPE="5x2"
 
 # Get the screenshot, add the blur and lock the screen with it
-scrot $IMAGE
+import -window root $IMAGE
 convert $IMAGE -blur $BLURTYPE $IMAGE
 i3lock -i $IMAGE
 rm $IMAGE
