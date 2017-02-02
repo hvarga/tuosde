@@ -1033,6 +1033,10 @@ Now, install the plugin:
 :PlugInstall
 ```
 
+> **Note:**
+>
+> syntastic plugin has checking plugins for a LARGE list of [programming languages](https://github.com/vim-syntastic/syntastic#introduction). If you gonna work on Linux (obviously, since you are reading this), then I strongly recommend you to install the [`shellcheck`](#shell-script-analysis-tool).
+
 ### Visual Merge and Diff Tool
 
 ```
