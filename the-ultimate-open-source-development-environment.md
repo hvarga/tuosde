@@ -494,7 +494,7 @@ export VISUAL=vim
 export EDITOR=vim
 ```
 
-Add the following lines to the `~/.vimrc` to enable syntax highlighting, line numbers, mouse support, saving cursor position, line highlighting and clipboard support:
+Add the following lines to the `~/.vimrc` to make Vim more user friendly:
 
 ```
 set nocompatible
@@ -526,6 +526,13 @@ map <C-Right> <C-w>l
 map <S-Right> :tabn<CR>
 map <S-Left>  :tabp<CR>
 set backspace=indent,eol,start
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 ```
 
 #### VIM Plugins
@@ -946,18 +953,18 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### ack.vim
+##### ctrlsf.vim
 
-Install the `ack` package:
+Install the `the_silver_searcher` package:
 
 ```
-$ sudo pacman -S ack
+$ sudo pacman -S the_silver_searcher
 ```
 
 Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
 
 ```
-Plug 'mileszs/ack.vim'
+Plug 'dyng/ctrlsf.vim'
 ```
 
 Now, install the plugin:
@@ -970,8 +977,23 @@ Now, install the plugin:
 Configure the plugin:
 
 ```
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+nmap     <C-F>l <Plug>CtrlSFQuickfixPrompt
+vmap     <C-F>l <Plug>CtrlSFQuickfixVwordPath
+vmap     <C-F>L <Plug>CtrlSFQuickfixVwordExec
+let g:ctrlsf_auto_close = 0
+let g:ctrlsf_case_sensitive = 'smart'
+let g:ctrlsf_context = '-B 0 -A 0'
+let g:ctrlsf_default_root = 'cwd'
+let g:ctrlsf_position = 'bottom'
+let g:ctrlsf_winsize = '20%'
 ```
 
 ##### badwolf
@@ -1226,3 +1248,9 @@ export GOPATH=<PATH>
 > **Note:**
 >
 > Replace `<PATH>` with the directory outside of $GOROOT that contain the source for Go projects and their binaries. In my example, I have used `~/Projects/go`.
+
+### Shell Script Analysis Tool
+
+```
+$ sudo pacman -S shellcheck
+```
