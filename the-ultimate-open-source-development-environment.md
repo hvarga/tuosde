@@ -2,9 +2,11 @@
 
 ## Introduction
 
-The idea of this article is to collect and document the bits, nuts and bolts scattered all over the Internet about the Arch Linux and its tools in a one central place. And all for a single purpose - to create the ultimate development environment consisting of open source tools.
+The idea of this article is to collect and document the bits, nuts and bolts scattered all over the Internet about the Arch Linux and its tools in a one central place. And all for a single purpose - to create the ultimate development environment consisting of open source tools. Just look at the Vim in action below.
 
-This article documents my favorite set of tools and their configuration.
+![Vim](http://imgur.com/dl2pA0y)
+
+If you like what you see, then follow this article.
 
 ## Structure
 
