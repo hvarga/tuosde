@@ -64,6 +64,7 @@
       * [ctrlsf.vim](#ctrlsfvim)
       * [badwolf](#badwolf)
       * [syntastic](#syntastic)
+      * [gundo.vim](#gundovim)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
@@ -1132,6 +1133,28 @@ Configure the plugin:
 let g:syntastic_check_on_open = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+```
+
+##### gundo.vim
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'sjl/gundo.vim'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin:
+
+```
+nnoremap <silent><F5> :GundoToggle<CR>
+let g:gundo_help = 0
 ```
 
 ### Visual Merge and Diff Tool
