@@ -57,7 +57,6 @@
       * [vim-clang-format](#vim-clang-format)
       * [NERD Commenter](#nerd-commenter)
       * [vim-nerdtree-tabs](#vim-nerdtree-tabs)
-      * [vim-signature](#vim-signature)
       * [nerdtree-git-plugin](#nerdtree-git-plugin)
       * [python-mode](#python-mode)
       * [vim-go](#vim-go)
@@ -967,21 +966,6 @@ Configure the plugin to be more user friendly:
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_open_on_new_tab = 1
 let g:nerdtree_tabs_no_startup_for_diff = 0
-```
-
-##### vim-signature
-
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
-
-```
-Plug 'kshenoy/vim-signature'
-```
-
-Now, install the plugin:
-
-```
-:source %
-:PlugInstall
 ```
 
 ##### nerdtree-git-plugin
