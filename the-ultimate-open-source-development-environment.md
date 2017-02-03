@@ -1034,6 +1034,14 @@ Now, install the plugin:
 >
 > syntastic plugin has checking plugins for a LARGE list of [programming languages](https://github.com/vim-syntastic/syntastic#introduction). If you gonna work on Linux (obviously, since you are reading this), then I strongly recommend you to install the [`shellcheck`](#shell-script-analysis-tool).
 
+Configure the plugin:
+
+```
+let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+```
+
 ### Visual Merge and Diff Tool
 
 ```
