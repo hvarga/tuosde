@@ -625,6 +625,12 @@ set softtabstop=0
 set shiftwidth=4
 set tabstop=4
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+autocmd CursorHold * call Timer()
+function! Timer()
+  checktime
+  call feedkeys("f\e")
+endfunction
+
 ```
 
 #### VIM Plugins
