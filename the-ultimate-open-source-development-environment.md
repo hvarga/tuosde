@@ -528,7 +528,7 @@ set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 ```
 
 #### VIM Plugins
@@ -636,6 +636,8 @@ Add the following line to the `~/.vimrc`:
 
 ```
 nmap <F8> :TagbarToggle<CR>
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+autocmd BufEnter * nested :call tagbar#autoopen(0)
 ```
 
 ##### The NERD tree
@@ -863,7 +865,6 @@ Configure the plugin to be more user friendly:
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_open_on_new_tab = 1
 let g:nerdtree_tabs_no_startup_for_diff = 0
-let g:nerdtree_tabs_autofind = 1
 ```
 
 ##### vim-signature
