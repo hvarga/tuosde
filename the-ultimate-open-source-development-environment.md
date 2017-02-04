@@ -66,6 +66,7 @@
       * [syntastic](#syntastic)
       * [gundo.vim](#gundovim)
       * [ycm-generator](#ycm-generator)
+      * [vim-easymotion](#ycm-easymotion)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
@@ -1184,6 +1185,21 @@ Configure the plugin:
 
 ```
 nnoremap <silent><F9> :YcmGenerateConfig<CR>
+```
+
+##### vim-easymotion
+
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'easymotion/vim-easymotion'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
 ```
 
 ### Visual Merge and Diff Tool
