@@ -642,7 +642,7 @@ function! Timer()
   checktime
   call feedkeys("f\e")
 endfunction
-
+set belloff=all
 ```
 
 #### VIM Plugins
