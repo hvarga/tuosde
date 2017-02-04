@@ -65,6 +65,7 @@
       * [badwolf](#badwolf)
       * [syntastic](#syntastic)
       * [gundo.vim](#gundovim)
+      * [ycm-generator](#ycmgenerator)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
@@ -1155,6 +1156,27 @@ Configure the plugin:
 ```
 nnoremap <silent><F5> :GundoToggle<CR>
 let g:gundo_help = 0
+```
+
+#### ycm-generator
+
+Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin:
+
+```
+nnoremap <silent><F9> :YcmGenerateConfig<CR>
 ```
 
 ### Visual Merge and Diff Tool
