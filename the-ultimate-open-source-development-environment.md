@@ -1204,6 +1204,14 @@ Now, install the plugin:
 :PlugInstall
 ```
 
+Configure the plugin:
+
+```
+let g:EasyMotion_off_screen_search = 0
+let g:EasyMotion_verbose = 0
+let g:EasyMotion_verbose = 0
+```
+
 ##### vim-numbertoggle
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
