@@ -65,7 +65,7 @@
       * [badwolf](#badwolf)
       * [syntastic](#syntastic)
       * [gundo.vim](#gundovim)
-      * [ycm-generator](#ycmgenerator)
+      * [ycm-generator](#ycm-generator)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
