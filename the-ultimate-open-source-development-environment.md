@@ -660,7 +660,7 @@ call plug#end()
 
 ##### YouCompleteMe
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'valloric/youcompleteme'
@@ -697,7 +697,7 @@ let g:ycm_add_preview_to_completeopt = 1
 
 ##### lightline-vim
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'itchyny/lightline.vim'
@@ -718,7 +718,7 @@ set laststatus=2
 
 ##### Tagbar
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'majutsushi/tagbar'
@@ -747,7 +747,7 @@ autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 ##### The NERD tree
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'scrooloose/nerdtree'
@@ -777,7 +777,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 ##### ctrlp.vim
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'ctrlpvim/ctrlp.vim'
@@ -800,7 +800,7 @@ let g:ctrlp_extensions = ['line', 'dir', 'smarttabs']
 
 ##### fugitive.vim
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'tpope/vim-fugitive'
@@ -815,7 +815,7 @@ Now, install the plugin:
 
 ##### vim-bracketed-paste
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'conradirwin/vim-bracketed-paste'
@@ -830,7 +830,7 @@ Now, install the plugin:
 
 ##### vim-trailing-whitespace
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'bronson/vim-trailing-whitespace'
@@ -845,7 +845,7 @@ Now, install the plugin:
 
 ##### vim-lastplace
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'dietsche/vim-lastplace'
@@ -860,7 +860,7 @@ Now, install the plugin:
 
 ##### vim-gitgutter
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'airblade/vim-gitgutter'
@@ -881,7 +881,7 @@ let g:gitgutter_sign_column_always=1
 
 ##### gitv
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'gregsexton/gitv'
@@ -896,7 +896,7 @@ Now, install the plugin:
 
 ##### vim-clang-format
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'rhysd/vim-clang-format'
@@ -934,7 +934,7 @@ let g:clang_format#style_options = {
 
 ##### NERD Commenter
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'scrooloose/nerdcommenter'
@@ -956,7 +956,7 @@ vnoremap ,c :call NERDComment(0,"toggle")<CR>
 
 ##### vim-nerdtree-tabs
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'jistr/vim-nerdtree-tabs'
@@ -979,7 +979,7 @@ let g:nerdtree_tabs_no_startup_for_diff = 0
 
 ##### nerdtree-git-plugin
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'xuyuanp/nerdtree-git-plugin'
@@ -994,7 +994,7 @@ Now, install the plugin:
 
 ##### python-mode
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'klen/python-mode'
@@ -1017,7 +1017,7 @@ let g:pymode_rope = 1
 
 ##### vim-go
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'fatih/vim-go'
@@ -1032,7 +1032,7 @@ Now, install the plugin:
 
 ##### ctrlp-smarttabs
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'davidegx/ctrlp-smarttabs'
@@ -1053,7 +1053,7 @@ Install the `the_silver_searcher` package:
 $ sudo pacman -S the_silver_searcher
 ```
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'dyng/ctrlsf.vim'
@@ -1090,7 +1090,7 @@ let g:ctrlsf_winsize = '20%'
 
 ##### badwolf
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'sjl/badwolf'
@@ -1112,7 +1112,7 @@ highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=White
 
 ##### syntastic
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'scrooloose/syntastic'
@@ -1139,7 +1139,7 @@ let g:syntastic_auto_loc_list = 1
 
 ##### gundo.vim
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'sjl/gundo.vim'
@@ -1161,7 +1161,7 @@ let g:gundo_help = 0
 
 ##### ycm-generator
 
-Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
