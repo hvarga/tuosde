@@ -97,6 +97,7 @@
   * [WebSocket Client](#websocket-client)
   * [Go](#go)
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
+  * [nmap](#nmap)
 
 ## Introduction
 
@@ -1399,4 +1400,10 @@ export GOPATH=<PATH>
 
 ```
 $ sudo pacman -S shellcheck
+```
+
+### Network Discovery and Security Auditing
+
+```
+$ sudo pacman -S nmap
 ```
