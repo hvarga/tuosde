@@ -1223,7 +1223,6 @@ Configure the plugin:
 
 ```
 let g:NumberToggleTrigger="<F2>"
-
 ```
 
 ### Visual Merge and Diff Tool
