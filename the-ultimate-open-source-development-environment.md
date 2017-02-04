@@ -66,7 +66,7 @@
       * [syntastic](#syntastic)
       * [gundo.vim](#gundovim)
       * [ycm-generator](#ycm-generator)
-      * [vim-easymotion](#ycm-easymotion)
+      * [vim-easymotion](#vim-easymotion)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
