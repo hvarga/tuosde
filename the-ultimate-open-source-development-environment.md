@@ -1332,7 +1332,7 @@ $ sudo pacman -S gpicview
 ### Document Viewer
 
 ```
-$ sudo pacman -S zathura zathura-pdf-mupdf
+$ sudo pacman -S zathura zathura-pdf-poppler
 ```
 
 ### Archive Manager
