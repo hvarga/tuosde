@@ -67,6 +67,7 @@
       * [gundo.vim](#gundovim)
       * [ycm-generator](#ycm-generator)
       * [vim-easymotion](#vim-easymotion)
+      * [vim-numbertoggle](#vim-numbertoggle)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
@@ -604,6 +605,7 @@ filetype plugin on
 filetype indent on
 syntax on
 set number
+set relativenumber
 set mouse=a
 set nobackup
 set nowb
@@ -1200,6 +1202,28 @@ Now, install the plugin:
 ```
 :source %
 :PlugInstall
+```
+
+##### vim-numbertoggle
+
+Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
+
+```
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+```
+
+Now, install the plugin:
+
+```
+:source %
+:PlugInstall
+```
+
+Configure the plugin:
+
+```
+let g:NumberToggleTrigger="<F2>"
+
 ```
 
 ### Visual Merge and Diff Tool
