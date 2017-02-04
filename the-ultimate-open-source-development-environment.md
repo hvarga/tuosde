@@ -385,6 +385,12 @@ $ git config --global alias.incoming '!git fetch && git log --pretty=oneline --a
 $ git config --global alias.outgoing 'log --pretty=oneline --abbrev-commit @{u}..'
 ```
 
+Configure pull with rebase:
+
+```
+git config --global pull.rebase true
+```
+
 ### Install and Configure a Modern Shell
 
 Install [oh-my-zsh](http://ohmyz.sh/) by executing the following command:
