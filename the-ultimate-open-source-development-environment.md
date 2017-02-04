@@ -95,9 +95,9 @@
   * [Terminal Recorder](#terminal-recorder)
   * [Terminal Sharing](#terminal-sharing)
   * [WebSocket Client](#websocket-client)
-  * [Go](#go)
+  * [Modern Programming Language](#modern-programming-language)
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
-  * [nmap](#network-discovery-and-security-auditing)
+  * [Network Discovery and Security Auditing](#network-discovery-and-security-auditing)
 
 ## Introduction
 
@@ -1387,7 +1387,7 @@ $ sudo pacman -S npm
 $ sudo npm install -g wscat
 ```
 
-### Go
+### Modern Programming Language
 
 ```
 $ sudo pacman -S go
