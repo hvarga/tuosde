@@ -97,7 +97,7 @@
   * [WebSocket Client](#websocket-client)
   * [Go](#go)
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
-  * [nmap](#nmap)
+  * [nmap](#network-discovery-and-security-auditing)
 
 ## Introduction
 
