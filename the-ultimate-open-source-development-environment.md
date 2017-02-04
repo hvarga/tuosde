@@ -1158,7 +1158,7 @@ nnoremap <silent><F5> :GundoToggle<CR>
 let g:gundo_help = 0
 ```
 
-#### ycm-generator
+##### ycm-generator
 
 Edit the `~/.vimrc` with Vim and add the following line between lines call `call plug#begin()` and `call plug#end()`:
 
