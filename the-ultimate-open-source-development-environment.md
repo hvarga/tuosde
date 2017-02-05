@@ -1467,3 +1467,83 @@ $ sudo pacman -S shellcheck
 ```
 $ sudo pacman -S nmap
 ```
+
+### Video Games
+
+> **Note:**
+>
+> All work and no play makes the developer a dull boy! Becouse of that, here is a few Open Source Video Games that I like to play.
+
+#### Single Player Dungeon Exploration Game
+
+Official page: http://www.nethack.org/
+
+```
+$ sudo pacman -S nethack
+```
+
+#### Turn-Based Tactical Strategy Game With a High Fantasy Theme
+
+Official page: https://www.wesnoth.org/
+
+```
+$ sudo pacman -S wesnoth
+```
+
+#### Turn-Based Tactical Strategy Game With a High Fantasy Theme
+
+Official page: https://www.wesnoth.org/
+
+```
+$ sudo pacman -S warzone2100
+```
+
+The installation package misses the original video files, which you can get at [SourceForge](https://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/).
+
+> **Note:**
+>
+> Place the downloaded `sequences.wz` file inside `~/.warzone2100-<VERSION>`, where `<VERSION>` is the version of Warzone, e.g. "2.3" or "3.1" not "3.1.3".
+
+#### Turn-Based Strategy Artillery Game Similiar To Worms
+
+Official page: http://www.hedgewars.org/
+
+```
+$ sudo pacman -S hedgewars
+```
+
+#### Turn-Based Space Empire And Galactic Conquest (4x) Computer Game
+
+Official page: http://www.freeorion.org
+
+```
+$ cd ~/AUR
+$ https://aur.archlinux.org/freeorion.git
+$ cd freeorion
+$ makepkg
+$ sudo pacman -U freeorion-<VERSION>.pkg.tar.xz
+```
+
+#### Red Alert Engine Using .NET/Mono and OpenGL
+
+Official page: http://www.openra.net
+
+> **Note:**
+>
+> Despite the statement that OpenRA is a game engine, it will prompt you to download the full games. This will allow you to play a full open source clone of the popular games like the Tiberian Dawn, Dune 2000 and Red Alert. Since it is an open source project which is actively maintained, the games have a massive improvements over the originals!
+
+```
+$ sudo pacman -S openra
+```
+
+#### Engine for Running Transport Tycoon Deluxe
+
+Official page: http://www.openttd.org
+
+```
+$ sudo pacman -S openttd
+```
+
+> **Note:**
+>
+> Despite the statement that OpenTTD is a game engine, it will prompt you to download graphics, sounds and music. This will allow you to play a full open source clone of the popular Transport Tycoon Deluxe game. Since it is an open source project which is actively maintained, it comes with massive improvements over the original!
