@@ -1472,11 +1472,11 @@ $ sudo pacman -S nmap
 
 > **Note:**
 >
-> All work and no play makes the developer a dull boy! Becouse of that, here is a few Open Source Video Games that I like to play.
+> All work and no play makes the developer a dull boy! Because of that, here is a few open source video games that I like to play.
 
 #### Single Player Dungeon Exploration Game
 
-Official page: http://www.nethack.org/
+Official page: <http://www.nethack.org/>
 
 ```
 $ sudo pacman -S nethack
@@ -1484,7 +1484,7 @@ $ sudo pacman -S nethack
 
 #### Turn-Based Tactical Strategy Game With a High Fantasy Theme
 
-Official page: https://www.wesnoth.org/
+Official page: <https://www.wesnoth.org/>
 
 ```
 $ sudo pacman -S wesnoth
@@ -1492,7 +1492,7 @@ $ sudo pacman -S wesnoth
 
 #### Turn-Based Tactical Strategy Game With a High Fantasy Theme
 
-Official page: https://www.wesnoth.org/
+Official page: <https://wz2100.net/>
 
 ```
 $ sudo pacman -S warzone2100
@@ -1506,7 +1506,7 @@ The installation package misses the original video files, which you can get at [
 
 #### Turn-Based Strategy Artillery Game Similiar To Worms
 
-Official page: http://www.hedgewars.org/
+Official page: <http://www.hedgewars.org/>
 
 ```
 $ sudo pacman -S hedgewars
@@ -1514,7 +1514,7 @@ $ sudo pacman -S hedgewars
 
 #### Turn-Based Space Empire And Galactic Conquest (4x) Computer Game
 
-Official page: http://www.freeorion.org
+Official page: <http://www.freeorion.org>
 
 ```
 $ cd ~/AUR
@@ -1526,7 +1526,7 @@ $ sudo pacman -U freeorion-<VERSION>.pkg.tar.xz
 
 #### Red Alert Engine Using .NET/Mono and OpenGL
 
-Official page: http://www.openra.net
+Official page: <http://www.openra.net>
 
 > **Note:**
 >
@@ -1538,7 +1538,7 @@ $ sudo pacman -S openra
 
 #### Engine for Running Transport Tycoon Deluxe
 
-Official page: http://www.openttd.org
+Official page: <http://www.openttd.org>
 
 ```
 $ sudo pacman -S openttd
