@@ -100,6 +100,14 @@
   * [Modern Programming Language](#modern-programming-language)
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
   * [Network Discovery and Security Auditing](#network-discovery-and-security-auditing)
+  * [Video Games](#video-games)
+    * [Single Player Dungeon Exploration Game](#single-player-dungeon-exploration-game)
+    * [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
+    * [3D Realtime Strategy Game On a Future Earth](#3d-realtime-strategy-game-on-a-future-earth)
+    * [Turn-Based Strategy Artillery Game Similiar To Worms](#turn-based-strategy-artillery-game-similiar-to-worms)
+    * [Turn-Based Space Empire And Galactic Conquest (4x) Computer Game](#turn-based-space-empire-and-galactic-conquest-(4x)-computer-game)
+    * [Red Alert Engine Using .NET/Mono and OpenGL](#red-alert-engine-using-.NET/Mono-and-opengl)
+    * [Engine for Running Transport Tycoon Deluxe](#engine-for-running-transport-tycoon-deluxe)
 
 ## Introduction
 
@@ -1490,7 +1498,7 @@ Official page: <https://www.wesnoth.org/>
 $ sudo pacman -S wesnoth
 ```
 
-#### Turn-Based Tactical Strategy Game With a High Fantasy Theme
+#### 3D Realtime Strategy Game On a Future Earth
 
 Official page: <https://wz2100.net/>
 
