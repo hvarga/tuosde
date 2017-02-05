@@ -363,6 +363,10 @@ $ sudo pacman -S alsa-utils
 >
 > The `MM` label below a channel indicates that the channel is muted, and `00` indicates that it is open. Scroll to the `Master` and `PCM` channels with the left and right keys and unmute them by pressing the `m` key. Use the up arrow key to increase the volume and obtain a value of `0` dB gain.
 
+> **Note:**
+>
+> To enable your microphone, switch to the Capture tab with `F4` and enable a channel with `Space`. Set the recording volume with the up arrow key.
+
 ### Text Editor Installation
 
 ```
