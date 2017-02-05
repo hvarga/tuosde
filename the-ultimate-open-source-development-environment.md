@@ -101,7 +101,7 @@
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
   * [Network Discovery and Security Auditing](#network-discovery-and-security-auditing)
   * [Video Games](#video-games)
-    * [Single Player Dungeon Exploration Game](#single-playe-rougelike-dungeon-exploration-game-with-ascii-graphics)
+    * [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
     * [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
     * [3D Realtime Strategy Game On a Future Earth](#d-realtime-strategy-game-on-a-future-earth)
     * [Turn-Based Strategy Artillery Game Similiar To Worms](#turn-based-strategy-artillery-game-similiar-to-worms)
