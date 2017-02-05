@@ -26,6 +26,7 @@
   * [Z Shell Initial Configuration](#z-shell-initial-configuration)
   * [Network Access Configuration](#network-access-configuration)
   * [Update Package Repository](#update-package-repository)
+  * [Sound Configuration](#sound-configuration)
   * [Text Editor Installation](#text-editor-installation)
   * [Download Manager](#download-manager)
   * [Versioning Control](#versioning-control)
@@ -348,6 +349,19 @@ $ sudo systemctl enable dhcpcd@<NETWORK_INTERFACE>.service
 ```
 $ sudo pacman -Sy
 ```
+
+### Sound Configuration
+
+No special installation necessary sice the needed GNU/Linux kernel modules are already present on your system and `udev` will automatically detect your hardware and select needed drivers at boot time.
+However, your sound may be initially muted. In that case install `alsa-utils` to gain `alsamixer` tool which can be used to unmute the sound card.
+
+```
+$ sudo pacman -S alsa-utils
+```
+
+> **Note:**
+>
+> The `MM` label below a channel indicates that the channel is muted, and `00` indicates that it is open. Scroll to the `Master` and `PCM` channels with the left and right keys and unmute them by pressing the `m` key. Use the up arrow key to increase the volume and obtain a value of `0` dB gain.
 
 ### Text Editor Installation
 
