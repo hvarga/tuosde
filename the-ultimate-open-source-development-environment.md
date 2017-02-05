@@ -101,7 +101,7 @@
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
   * [Network Discovery and Security Auditing](#network-discovery-and-security-auditing)
   * [Video Games](#video-games)
-    * [Single Player Dungeon Exploration Game](#single-player-dungeon-exploration-game)
+    * [Single Player Dungeon Exploration Game](#single-playe-rougelike-dungeon-exploration-game-with-ascii-graphics)
     * [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
     * [3D Realtime Strategy Game On a Future Earth](#d-realtime-strategy-game-on-a-future-earth)
     * [Turn-Based Strategy Artillery Game Similiar To Worms](#turn-based-strategy-artillery-game-similiar-to-worms)
@@ -1484,7 +1484,7 @@ $ sudo pacman -S nmap
 >
 > All work and no play makes the developer a dull boy! Because of that, here is a few open source video games that I like to play.
 
-#### Single Player Dungeon Exploration Game
+#### Single Player Rougelike Dungeon Exploration Game With ASCII Graphics
 
 Official page: <http://www.nethack.org/>
 
