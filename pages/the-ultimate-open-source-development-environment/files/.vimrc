@@ -30,11 +30,6 @@ map <S-Left>  :tabp<CR>
 set ttyfast
 set backspace=indent,eol,start
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-autocmd CursorHold * call Timer()
-function! Timer()
-  checktime
-  call feedkeys("f\e")
-endfunction
 set number
 set relativenumber
 set belloff=all
@@ -52,7 +47,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'gregsexton/gitv'
 Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdcommenter'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'klen/python-mode'
 Plug 'fatih/vim-go'
@@ -91,6 +85,7 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " The NERD tree
+autocmd BufWinEnter * NERDTreeMirror
 map <F7> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -130,11 +125,6 @@ let g:clang_format#style_options = {
 " NERD Commenter
 nnoremap ,c :call NERDComment(0,"toggle")<CR>
 vnoremap ,c :call NERDComment(0,"toggle")<CR>
-
-" vim-nerdtree-tabs
-let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_open_on_new_tab = 1
-let g:nerdtree_tabs_no_startup_for_diff = 0
 
 " vim-gitgutter
 let g:gitgutter_sign_column_always=1
