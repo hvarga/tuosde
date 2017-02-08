@@ -57,7 +57,6 @@
       * [gitv](#gitv)
       * [vim-clang-format](#vim-clang-format)
       * [NERD Commenter](#nerd-commenter)
-      * [vim-nerdtree-tabs](#vim-nerdtree-tabs)
       * [nerdtree-git-plugin](#nerdtree-git-plugin)
       * [python-mode](#python-mode)
       * [vim-go](#vim-go)
@@ -795,6 +794,7 @@ Now, install the plugin:
 Add the following to the `~/.vimrc`:
 
 ```
+autocmd BufWinEnter * NERDTreeMirror
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F7> :NERDTreeToggle<CR>
 nnoremap <silent><F3> :NERDTreeFind<CR>
@@ -984,29 +984,6 @@ Configure the shortcut:
 ```
 nnoremap ,c :call NERDComment(0,"toggle")<CR>
 vnoremap ,c :call NERDComment(0,"toggle")<CR>
-```
-
-##### vim-nerdtree-tabs
-
-Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
-
-```
-Plug 'jistr/vim-nerdtree-tabs'
-```
-
-Now, install the plugin:
-
-```
-:source %
-:PlugInstall
-```
-
-Configure the plugin to be more user friendly:
-
-```
-let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_open_on_new_tab = 1
-let g:nerdtree_tabs_no_startup_for_diff = 0
 ```
 
 ##### nerdtree-git-plugin
