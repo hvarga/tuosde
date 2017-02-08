@@ -598,7 +598,7 @@ mode "$mode_system" {
 
 bindsym $mod+Escape mode "$mode_system"
 
-bindsym $mod+d exec "rofi -show run"
+bindsym $mod+d exec "rofi -show drun"
 bindsym $mod+Tab exec "rofi -show window"
 ```
 Also, delete the line `bindsym $mod+d exec dmenu_run` from `~/.config/i3/config`.
