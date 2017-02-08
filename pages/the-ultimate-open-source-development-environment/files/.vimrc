@@ -132,6 +132,8 @@ let g:gitgutter_sign_column_always=1
 " badwolf
 colorscheme badwolf
 highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=White
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 
 " ctrlsf.vim
 nmap     <C-F>f <Plug>CtrlSFPrompt

@@ -639,6 +639,8 @@ set nofoldenable
 set showtabline=2
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=DarkGray ctermfg=White
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 set clipboard=unnamedplus
 set ignorecase
 set smartcase
