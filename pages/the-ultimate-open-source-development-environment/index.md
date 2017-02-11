@@ -1452,6 +1452,7 @@ Open `~/.zshrc` and add following line to the end:
 
 ```
 export GOPATH=<PATH>
+export PATH=$PATH:$GOPATH/bin
 ```
 
 > **Note:**
