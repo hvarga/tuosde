@@ -494,7 +494,7 @@ Edit `~/.Xresources` and add:
 
 ```
 ! XTerm settings
-xterm*faceName: Ubuntu Monospace:size=9:antialias=false
+xterm*faceName: Ubuntu Monospace:size=9:antialias=true
 xterm*pointerColor: white
 xterm*pointerColorBackground: black
 xterm*cursorColor: yellow
