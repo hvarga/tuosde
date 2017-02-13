@@ -100,6 +100,7 @@
   * [Modern Programming Language](#modern-programming-language)
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
   * [Network Discovery and Security Auditing](#network-discovery-and-security-auditing)
+  * [Recursive Directory Listing Command](#recursive-directory-listing-command)
   * [Video Games](#video-games)
     * [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
     * [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1469,6 +1470,12 @@ $ sudo pacman -S shellcheck
 
 ```
 $ sudo pacman -S nmap
+```
+
+### Recursive Directory Listing Command
+
+```
+$ sudo pacman -S tree
 ```
 
 ### Video Games
