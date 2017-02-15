@@ -57,7 +57,6 @@
       * [gitv](#gitv)
       * [vim-clang-format](#vim-clang-format)
       * [NERD Commenter](#nerd-commenter)
-      * [nerdtree-git-plugin](#nerdtree-git-plugin)
       * [python-mode](#python-mode)
       * [vim-go](#vim-go)
       * [ctrlp-smarttabs](#ctrlp-smarttabs)
@@ -987,21 +986,6 @@ Configure the shortcut:
 ```
 nnoremap ,c :call NERDComment(0,"toggle")<CR>
 vnoremap ,c :call NERDComment(0,"toggle")<CR>
-```
-
-##### nerdtree-git-plugin
-
-Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
-
-```
-Plug 'xuyuanp/nerdtree-git-plugin'
-```
-
-Now, install the plugin:
-
-```
-:source %
-:PlugInstall
 ```
 
 ##### python-mode
