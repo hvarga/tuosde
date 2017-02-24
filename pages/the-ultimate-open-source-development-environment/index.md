@@ -100,6 +100,7 @@
   * [Shell Script Analysis Tool](#shell-script-analysis-tool)
   * [Network Discovery and Security Auditing](#network-discovery-and-security-auditing)
   * [Recursive Directory Listing Command](#recursive-directory-listing-command)
+  * [Desktop Notifications Server](#desktop-notifications-server)
   * [Video Games](#video-games)
     * [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
     * [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1460,6 +1461,58 @@ $ sudo pacman -S nmap
 
 ```
 $ sudo pacman -S tree
+```
+
+### Desktop Notifications Server
+
+```
+$ sudo pacman -S dunst
+```
+
+Create `~/.config/dunst/dunstrc` and add the following lines to the file:
+
+```
+[global]
+    font = "Droid Sans 8"
+    allow_markup = yes
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = center
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    geometry = "200x5-6+30"
+    transparency = 0
+    idle_threshold = 120
+    follow = keyboard
+    sticky_history = yes
+    line_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    separator_color = "#585858"
+    startup_notification = false
+
+[frame]
+    width = 1
+    color = "6092BE"
+
+[urgency_low]
+    background = "#6092BE"
+    foreground = "#FFFFFF"
+    timeout = 10
+
+[urgency_normal]
+    background = "#6092BE"
+    foreground = "#FFFFFF"
+    timeout = 20
+
+[urgency_critical]
+    background = "#801515"
+    foreground = "#D46A6A"
+    timeout = 0
 ```
 
 ### Video Games
