@@ -1565,7 +1565,7 @@ Official page: <http://www.freeorion.org>
 
 ```
 $ cd ~/AUR
-$ https://aur.archlinux.org/freeorion.git
+$ git clone https://aur.archlinux.org/freeorion.git
 $ cd freeorion
 $ makepkg
 $ sudo pacman -U freeorion-<VERSION>.pkg.tar.xz
