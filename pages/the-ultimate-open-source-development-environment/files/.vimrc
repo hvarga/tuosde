@@ -100,6 +100,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['line', 'dir', 'smarttabs']
+let g:ctrlp_show_hidden = 1
 
 " vim-clang-format
 let g:clang_format#command = 'clang-format'

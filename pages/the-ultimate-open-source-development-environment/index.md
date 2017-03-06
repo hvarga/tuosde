@@ -832,6 +832,7 @@ Add the following to the `~/.vimrc`:
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['line', 'dir', 'smarttabs']
+let g:ctrlp_show_hidden = 1
 ```
 
 ##### fugitive.vim
