@@ -84,7 +84,7 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " The NERD tree
-autocmd BufWinEnter * NERDTreeMirror
+autocmd BufWinEnter * :silent NERDTreeMirror
 map <F7> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

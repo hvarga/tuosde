@@ -798,7 +798,7 @@ Now, install the plugin:
 Add the following to the `~/.vimrc`:
 
 ```
-autocmd BufWinEnter * NERDTreeMirror
+autocmd BufWinEnter * :silent NERDTreeMirror
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F7> :NERDTreeToggle<CR>
 nnoremap <silent><F3> :NERDTreeFind<CR>
