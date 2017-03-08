@@ -885,7 +885,7 @@ Now, install the plugin:
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
 ```
-Plug 'dietsche/vim-lastplace'
+Plug 'farmergreg/vim-lastplace'
 ```
 
 Now, install the plugin:
