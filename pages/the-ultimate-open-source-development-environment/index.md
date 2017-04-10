@@ -654,6 +654,7 @@ nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_D
 vnoremap D "_D
+xnoremap <expr> p 'pgv"'.v:register.'y'
 map <C-Left> <C-w>h
 map <C-Down> <C-w>j
 map <C-Up> <C-w>k

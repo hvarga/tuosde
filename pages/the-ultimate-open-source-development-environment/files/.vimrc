@@ -19,6 +19,7 @@ nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_D
 vnoremap D "_D
+xnoremap <expr> p 'pgv"'.v:register.'y'
 filetype plugin on
 filetype indent on
 map <C-left> <C-w>h
