@@ -1465,7 +1465,7 @@ $ sudo npm install -g wscat
 ### Modern Programming Language
 
 ```
-$ sudo pacman -S go
+$ sudo pacman -S go glide
 ```
 
 Open `~/.zshrc` and add following line to the end:
