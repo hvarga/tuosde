@@ -1302,6 +1302,21 @@ $ sudo pacman -S strace
 $ sudo pacman -S docker
 ```
 
+Manage Docker as a non-root user:
+
+```
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+```
+
+Log out and log back in so that your group membership is re-evaluated.
+
+Configure Docker to start on boot:
+
+```
+$ sudo systemctl enable docker
+```
+
 ### Debugger
 
 ```
