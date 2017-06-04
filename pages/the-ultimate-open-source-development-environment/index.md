@@ -92,6 +92,7 @@
       * [Copy Relative Path](#copy-relative-path)
       * [Dash](#dash)
       * [Git Lens](#git-lens)
+      * [LaTeX Workshop](#latex-workshop)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
@@ -1452,6 +1453,14 @@ Install the plugin:
 
 ```
 $ code --install-extension eamodio.gitlens
+```
+
+##### LaTeX Workshop
+
+Install the plugin:
+
+```
+$ code --install-extension James-Yu.latex-workshop
 ```
 
 ### Visual Merge and Diff Tool
