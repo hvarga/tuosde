@@ -1374,6 +1374,25 @@ sudo pacman -S socat
 $ sudo pacman -S tmux
 ```
 
+Put this into the `~/.tmux.conf` to configure tmux:
+
+```
+set -g default-terminal "xterm-256color"
+set -g mouse off
+unbind C-b
+set -g prefix C-a
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+setw -g monitor-activity on
+set -g visual-activity on
+bind \ split-window -h
+bind - split-window -v
+set -g base-index 1
+setw -g pane-base-index 1
+```
+
 ### File Manager
 
 ```
@@ -1397,7 +1416,6 @@ Put this into the `~/.config/zathura/zathurarc` to configure Zathura:
 ```
 set selection-clipboard clipboard
 ```
-
 
 ### Archive Manager
 
