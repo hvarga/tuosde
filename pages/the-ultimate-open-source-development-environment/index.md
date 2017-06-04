@@ -28,6 +28,8 @@
   * [Update Package Repository](#update-package-repository)
   * [Sound Configuration](#sound-configuration)
   * [Text Editor Installation](#text-editor-installation)
+    * [Vim](#vim)
+    * [Visual Studio Code](#visual-studio-code)
   * [Download Manager](#download-manager)
   * [Versioning Control](#versioning-control)
   * [Install and Configure a Modern Shell](#install-and-configure-a-modern-shell)
@@ -67,6 +69,29 @@
       * [ycm-generator](#ycm-generator)
       * [vim-easymotion](#vim-easymotion)
       * [vim-numbertoggle](#vim-numbertoggle)
+    * [Visual Studio Code Plugins](#visual-studio-code-plugins)
+      * [Bracket Pair Colorizer](#bracket-pair-colorizer)
+      * [Path Intellisense](#path-intellisense)
+      * [Bookmarks](#bookmarks)
+      * [VSCodeVim](#vscodevim)
+      * [AutoFileName](#autofilename)
+      * [HTML Snippets](#html-snippets)
+      * [jshint](#jshint)
+      * [Docker](#docker)
+      * [Auto Close Tag](#auto-close-tag)
+      * [Auto Rename Tag](#auto-rename-tag)
+      * [ESLint](#esLint)
+      * [Go](#go)
+      * [JavaScript (ES6) code snippets](#javascript-es6-code-snippets)
+      * [npm](#npm)
+      * [npm Intellisense](#npm-intellisense)
+      * [vetur](#vetur)
+      * [vscode-icons](#vscode-icons)
+      * [VueHelper](#vuehelper)
+      * [Debugger for Chrome](#debugger-for-chrome)
+      * [Copy Relative Path](#copy-relative-path)
+      * [Dash](#dash)
+      * [Git Lens](#git-lens)
   * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
   * [X Selection Manipulation](#x-selection-manipulation)
   * [Secure Shell](#secure-shell)
@@ -370,6 +395,7 @@ $ sudo pacman -S alsa-utils
 
 ### Text Editor Installation
 
+#### Vim
 ```
 $ sudo pacman -S gvim
 ```
@@ -377,6 +403,16 @@ $ sudo pacman -S gvim
 > **Note:**
 >
 > This is not a mistake; you need to install the `gvim` instead of the `vim` package. The reason is that the `gvim` package has a Vim compiled with the `+clipboard` support. Yes, you need the `+clipboard` support! And yes, you can still run the Vim from command line.
+
+#### Visual Studio Code
+
+```
+$ cd ~/AUR
+$ git clone https://aur.archlinux.org/visual-studio-code.git
+$ cd visual-studio-code
+$ makepkg
+$ sudo pacman -U code-<VERSION>.pkg.tar.xz
+```
 
 ### Download Manager
 
@@ -1235,6 +1271,187 @@ Configure the plugin:
 
 ```
 let g:NumberToggleTrigger="<F2>"
+```
+
+#### Visual Studio Code Plugins
+
+To install plugin, just execute the command in the terminal listed in the plugin installation steps.
+
+##### Bracket Pair Colorizer
+
+Install the plugin:
+
+```
+$ code --install-extension bracket-pair-colorizer
+```
+
+##### Path Intellisense
+
+Install the plugin:
+
+```
+$ code --install-extension christian-kohler.path-intellisense
+```
+
+##### Bookmarks
+
+Install the plugin:
+
+```
+$ code --install-extension alefragnani.Bookmarks
+```
+
+##### VSCodeVim
+
+Install the plugin:
+
+```
+$ code --install-extension vscodevim.vim
+```
+
+##### AutoFileName
+
+Install the plugin:
+
+```
+$ code --install-extension JerryHong.autofilename
+```
+
+##### HTML Snippets
+
+Install the plugin:
+
+```
+$ code --install-extension abusaidm.html-snippets
+```
+
+##### jshint
+
+Install the plugin:
+
+```
+$ code --install-extension dbaeumer.jshint
+```
+
+##### Docker
+
+Install the plugin:
+
+```
+$ code --install-extension PeterJausovec.vscode-docker
+```
+
+##### Auto Close Tag
+
+Install the plugin:
+
+```
+$ code --install-extension formulahendry.auto-close-tag
+```
+
+##### Auto Rename Tag
+
+Install the plugin:
+
+```
+$ code --install-extension formulahendry.auto-rename-tag
+```
+
+##### ESLint
+
+Install the plugin:
+
+```
+$ code --install-extension dbaeumer.vscode-eslint
+$ npm install -g eslint
+```
+
+##### Go
+
+Install the plugin:
+
+```
+$ code --install-extension lukehoban.Go
+```
+
+##### JavaScript (ES6) code snippets
+
+Install the plugin:
+
+```
+$ code --install-extension xabikos.JavaScriptSnippets
+```
+
+##### npm
+
+Install the plugin:
+
+```
+$ code --install-extension eg2.vscode-npm-script
+```
+
+##### npm Intellisense
+
+Install the plugin:
+
+```
+$ code --install-extension christian-kohler.npm-intellisense
+```
+
+##### vetur
+
+Install the plugin:
+
+```
+$ code --install-extension octref.vetur
+```
+
+##### vscode-icons
+
+Install the plugin:
+
+```
+$ code --install-extension robertohuertasm.vscode-icons
+```
+
+##### VueHelper
+
+Install the plugin:
+
+```
+$ code --install-extension oysun.vuehelper
+```
+
+##### Debugger for Chrome
+
+Install the plugin:
+
+```
+$ code --install-extension msjsdiag.debugger-for-chrome
+```
+
+##### Copy Relative Path
+
+Install the plugin:
+
+```
+$ code --install-extension alexdima.copy-relative-path
+```
+
+##### Dash
+
+Install the plugin:
+
+```
+$ code --install-extension deerawan.vscode-dash
+```
+
+##### Git Lens
+
+Install the plugin:
+
+```
+$ code --install-extension eamodio.gitlens
 ```
 
 ### Visual Merge and Diff Tool
