@@ -1030,6 +1030,18 @@ Now, install the plugin:
 :PlugInstall
 ```
 
+Configure the plugin:
+
+```
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+let g:go_fmt_command = "goimports"
+```
+
 ##### ctrlp-smarttabs
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
