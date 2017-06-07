@@ -1,143 +1,154 @@
 # The Ultimate Open Source Development Environment
 
-## Table of Contents
+## 1. Table of Contents
 
-* [Introduction](#introduction)
-* [Structure](#structure)
-* [Pre-Installation Guide](#pre-installation-guide)
-  * [Create a Bootable Installation Media](#create-a-bootable-installation-media)
-* [Installation Guide](#installation-guide)
-  * [Check Internet Connection](#check-internet-connection)
-  * [Destination Disk](#destination-disk)
-  * [Disk Preparation](#disk-preparation)
-  * [Mirror List](#mirror-list)
-  * [System Files Installation](#system-files-installation)
-  * [Filesystem Information Generation](#filesystem-information-generation)
-  * [Change Root](#change-root)
-  * [Locale Configuration](#locale-configuration)
-  * [Timezone Configuration](#timezone-configuration)
-  * [Time Configuration](#time-configuration)
-  * [Boot Manager](#boot-manager)
-  * [Hostname Configuration](#hostname-configuration)
-  * [Root Password](#root-password)
-  * [Non-Administrative User Setup](#non-administrative-user-setup)
-  * [Exit Live Boot Environment](#exit-live-boot-environment)
-* [Post-Installation Guide](#post-installation-guide)
-  * [Z Shell Initial Configuration](#z-shell-initial-configuration)
-  * [Network Access Configuration](#network-access-configuration)
-  * [Update Package Repository](#update-package-repository)
-  * [Sound Configuration](#sound-configuration)
-  * [Text Editor Installation](#text-editor-installation)
-    * [Vim](#vim)
-    * [Visual Studio Code](#visual-studio-code)
-  * [Download Manager](#download-manager)
-  * [Versioning Control](#versioning-control)
-  * [Install and Configure a Modern Shell](#install-and-configure-a-modern-shell)
-  * [AUR Packages Directory](#aur-packages-directory)
-  * [X Server](#x-server)
-  * [Window Manager](#window-manager)
-  * [Terminal Emulator](#terminal-emulator)
-  * [Improve Font Rendering](#improve-font-rendering)
-  * [Autostart X At Login](#autostart-x-at-login)
-  * [Web Browser](#web-browser)
-  * [Screenshot and Image Manipulation Tool](#screenshot-and-image-manipulation-tool)
-  * [i3 Configuration](#i3-configuration)
-  * [Set User Locale](#set-user-locale)
-  * [Text Editor Configuration](#text-editor-configuration)
-    * [VIM Plugins](#vim-plugins)
-      * [VimPlug](#vimplug)
-      * [YouCompleteMe](#youcompleteme)
-      * [lightline-vim](#lightline-vim)
-      * [Tagbar](#tagbar)
-      * [The NERD tree](#the-nerd-tree)
-      * [ctrlp.vim](#ctrlpvim)
-      * [fugitive.vim](#fugitivevim)
-      * [vim-bracketed-paste](#vim-bracketed-paste)
-      * [vim-trailing-whitespace](#vim-trailing-whitespace)
-      * [vim-lastplace](#vim-lastplace)
-      * [vim-gitgutter](#vim-gitgutter)
-      * [gitv](#gitv)
-      * [vim-clang-format](#vim-clang-format)
-      * [NERD Commenter](#nerd-commenter)
-      * [python-mode](#python-mode)
-      * [vim-go](#vim-go)
-      * [ctrlp-smarttabs](#ctrlp-smarttabs)
-      * [ctrlsf.vim](#ctrlsfvim)
-      * [badwolf](#badwolf)
-      * [syntastic](#syntastic)
-      * [gundo.vim](#gundovim)
-      * [ycm-generator](#ycm-generator)
-      * [vim-easymotion](#vim-easymotion)
-      * [vim-numbertoggle](#vim-numbertoggle)
-    * [Visual Studio Code Plugins](#visual-studio-code-plugins)
-      * [Bracket Pair Colorizer](#bracket-pair-colorizer)
-      * [Path Intellisense](#path-intellisense)
-      * [Bookmarks](#bookmarks)
-      * [VSCodeVim](#vscodevim)
-      * [AutoFileName](#autofilename)
-      * [HTML Snippets](#html-snippets)
-      * [jshint](#jshint)
-      * [Docker](#docker)
-      * [Auto Close Tag](#auto-close-tag)
-      * [Auto Rename Tag](#auto-rename-tag)
-      * [ESLint](#esLint)
-      * [Go](#go)
-      * [JavaScript (ES6) code snippets](#javascript-es6-code-snippets)
-      * [npm](#npm)
-      * [npm Intellisense](#npm-intellisense)
-      * [vetur](#vetur)
-      * [vscode-icons](#vscode-icons)
-      * [VueHelper](#vuehelper)
-      * [Debugger for Chrome](#debugger-for-chrome)
-      * [Copy Relative Path](#copy-relative-path)
-      * [Dash](#dash)
-      * [Git Lens](#git-lens)
-      * [LaTeX Workshop](#latex-workshop)
-  * [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
-  * [X Selection Manipulation](#x-selection-manipulation)
-  * [Secure Shell](#secure-shell)
-  * [Offline API Documentation Browser](#offline-api-documentation-browser)
-  * [Interactive Process Viewer](#interactive-process-viewer)
-  * [Serial Communication](#serial-communication)
-  * [Network Protocol Analyzer](#network-protocol-analyzer)
-  * [Linux Syscall Tracer](#linux-syscall-tracer)
-  * [Containerization and Virtualization](#containerization-and-virtualization)
-  * [Debugger](#debugger)
-  * [TCP/IP Swiss Army Tool](#tcpip-swiss-army-tool)
-  * [TFTP Server](#tftp-server)
-  * [LaTeX Distribution](#latex-distribution)
-  * [LaTeX Integrated Writing Environment](#latex-integrated-writing-environment)
-  * [Patch Management](#patch-management)
-  * [Office Suite](#office-suite)
-  * [Cross-platform Asynchronous I/O Library](#cross-platform-asynchronous-io-library)
-  * [Calendar and Scheduling Application](#calendar-and-scheduling-application)
-  * [GDB Frontend](#gdb-frontend)
-  * [Multipurpose Relay](#multipurpose-relay)
-  * [Terminal Multiplexer](#terminal-multiplexer)
-  * [File Manager](#file-manager)
-  * [Image Viewer](#image-viewer)
-  * [Document Viewer](#document-viewer)
-  * [Archive Manager](#archive-manager)
-  * [Source Code Analysis Tool](#source-code-analysis-tool)
-  * [Terminal Recorder](#terminal-recorder)
-  * [Terminal Sharing](#terminal-sharing)
-  * [WebSocket Client](#websocket-client)
-  * [Modern Programming Language](#modern-programming-language)
-  * [Shell Script Analysis Tool](#shell-script-analysis-tool)
-  * [Network Discovery and Security Auditing](#network-discovery-and-security-auditing)
-  * [Recursive Directory Listing Command](#recursive-directory-listing-command)
-  * [Desktop Notifications Server](#desktop-notifications-server)
-  * [Visual Front End For XRandR](#visual-front-end-for-xrandr)
-  * [Video Games](#video-games)
-    * [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
-    * [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
-    * [3D Realtime Strategy Game On a Future Earth](#d-realtime-strategy-game-on-a-future-earth)
-    * [Turn-Based Strategy Artillery Game Similiar To Worms](#turn-based-strategy-artillery-game-similiar-to-worms)
-    * [Turn-Based Space Empire And Galactic Conquest (4x) Computer Game](#turn-based-space-empire-and-galactic-conquest-4x-computer-game)
-    * [Red Alert Engine Using .NET/Mono and OpenGL](#red-alert-engine-using-netmono-and-opengl)
-    * [Engine for Running Transport Tycoon Deluxe](#engine-for-running-transport-tycoon-deluxe)
+<!-- TOC -->
 
-## Introduction
+- [1. Table of Contents](#1-table-of-contents)
+- [2. Introduction](#2-introduction)
+- [3. Structure](#3-structure)
+- [4. Pre-Installation Guide](#4-pre-installation-guide)
+    - [4.1. Create a Bootable Installation Media](#41-create-a-bootable-installation-media)
+- [5. Installation Guide](#5-installation-guide)
+    - [5.1. Check Internet Connection](#51-check-internet-connection)
+    - [5.2. Destination Disk](#52-destination-disk)
+    - [5.3. Disk Preparation](#53-disk-preparation)
+    - [5.4. Mirror List](#54-mirror-list)
+    - [5.5. System Files Installation](#55-system-files-installation)
+    - [5.6. Filesystem Information Generation](#56-filesystem-information-generation)
+    - [5.7. Change Root](#57-change-root)
+    - [5.8. Locale Configuration](#58-locale-configuration)
+    - [5.9. Timezone Configuration](#59-timezone-configuration)
+    - [5.10. Time Configuration](#510-time-configuration)
+    - [5.11. Boot Manager](#511-boot-manager)
+    - [5.12. Hostname Configuration](#512-hostname-configuration)
+    - [5.13. Root Password](#513-root-password)
+    - [5.14. Non-Administrative User Setup](#514-non-administrative-user-setup)
+    - [5.15. Exit Live Boot Environment](#515-exit-live-boot-environment)
+- [6. Post-Installation Guide](#6-post-installation-guide)
+    - [6.1. Z Shell Initial Configuration](#61-z-shell-initial-configuration)
+    - [6.2. Network Access Configuration](#62-network-access-configuration)
+    - [6.3. Update Package Repository](#63-update-package-repository)
+    - [6.4. Sound Configuration](#64-sound-configuration)
+    - [6.5. Text Editor Installation](#65-text-editor-installation)
+        - [6.5.1. Vim](#651-vim)
+        - [6.5.2. Visual Studio Code](#652-visual-studio-code)
+    - [6.6. Download Manager](#66-download-manager)
+    - [6.7. Versioning Control](#67-versioning-control)
+    - [6.8. Install and Configure a Modern Shell](#68-install-and-configure-a-modern-shell)
+    - [6.9. AUR Packages Directory](#69-aur-packages-directory)
+    - [6.10. X Server](#610-x-server)
+    - [6.11. Window Manager](#611-window-manager)
+    - [6.12. Terminal Emulator](#612-terminal-emulator)
+    - [6.13. Improve Font Rendering](#613-improve-font-rendering)
+    - [6.14. Autostart X At Login](#614-autostart-x-at-login)
+    - [6.15. Web Browser](#615-web-browser)
+    - [6.16. Screenshot and Image Manipulation Tool](#616-screenshot-and-image-manipulation-tool)
+    - [6.17. i3 Configuration](#617-i3-configuration)
+    - [6.18. Set User Locale](#618-set-user-locale)
+    - [6.19. Text Editor Configuration](#619-text-editor-configuration)
+        - [6.19.1. VIM Plugins](#6191-vim-plugins)
+            - [6.19.1.1. VimPlug](#61911-vimplug)
+            - [6.19.1.2. YouCompleteMe](#61912-youcompleteme)
+            - [6.19.1.3. lightline-vim](#61913-lightline-vim)
+            - [6.19.1.4. Tagbar](#61914-tagbar)
+            - [6.19.1.5. The NERD tree](#61915-the-nerd-tree)
+            - [6.19.1.6. ctrlp.vim](#61916-ctrlpvim)
+            - [6.19.1.7. fugitive.vim](#61917-fugitivevim)
+            - [6.19.1.8. vim-bracketed-paste](#61918-vim-bracketed-paste)
+            - [6.19.1.9. vim-trailing-whitespace](#61919-vim-trailing-whitespace)
+            - [6.19.1.10. vim-lastplace](#619110-vim-lastplace)
+            - [6.19.1.11. vim-gitgutter](#619111-vim-gitgutter)
+            - [6.19.1.12. gitv](#619112-gitv)
+            - [6.19.1.13. vim-clang-format](#619113-vim-clang-format)
+            - [6.19.1.14. NERD Commenter](#619114-nerd-commenter)
+            - [6.19.1.15. python-mode](#619115-python-mode)
+            - [6.19.1.16. vim-go](#619116-vim-go)
+            - [6.19.1.17. ctrlp-smarttabs](#619117-ctrlp-smarttabs)
+            - [6.19.1.18. ctrlsf.vim](#619118-ctrlsfvim)
+            - [6.19.1.19. badwolf](#619119-badwolf)
+            - [6.19.1.20. syntastic](#619120-syntastic)
+            - [6.19.1.21. gundo.vim](#619121-gundovim)
+            - [6.19.1.22. ycm-generator](#619122-ycm-generator)
+            - [6.19.1.23. vim-easymotion](#619123-vim-easymotion)
+            - [6.19.1.24. vim-numbertoggle](#619124-vim-numbertoggle)
+        - [6.19.2. Visual Studio Code Plugins](#6192-visual-studio-code-plugins)
+            - [6.19.2.1. Bracket Pair Colorizer](#61921-bracket-pair-colorizer)
+            - [6.19.2.2. Path Intellisense](#61922-path-intellisense)
+            - [6.19.2.3. Bookmarks](#61923-bookmarks)
+            - [6.19.2.4. VSCodeVim](#61924-vscodevim)
+            - [6.19.2.5. AutoFileName](#61925-autofilename)
+            - [6.19.2.6. HTML Snippets](#61926-html-snippets)
+            - [6.19.2.7. jshint](#61927-jshint)
+            - [6.19.2.8. Docker](#61928-docker)
+            - [6.19.2.9. Auto Close Tag](#61929-auto-close-tag)
+            - [6.19.2.10. Auto Rename Tag](#619210-auto-rename-tag)
+            - [6.19.2.11. ESLint](#619211-eslint)
+            - [6.19.2.12. Go](#619212-go)
+            - [6.19.2.13. JavaScript (ES6) code snippets](#619213-javascript-es6-code-snippets)
+            - [6.19.2.14. npm](#619214-npm)
+            - [6.19.2.15. npm Intellisense](#619215-npm-intellisense)
+            - [6.19.2.16. vetur](#619216-vetur)
+            - [6.19.2.17. vscode-icons](#619217-vscode-icons)
+            - [6.19.2.18. VueHelper](#619218-vuehelper)
+            - [6.19.2.19. Debugger for Chrome](#619219-debugger-for-chrome)
+            - [6.19.2.20. Copy Relative Path](#619220-copy-relative-path)
+            - [6.19.2.21. Dash](#619221-dash)
+            - [6.19.2.22. Git Lens](#619222-git-lens)
+            - [6.19.2.23. LaTeX Workshop](#619223-latex-workshop)
+            - [6.19.2.24. Trailing Spaces](#619224-trailing-spaces)
+            - [6.19.2.25. PlantUML](#619225-plantuml)
+            - [6.19.2.26. Markdown TOC](#619226-markdown-toc)
+            - [6.19.2.27. Guides](#619227-guides)
+            - [6.19.2.28. change-case](#619228-change-case)
+            - [6.19.2.29. markdownlint](#619229-markdownlint)
+    - [6.20. Visual Merge and Diff Tool](#620-visual-merge-and-diff-tool)
+    - [6.21. X Selection Manipulation](#621-x-selection-manipulation)
+    - [6.22. Secure Shell](#622-secure-shell)
+    - [6.23. Offline API Documentation Browser](#623-offline-api-documentation-browser)
+    - [6.24. Interactive Process Viewer](#624-interactive-process-viewer)
+    - [6.25. Serial Communication](#625-serial-communication)
+    - [6.26. Network Protocol Analyzer](#626-network-protocol-analyzer)
+    - [6.27. Linux Syscall Tracer](#627-linux-syscall-tracer)
+    - [6.28. Containerization and Virtualization](#628-containerization-and-virtualization)
+    - [6.29. Debugger](#629-debugger)
+    - [6.30. TCP/IP Swiss Army Tool](#630-tcpip-swiss-army-tool)
+    - [6.31. TFTP Server](#631-tftp-server)
+    - [6.32. LaTeX Distribution](#632-latex-distribution)
+    - [6.33. LaTeX Integrated Writing Environment](#633-latex-integrated-writing-environment)
+    - [6.34. Patch Management](#634-patch-management)
+    - [6.35. Office Suite](#635-office-suite)
+    - [6.36. Cross-platform Asynchronous I/O Library](#636-cross-platform-asynchronous-io-library)
+    - [6.37. Calendar and Scheduling Application](#637-calendar-and-scheduling-application)
+    - [6.38. GDB Frontend](#638-gdb-frontend)
+    - [6.39. Multipurpose Relay](#639-multipurpose-relay)
+    - [6.40. Terminal Multiplexer](#640-terminal-multiplexer)
+    - [6.41. File Manager](#641-file-manager)
+    - [6.42. Image Viewer](#642-image-viewer)
+    - [6.43. Document Viewer](#643-document-viewer)
+    - [6.44. Archive Manager](#644-archive-manager)
+    - [6.45. Source Code Analysis Tool](#645-source-code-analysis-tool)
+    - [6.46. Terminal Recorder](#646-terminal-recorder)
+    - [6.47. Terminal Sharing](#647-terminal-sharing)
+    - [6.48. WebSocket Client](#648-websocket-client)
+    - [6.49. Modern Programming Language](#649-modern-programming-language)
+    - [6.50. Shell Script Analysis Tool](#650-shell-script-analysis-tool)
+    - [6.51. Network Discovery and Security Auditing](#651-network-discovery-and-security-auditing)
+    - [6.52. Recursive Directory Listing Command](#652-recursive-directory-listing-command)
+    - [6.53. Desktop Notifications Server](#653-desktop-notifications-server)
+    - [6.54. Visual Front End For XRandR](#654-visual-front-end-for-xrandr)
+    - [6.55. Video Games](#655-video-games)
+        - [6.55.1. Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#6551-single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
+        - [6.55.2. Turn-Based Tactical Strategy Game With a High Fantasy Theme](#6552-turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
+        - [6.55.3. Realtime Strategy Game On a Future Earth](#6553-realtime-strategy-game-on-a-future-earth)
+        - [6.55.4. Turn-Based Strategy Artillery Game Similiar To Worms](#6554-turn-based-strategy-artillery-game-similiar-to-worms)
+        - [6.55.5. Turn-Based Space Empire And Galactic Conquest (4x) Computer Game](#6555-turn-based-space-empire-and-galactic-conquest-4x-computer-game)
+        - [6.55.6. Red Alert Engine Using .NET/Mono and OpenGL](#6556-red-alert-engine-using-netmono-and-opengl)
+        - [6.55.7. Engine for Running Transport Tycoon Deluxe](#6557-engine-for-running-transport-tycoon-deluxe)
+
+<!-- /TOC -->
+
+## 2. Introduction
 
 The idea of this article is to collect and document the bits, nuts and bolts scattered all over the Internet about the Arch Linux and its tools in a one central place. And all for a single purpose - to create the ultimate development environment consisting of open source tools. Just look at the Vim in action below.
 
@@ -145,7 +156,7 @@ The idea of this article is to collect and document the bits, nuts and bolts sca
 
 If you like what you see, then follow this article.
 
-## Structure
+## 3. Structure
 
 This article is divided into three major parts; [Pre-Installation Guide](#pre-installation-guide), [Installation Guide](#installation-guide) and [Post-Installation Guide](#post-installation-guide).
 
@@ -155,9 +166,9 @@ Second part, [Installation Guide](#installation-guide), covers the installation 
 
 Third and the final part, [Post-Installation Guide](#post-installation-guide), covers the installation and configuration of all the tools that you gonna need as a software developer. Some of them are a general tools; tools that everybody should use. But there are also tools which are only used by the software developers.
 
-## Pre-Installation Guide
+## 4. Pre-Installation Guide
 
-### Create a Bootable Installation Media
+### 4.1. Create a Bootable Installation Media
 
 > **Note:**
 >
@@ -183,17 +194,17 @@ $ sudo dd if=archlinux-<VERSION>-dual.iso of=/dev/<DEVICE> bs=1M
 >
 > Don't forget to replace `<VERSION>` and `<DEVICE>` in above command with the version of Arch Linux that you downloaded and your USB disk which you noted in previous step using `lsblk`, respectively.
 
-## Installation Guide
+## 5. Installation Guide
 
 Boot into the live Arch Linux using the bootable installation media and wait for a terminal to appear. When a terminal is ready to use, continue with the next steps.
 
-### Check Internet Connection
+### 5.1. Check Internet Connection
 
 ```
 $ ping www.google.com
 ```
 
-### Destination Disk
+### 5.2. Destination Disk
 
 ```
 $ fdisk -l
@@ -203,7 +214,7 @@ $ fdisk -l
 >
 > `fdisk -l` will list all available devices and its partitions (if any). You need to choose the device on which you want to install the Arch Linux. In my case, I have choosen the `/dev/sda`.
 
-### Disk Preparation
+### 5.3. Disk Preparation
 
 > **Note:**
 >
@@ -235,7 +246,7 @@ $ mount -t ext4 /dev/<DEVICE>2 /mnt/boot
 >
 > Don't forget to change the `<DEVICE>` with the device that you have choosen in previous step. In my case, it was `sda`.
 
-### Mirror List
+### 5.4. Mirror List
 
 ```
 $ vi /etc/pacman.d/mirrorlist
@@ -245,25 +256,25 @@ $ vi /etc/pacman.d/mirrorlist
 >
 > File `/etc/pacman.d/mirrorlist` contains the list of all available mirrors. The one at the top will be used as your mirror. If you want to choose another one, you need to move it all the way to the top. For example, I have choosen the mirror called "Croatia" as it is closest to my physical location.
 
-### System Files Installation
+### 5.5. System Files Installation
 
 ```
 $ pacstrap -i /mnt base base-devel zsh zsh-completions polkit
 ```
 
-### Filesystem Information Generation
+### 5.6. Filesystem Information Generation
 
 ```
 $ genfstab -U /mnt > /mnt/etc/fstab
 ```
 
-### Change Root
+### 5.7. Change Root
 
 ```
 $ arch-chroot /mnt /bin/bash
 ```
 
-### Locale Configuration
+### 5.8. Locale Configuration
 
 ```
 $ vi /etc/locale.gen
@@ -276,7 +287,7 @@ $ locale-gen
 $ echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 
-### Timezone Configuration
+### 5.9. Timezone Configuration
 
 ```
 $ ln -fs /usr/share/zoneinfo/<ZONE>/<SUBZONE> /etc/localtime
@@ -287,14 +298,14 @@ $ hwclock --systohc
 >
 > Don't forget to change the `<ZONE>` and `<SUBZONE>` with your zone information. In my case, `<ZONE>` is set to "Europe" and `<SUBZONE>` is set to "Zagreb".
 
-### Time Configuration
+### 5.10. Time Configuration
 
 ```
 $ pacman -S ntp
 $ systemctl enable ntpd.service
 ```
 
-### Boot Manager
+### 5.11. Boot Manager
 
 ```
 $ pacman -S grub
@@ -310,7 +321,7 @@ $ grub-mkconfig -o /boot/grub/grub.cfg
 >
 > If you want to use a full disk encryption then you need to make an additional changes to the GRUB. For details, see [How to install Arch Linux with Full Disk Encryption](https://www.howtoforge.com/tutorial/how-to-install-arch-linux-with-full-disk-encryption).
 
-### Hostname Configuration
+### 5.12. Hostname Configuration
 
 ```
 $ echo <HOSTANAME> > /etc/hostname
@@ -320,13 +331,13 @@ $ echo <HOSTANAME> > /etc/hostname
 >
 > Replace `<HOSTANAME>` with your the value of your choice. I prefer to use `hrle-desktop` for the hostname of my desktop machine.
 
-### Root Password
+### 5.13. Root Password
 
 ```
 $ passwd
 ```
 
-### Non-Administrative User Setup
+### 5.14. Non-Administrative User Setup
 
 ```
 $ useradd -m -G wheel,users -s /bin/zsh <USERNAME>
@@ -340,7 +351,7 @@ $ visudo
 
 In the newly opened editor, uncomment line `%wheel ALL=(ALL) ALL`, save and exit the editor.
 
-### Exit Live Boot Environment
+### 5.15. Exit Live Boot Environment
 
 ```
 $ exit
@@ -348,13 +359,13 @@ $ umount -R /mnt
 $ reboot
 ```
 
-## Post-Installation Guide
+## 6. Post-Installation Guide
 
-### Z Shell Initial Configuration
+### 6.1. Z Shell Initial Configuration
 
 Login for the first time with the user that you created in the end of the [Installation Guide](#installation-guide). The Z Shell configuration function for new users (`zsh-newuser-install`) will appear. You can safely skip this configuration as we will install the [oh-my-zsh](http://ohmyz.sh/) which will replace the configuration generated by `zsh-newuser-install`.
 
-### Network Access Configuration
+### 6.2. Network Access Configuration
 
 ```
 $ ip link
@@ -371,13 +382,13 @@ $ sudo systemctl enable dhcpcd@<NETWORK_INTERFACE>.service
 >
 > Don't forget to replace `<NETWORK_INTERFACE>` in above command with the interface name that your system has.
 
-### Update Package Repository
+### 6.3. Update Package Repository
 
 ```
 $ sudo pacman -Sy
 ```
 
-### Sound Configuration
+### 6.4. Sound Configuration
 
 No special installation necessary sice the needed GNU/Linux kernel modules are already present on your system and `udev` will automatically detect your hardware and select needed drivers at boot time.
 However, your sound may be initially muted. In that case install `alsa-utils` to gain `alsamixer` tool which can be used to unmute the sound card.
@@ -394,9 +405,9 @@ $ sudo pacman -S alsa-utils
 >
 > To enable your microphone, switch to the Capture tab with `F4` and enable a channel with `Space`. Set the recording volume with the up arrow key.
 
-### Text Editor Installation
+### 6.5. Text Editor Installation
 
-#### Vim
+#### 6.5.1. Vim
 ```
 $ sudo pacman -S gvim
 ```
@@ -405,7 +416,7 @@ $ sudo pacman -S gvim
 >
 > This is not a mistake; you need to install the `gvim` instead of the `vim` package. The reason is that the `gvim` package has a Vim compiled with the `+clipboard` support. Yes, you need the `+clipboard` support! And yes, you can still run the Vim from command line.
 
-#### Visual Studio Code
+#### 6.5.2. Visual Studio Code
 
 ```
 $ cd ~/AUR
@@ -415,13 +426,13 @@ $ makepkg
 $ sudo pacman -U code-<VERSION>.pkg.tar.xz
 ```
 
-### Download Manager
+### 6.6. Download Manager
 
 ```
 $ sudo pacman -S wget
 ```
 
-### Versioning Control
+### 6.7. Versioning Control
 
 ```
 $ sudo pacman -S git perl-authen-sasl perl-net-smtp-ssl  perl-mime-tools
@@ -457,7 +468,7 @@ Configure pull with rebase:
 git config --global pull.rebase true
 ```
 
-### Install and Configure a Modern Shell
+### 6.8. Install and Configure a Modern Shell
 
 Install [oh-my-zsh](http://ohmyz.sh/) by executing the following command:
 
@@ -479,7 +490,7 @@ ZSH_THEME="<THEME_NAME>"
 >
 > "oh-my-zsh" has a theming support and few of possible good themes are: `crunch`, `nebirhos`, `wezm`, `ys` and `robbyrussell`.
 
-### AUR Packages Directory
+### 6.9. AUR Packages Directory
 
 ```
 $ mkdir ~/AUR
@@ -489,7 +500,7 @@ $ mkdir ~/AUR
 >
 > There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. There are tools like Yaurt that can be used instead but are not officially supported by Arch Linux. This is why I am recommending to create a folder which will be used to store the source code of those packages. Those packages will be build and installed manually. Yes, in this case you don't have a automatic dependancy management! But look at the bright side, you will look cool in front of your friends!
 
-### X Server
+### 6.10. X Server
 
 ```
 $ sudo pacman -S xorg-server xorg-server-utils xorg-xinit xorg
@@ -504,7 +515,7 @@ Now, create file `~/.xserverrc` and add following lines:
 exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTR
 ```
 
-### Window Manager
+### 6.11. Window Manager
 
 ```
 $ sudo pacman -S i3 rofi
@@ -523,7 +534,7 @@ Remove unnecessary lines and add the following line to the end:
 exec i3
 ```
 
-### Terminal Emulator
+### 6.12. Terminal Emulator
 
 ```
 $ sudo pacman -S xterm
@@ -561,7 +572,7 @@ rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
 rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 ```
 
-### Improve Font Rendering
+### 6.13. Improve Font Rendering
 
 Disable bitmaps fonts:
 
@@ -575,7 +586,7 @@ Install additional fonts:
 $ sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-linux-libertine ttf-liberation wqy-zenhei
 ```
 
-### Autostart X At Login
+### 6.14. Autostart X At Login
 
 Edit the `~/.bash_profile` and add following into it:
 
@@ -583,19 +594,19 @@ Edit the `~/.bash_profile` and add following into it:
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> /dev/null
 ```
 
-### Web Browser
+### 6.15. Web Browser
 
 ```
 $ sudo pacman –S chromium
 ```
 
-### Screenshot and Image Manipulation Tool
+### 6.16. Screenshot and Image Manipulation Tool
 
 ```
 $ sudo pacman -S imagemagick
 ```
 
-### i3 Configuration
+### 6.17. i3 Configuration
 
 Create a shell script in `/bin/i3lock.sh` with the folowing contents:
 
@@ -642,7 +653,7 @@ bindsym $mod+Tab exec "rofi -show window"
 ```
 Also, delete the line `bindsym $mod+d exec dmenu_run` from `~/.config/i3/config`.
 
-### Set User Locale
+### 6.18. Set User Locale
 
 Open `~/.zshrc` and add following line to the end:
 
@@ -652,7 +663,7 @@ export LC_MESSAGES="C"
 export LC_ALL=en_US.UTF-8
 ```
 
-### Text Editor Configuration
+### 6.19. Text Editor Configuration
 
 Edit the file `~/.zshrc` and add following into it:
 
@@ -709,9 +720,9 @@ command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 set belloff=all
 ```
 
-#### VIM Plugins
+#### 6.19.1. VIM Plugins
 
-##### VimPlug
+##### 6.19.1.1. VimPlug
 
 Install the VimPlug:
 
@@ -731,7 +742,7 @@ call plug#end()
 >
 > VimPlug is a plugin manager for VIM and it requires that each plugin is added between the lines `call plug#begin()` and `call plug#end()` in a `~/.vimrc` file. Be sure that your plugins are listed between those two lines. Otherwise, plugins will not be installed correctly.
 
-##### YouCompleteMe
+##### 6.19.1.2. YouCompleteMe
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -768,7 +779,7 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_add_preview_to_completeopt = 1
 ```
 
-##### lightline-vim
+##### 6.19.1.3. lightline-vim
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -789,7 +800,7 @@ Add the following line to the `~/.vimrc`:
 set laststatus=2
 ```
 
-##### Tagbar
+##### 6.19.1.4. Tagbar
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -818,7 +829,7 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 autocmd BufEnter * nested :call tagbar#autoopen(0)
 ```
 
-##### The NERD tree
+##### 6.19.1.5. The NERD tree
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -849,7 +860,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 ```
 
-##### ctrlp.vim
+##### 6.19.1.6. ctrlp.vim
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -874,7 +885,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
 ```
 
-##### fugitive.vim
+##### 6.19.1.7. fugitive.vim
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -889,7 +900,7 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### vim-bracketed-paste
+##### 6.19.1.8. vim-bracketed-paste
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -904,7 +915,7 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### vim-trailing-whitespace
+##### 6.19.1.9. vim-trailing-whitespace
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -919,7 +930,7 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### vim-lastplace
+##### 6.19.1.10. vim-lastplace
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -934,7 +945,7 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### vim-gitgutter
+##### 6.19.1.11. vim-gitgutter
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -955,7 +966,7 @@ Add the following to the `~/.vimrc`:
 let g:gitgutter_sign_column_always=1
 ```
 
-##### gitv
+##### 6.19.1.12. gitv
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -970,7 +981,7 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### vim-clang-format
+##### 6.19.1.13. vim-clang-format
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1008,7 +1019,7 @@ let g:clang_format#style_options = {
 		\}
 ```
 
-##### NERD Commenter
+##### 6.19.1.14. NERD Commenter
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1030,7 +1041,7 @@ nnoremap ,c :call NERDComment(0,"toggle")<CR>
 vnoremap ,c :call NERDComment(0,"toggle")<CR>
 ```
 
-##### python-mode
+##### 6.19.1.15. python-mode
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1053,7 +1064,7 @@ let g:pymode_doc_key = 'K'
 let g:pymode_rope = 1
 ```
 
-##### vim-go
+##### 6.19.1.16. vim-go
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1080,7 +1091,7 @@ let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 ```
 
-##### ctrlp-smarttabs
+##### 6.19.1.17. ctrlp-smarttabs
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1095,7 +1106,7 @@ Now, install the plugin:
 :PlugInstall
 ```
 
-##### ctrlsf.vim
+##### 6.19.1.18. ctrlsf.vim
 
 Install the `the_silver_searcher` package:
 
@@ -1138,7 +1149,7 @@ let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '20%'
 ```
 
-##### badwolf
+##### 6.19.1.19. badwolf
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1160,7 +1171,7 @@ colorscheme badwolf
 highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=White
 ```
 
-##### syntastic
+##### 6.19.1.20. syntastic
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1187,7 +1198,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 ```
 
-##### gundo.vim
+##### 6.19.1.21. gundo.vim
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1209,7 +1220,7 @@ nnoremap <silent><F5> :GundoToggle<CR>
 let g:gundo_help = 0
 ```
 
-##### ycm-generator
+##### 6.19.1.22. ycm-generator
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1230,7 +1241,7 @@ Configure the plugin:
 nnoremap <silent><F9> :YcmGenerateConfig<CR>
 ```
 
-##### vim-easymotion
+##### 6.19.1.23. vim-easymotion
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1253,7 +1264,7 @@ let g:EasyMotion_verbose = 0
 let g:EasyMotion_verbose = 0
 ```
 
-##### vim-numbertoggle
+##### 6.19.1.24. vim-numbertoggle
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
@@ -1274,11 +1285,11 @@ Configure the plugin:
 let g:NumberToggleTrigger="<F2>"
 ```
 
-#### Visual Studio Code Plugins
+#### 6.19.2. Visual Studio Code Plugins
 
 To install plugin, just execute the command in the terminal listed in the plugin installation steps.
 
-##### Bracket Pair Colorizer
+##### 6.19.2.1. Bracket Pair Colorizer
 
 Install the plugin:
 
@@ -1286,7 +1297,7 @@ Install the plugin:
 $ code --install-extension bracket-pair-colorizer
 ```
 
-##### Path Intellisense
+##### 6.19.2.2. Path Intellisense
 
 Install the plugin:
 
@@ -1294,7 +1305,7 @@ Install the plugin:
 $ code --install-extension christian-kohler.path-intellisense
 ```
 
-##### Bookmarks
+##### 6.19.2.3. Bookmarks
 
 Install the plugin:
 
@@ -1302,7 +1313,7 @@ Install the plugin:
 $ code --install-extension alefragnani.Bookmarks
 ```
 
-##### VSCodeVim
+##### 6.19.2.4. VSCodeVim
 
 Install the plugin:
 
@@ -1310,7 +1321,7 @@ Install the plugin:
 $ code --install-extension vscodevim.vim
 ```
 
-##### AutoFileName
+##### 6.19.2.5. AutoFileName
 
 Install the plugin:
 
@@ -1318,7 +1329,7 @@ Install the plugin:
 $ code --install-extension JerryHong.autofilename
 ```
 
-##### HTML Snippets
+##### 6.19.2.6. HTML Snippets
 
 Install the plugin:
 
@@ -1326,7 +1337,7 @@ Install the plugin:
 $ code --install-extension abusaidm.html-snippets
 ```
 
-##### jshint
+##### 6.19.2.7. jshint
 
 Install the plugin:
 
@@ -1334,7 +1345,7 @@ Install the plugin:
 $ code --install-extension dbaeumer.jshint
 ```
 
-##### Docker
+##### 6.19.2.8. Docker
 
 Install the plugin:
 
@@ -1342,7 +1353,7 @@ Install the plugin:
 $ code --install-extension PeterJausovec.vscode-docker
 ```
 
-##### Auto Close Tag
+##### 6.19.2.9. Auto Close Tag
 
 Install the plugin:
 
@@ -1350,7 +1361,7 @@ Install the plugin:
 $ code --install-extension formulahendry.auto-close-tag
 ```
 
-##### Auto Rename Tag
+##### 6.19.2.10. Auto Rename Tag
 
 Install the plugin:
 
@@ -1358,7 +1369,7 @@ Install the plugin:
 $ code --install-extension formulahendry.auto-rename-tag
 ```
 
-##### ESLint
+##### 6.19.2.11. ESLint
 
 Install the plugin:
 
@@ -1367,7 +1378,7 @@ $ code --install-extension dbaeumer.vscode-eslint
 $ npm install -g eslint
 ```
 
-##### Go
+##### 6.19.2.12. Go
 
 Install the plugin:
 
@@ -1375,7 +1386,7 @@ Install the plugin:
 $ code --install-extension lukehoban.Go
 ```
 
-##### JavaScript (ES6) code snippets
+##### 6.19.2.13. JavaScript (ES6) code snippets
 
 Install the plugin:
 
@@ -1383,7 +1394,7 @@ Install the plugin:
 $ code --install-extension xabikos.JavaScriptSnippets
 ```
 
-##### npm
+##### 6.19.2.14. npm
 
 Install the plugin:
 
@@ -1391,7 +1402,7 @@ Install the plugin:
 $ code --install-extension eg2.vscode-npm-script
 ```
 
-##### npm Intellisense
+##### 6.19.2.15. npm Intellisense
 
 Install the plugin:
 
@@ -1399,7 +1410,7 @@ Install the plugin:
 $ code --install-extension christian-kohler.npm-intellisense
 ```
 
-##### vetur
+##### 6.19.2.16. vetur
 
 Install the plugin:
 
@@ -1407,7 +1418,7 @@ Install the plugin:
 $ code --install-extension octref.vetur
 ```
 
-##### vscode-icons
+##### 6.19.2.17. vscode-icons
 
 Install the plugin:
 
@@ -1415,7 +1426,7 @@ Install the plugin:
 $ code --install-extension robertohuertasm.vscode-icons
 ```
 
-##### VueHelper
+##### 6.19.2.18. VueHelper
 
 Install the plugin:
 
@@ -1423,7 +1434,7 @@ Install the plugin:
 $ code --install-extension oysun.vuehelper
 ```
 
-##### Debugger for Chrome
+##### 6.19.2.19. Debugger for Chrome
 
 Install the plugin:
 
@@ -1431,7 +1442,7 @@ Install the plugin:
 $ code --install-extension msjsdiag.debugger-for-chrome
 ```
 
-##### Copy Relative Path
+##### 6.19.2.20. Copy Relative Path
 
 Install the plugin:
 
@@ -1439,7 +1450,7 @@ Install the plugin:
 $ code --install-extension alexdima.copy-relative-path
 ```
 
-##### Dash
+##### 6.19.2.21. Dash
 
 Install the plugin:
 
@@ -1447,7 +1458,7 @@ Install the plugin:
 $ code --install-extension deerawan.vscode-dash
 ```
 
-##### Git Lens
+##### 6.19.2.22. Git Lens
 
 Install the plugin:
 
@@ -1455,7 +1466,7 @@ Install the plugin:
 $ code --install-extension eamodio.gitlens
 ```
 
-##### LaTeX Workshop
+##### 6.19.2.23. LaTeX Workshop
 
 Install the plugin:
 
@@ -1463,7 +1474,55 @@ Install the plugin:
 $ code --install-extension James-Yu.latex-workshop
 ```
 
-### Visual Merge and Diff Tool
+##### 6.19.2.24. Trailing Spaces
+
+Install the plugin:
+
+```
+$ code --install-extension James-Yu.latex-workshop
+```
+
+##### 6.19.2.25. PlantUML
+
+Install the plugin:
+
+```
+$ code --install-extension jebbs.plantuml
+```
+
+##### 6.19.2.26. Markdown TOC
+
+Install the plugin:
+
+```
+$ code --install-extension AlanWalk.markdown-toc
+```
+
+##### 6.19.2.27. Guides
+
+Install the plugin:
+
+```
+$ code --install-extension spywhere.guides
+```
+
+##### 6.19.2.28. change-case
+
+Install the plugin:
+
+```
+$ code --install-extension wmaurer.change-case
+```
+
+##### 6.19.2.29. markdownlint
+
+Install the plugin:
+
+```
+$ code --install-extension DavidAnson.vscode-markdownlint
+```
+
+### 6.20. Visual Merge and Diff Tool
 
 ```
 $ cd ~/AUR
@@ -1480,49 +1539,49 @@ $ git config --global diff.tool p4merge
 $ git config --global merge.tool p4merge
 ```
 
-### X Selection Manipulation
+### 6.21. X Selection Manipulation
 
 ```
 $ sudo pacman -S xsel
 ```
 
-### Secure Shell
+### 6.22. Secure Shell
 
 ```
 $ sudo pacman -S openssh
 ```
 
-### Offline API Documentation Browser
+### 6.23. Offline API Documentation Browser
 
 ```
 $ sudo pacman -S zeal
 ```
 
-### Interactive Process Viewer
+### 6.24. Interactive Process Viewer
 
 ```
 $ sudo pacman -S htop
 ```
 
-### Serial Communication
+### 6.25. Serial Communication
 
 ```
 $ sudo pacman -S ckermit
 ```
 
-### Network Protocol Analyzer
+### 6.26. Network Protocol Analyzer
 
 ```
 $ sudo pacman -S wireshark-cli wireshark-gtk
 ```
 
-### Linux Syscall Tracer
+### 6.27. Linux Syscall Tracer
 
 ```
 $ sudo pacman -S strace
 ```
 
-### Containerization and Virtualization
+### 6.28. Containerization and Virtualization
 
 ```
 $ sudo pacman -S docker
@@ -1543,73 +1602,73 @@ Configure Docker to start on boot:
 $ sudo systemctl enable docker
 ```
 
-### Debugger
+### 6.29. Debugger
 
 ```
 $ sudo pacman -S gdb
 ```
 
-### TCP/IP Swiss Army Tool
+### 6.30. TCP/IP Swiss Army Tool
 
 ```
 $ sudo pacman -S gnu-netcat
 ```
 
-### TFTP Server
+### 6.31. TFTP Server
 
 ```
 $ sudo pacman -S tftp-hpa
 ```
 
-### LaTeX Distribution
+### 6.32. LaTeX Distribution
 
 ```
 $ sudo pacman -S texlive-most
 ```
 
-### LaTeX Integrated Writing Environment
+### 6.33. LaTeX Integrated Writing Environment
 
 ```
 $ sudo pacman -S texstudio
 ```
 
-### Patch Management
+### 6.34. Patch Management
 
 ```
 $ sudo pacman -S quilt
 ```
 
-### Office Suite
+### 6.35. Office Suite
 
 ```
 $ sudo pacman -S libreoffice-fresh
 ```
 
-### Cross-platform Asynchronous I/O Library
+### 6.36. Cross-platform Asynchronous I/O Library
 
 ```
 $ sudo pacman -S libuv
 ```
 
-### Calendar and Scheduling Application
+### 6.37. Calendar and Scheduling Application
 
 ```
 $ sudo pacman -S calcurse
 ```
 
-### GDB Frontend
+### 6.38. GDB Frontend
 
 ```
 $ sudo pacman -S cgdb
 ```
 
-### Multipurpose Relay
+### 6.39. Multipurpose Relay
 
 ```
 sudo pacman -S socat
 ```
 
-### Terminal Multiplexer
+### 6.40. Terminal Multiplexer
 
 ```
 $ sudo pacman -S tmux
@@ -1634,19 +1693,19 @@ set -g base-index 1
 setw -g pane-base-index 1
 ```
 
-### File Manager
+### 6.41. File Manager
 
 ```
 $ sudo pacman -S mc
 ```
 
-### Image Viewer
+### 6.42. Image Viewer
 
 ```
 $ sudo pacman -S gpicview
 ```
 
-### Document Viewer
+### 6.43. Document Viewer
 
 ```
 $ sudo pacman -S zathura zathura-pdf-poppler
@@ -1658,19 +1717,19 @@ Put this into the `~/.config/zathura/zathurarc` to configure Zathura:
 set selection-clipboard clipboard
 ```
 
-### Archive Manager
+### 6.44. Archive Manager
 
 ```
 $ sudo pacman -S p7zip unrar zip
 ```
 
-### Source Code Analysis Tool
+### 6.45. Source Code Analysis Tool
 
 ```
 $ sudo pacman -S valgrind
 ```
 
-### Terminal Recorder
+### 6.46. Terminal Recorder
 
 ```
 $ sudo pacman -S asciinema
@@ -1684,7 +1743,7 @@ command = /bin/bash -l
 maxwait = 2
 ```
 
-### Terminal Sharing
+### 6.47. Terminal Sharing
 
 ```
 $ sudo pacman -S msgpack-c cmake ruby
@@ -1695,7 +1754,7 @@ $ makepkg
 $ sudo pacman -U tmate-<VERSION>.pkg.tar.xz
 ```
 
-### WebSocket Client
+### 6.48. WebSocket Client
 
 ```
 $ sudo pacman -S nodejs
@@ -1703,7 +1762,7 @@ $ sudo pacman -S npm
 $ sudo npm install -g wscat
 ```
 
-### Modern Programming Language
+### 6.49. Modern Programming Language
 
 ```
 $ sudo pacman -S go glide
@@ -1720,25 +1779,25 @@ export PATH=$PATH:$GOPATH/bin
 >
 > Replace `<PATH>` with the directory outside of $GOROOT that contain the source for Go projects and their binaries. In my example, I have used `~/Projects/go`.
 
-### Shell Script Analysis Tool
+### 6.50. Shell Script Analysis Tool
 
 ```
 $ sudo pacman -S shellcheck
 ```
 
-### Network Discovery and Security Auditing
+### 6.51. Network Discovery and Security Auditing
 
 ```
 $ sudo pacman -S nmap
 ```
 
-### Recursive Directory Listing Command
+### 6.52. Recursive Directory Listing Command
 
 ```
 $ sudo pacman -S tree
 ```
 
-### Desktop Notifications Server
+### 6.53. Desktop Notifications Server
 
 ```
 $ sudo pacman -S dunst
@@ -1790,19 +1849,19 @@ Create `~/.config/dunst/dunstrc` and add the following lines to the file:
     timeout = 0
 ```
 
-### Visual Front End For XRandR
+### 6.54. Visual Front End For XRandR
 
 ```
 $ sudo pacman -S arandr
 ```
 
-### Video Games
+### 6.55. Video Games
 
 > **Note:**
 >
 > All work and no play makes the developer a dull boy! Because of that, here is a few open source video games that I like to play.
 
-#### Single Player Rougelike Dungeon Exploration Game With ASCII Graphics
+#### 6.55.1. Single Player Rougelike Dungeon Exploration Game With ASCII Graphics
 
 Official page: <http://www.nethack.org/>
 
@@ -1810,7 +1869,7 @@ Official page: <http://www.nethack.org/>
 $ sudo pacman -S nethack
 ```
 
-#### Turn-Based Tactical Strategy Game With a High Fantasy Theme
+#### 6.55.2. Turn-Based Tactical Strategy Game With a High Fantasy Theme
 
 Official page: <https://www.wesnoth.org/>
 
@@ -1818,7 +1877,7 @@ Official page: <https://www.wesnoth.org/>
 $ sudo pacman -S wesnoth
 ```
 
-#### 3D Realtime Strategy Game On a Future Earth
+#### 6.55.3. Realtime Strategy Game On a Future Earth
 
 Official page: <https://wz2100.net/>
 
@@ -1832,7 +1891,7 @@ The installation package misses the original video files, which you can get at [
 >
 > Place the downloaded `sequences.wz` file inside `~/.warzone2100-<VERSION>`, where `<VERSION>` is the version of Warzone, e.g. "2.3" or "3.1" not "3.1.3".
 
-#### Turn-Based Strategy Artillery Game Similiar To Worms
+#### 6.55.4. Turn-Based Strategy Artillery Game Similiar To Worms
 
 Official page: <http://www.hedgewars.org/>
 
@@ -1840,7 +1899,7 @@ Official page: <http://www.hedgewars.org/>
 $ sudo pacman -S hedgewars
 ```
 
-#### Turn-Based Space Empire And Galactic Conquest (4x) Computer Game
+#### 6.55.5. Turn-Based Space Empire And Galactic Conquest (4x) Computer Game
 
 Official page: <http://www.freeorion.org>
 
@@ -1852,7 +1911,7 @@ $ makepkg
 $ sudo pacman -U freeorion-<VERSION>.pkg.tar.xz
 ```
 
-#### Red Alert Engine Using .NET/Mono and OpenGL
+#### 6.55.6. Red Alert Engine Using .NET/Mono and OpenGL
 
 Official page: <http://www.openra.net>
 
@@ -1864,7 +1923,7 @@ Official page: <http://www.openra.net>
 $ sudo pacman -S openra
 ```
 
-#### Engine for Running Transport Tycoon Deluxe
+#### 6.55.7. Engine for Running Transport Tycoon Deluxe
 
 Official page: <http://www.openttd.org>
 
