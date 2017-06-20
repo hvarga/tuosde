@@ -1577,7 +1577,7 @@ $ code --install-extension vector-of-bool.cmake-tools
 Install the plugin:
 
 ```
-$ code --install-extension vector-of-bool.cmake-tools
+$ code --install-extension twxs.cmake
 ```
 
 ##### Code Spellchecker
