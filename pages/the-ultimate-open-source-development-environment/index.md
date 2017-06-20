@@ -102,6 +102,16 @@
             - [Guides](#guides)
             - [change-case](#change-case)
             - [markdownlint](#markdownlint)
+            - [Markdown Navigate](#markdown-navigate)
+            - [LLDB Debugger](#lldb-debugger)
+            - [Native Debug](#native-debug)
+            - [Clang-Format](#clang-format)
+            - [CMake Tools](#cmake-tools)
+            - [CMake](#cmake)
+            - [Code Spellchecker](#code-spellchecker)
+            - [C/C++ Clang Command Adapter](#cc-clang-command-adapter)
+            - [shellcheck](#shellcheck)
+            - [shell-format](#shell-format)
     - [Visual Merge and Diff Tool](#visual-merge-and-diff-tool)
     - [X Selection Manipulation](#x-selection-manipulation)
     - [Secure Shell](#secure-shell)
@@ -1520,6 +1530,86 @@ Install the plugin:
 
 ```
 $ code --install-extension DavidAnson.vscode-markdownlint
+```
+
+##### Markdown Navigate
+
+Install the plugin:
+
+```
+$ code --install-extension jrieken.md-navigate
+```
+
+##### LLDB Debugger
+
+Install the plugin:
+
+```
+$ code --install-extension vadimcn.vscode-lldb
+```
+
+##### Native Debug
+
+Install the plugin:
+
+```
+$ code --install-extension webfreak.debug
+```
+
+##### Clang-Format
+
+Install the plugin:
+
+```
+$ code --install-extension xaver.clang-format
+```
+
+##### CMake Tools
+
+Install the plugin:
+
+```
+$ code --install-extension vector-of-bool.cmake-tools
+```
+
+##### CMake
+
+Install the plugin:
+
+```
+$ code --install-extension vector-of-bool.cmake-tools
+```
+
+##### Code Spellchecker
+
+Install the plugin:
+
+```
+$ code --install-extension streetsidesoftware.code-spell-checker
+```
+
+##### C/C++ Clang Command Adapter
+
+Install the plugin:
+
+```
+$ code --install-extension mitaki28.vscode-clang
+```
+
+##### shellcheck
+
+Install the plugin:
+
+```
+$ code --install-extension timonwong.shellcheck
+```
+
+##### shell-format
+
+Install the plugin:
+
+```
+$ code --install-extension foxundermoon.shell-format
 ```
 
 ### Visual Merge and Diff Tool
