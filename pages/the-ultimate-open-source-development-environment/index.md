@@ -147,6 +147,7 @@
     - [Recursive Directory Listing Command](#recursive-directory-listing-command)
     - [Desktop Notifications Server](#desktop-notifications-server)
     - [Visual Front End For XRandR](#visual-front-end-for-xrandr)
+    - [Universal Database Tool For Developers and Database Administrators](#universal-database-tool-for-developers-and-database-administrators)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1943,6 +1944,16 @@ Create `~/.config/dunst/dunstrc` and add the following lines to the file:
 
 ```
 $ sudo pacman -S arandr
+```
+
+### Universal Database Tool For Developers and Database Administrators
+
+```
+$ cd ~/AUR
+$ git clone https://aur.archlinux.org/dbeaver.git
+$ cd dbeaver
+$ makepkg
+$ sudo pacman -U dbeaver-<VERSION>.pkg.tar.xz
 ```
 
 ### Video Games
