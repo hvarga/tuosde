@@ -149,6 +149,7 @@
     - [Visual Front End For XRandR](#visual-front-end-for-xrandr)
     - [Universal Database Tool For Developers and Database Administrators](#universal-database-tool-for-developers-and-database-administrators)
     - [Fast Incremental File Transfer Utility](#fast-incremental-file-transfer-utility)
+    - [Command-line JSON Processor](#command-line-json-processor)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1961,6 +1962,12 @@ $ sudo pacman -U dbeaver-<VERSION>.pkg.tar.xz
 
 ```
 $ sudo pacman -S rsync
+```
+
+### Command-line JSON Processor
+
+```
+$ sudo pacman -S jq
 ```
 
 ### Video Games
