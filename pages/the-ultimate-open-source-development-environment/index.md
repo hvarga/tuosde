@@ -99,7 +99,6 @@
             - [Trailing Spaces](#trailing-spaces)
             - [PlantUML](#plantuml)
             - [Markdown TOC](#markdown-toc)
-            - [Guides](#guides)
             - [change-case](#change-case)
             - [markdownlint](#markdownlint)
             - [Markdown Navigate](#markdown-navigate)
@@ -449,7 +448,7 @@ $ sudo pacman -S wget
 ### Versioning Control
 
 ```
-$ sudo pacman -S git perl-authen-sasl perl-net-smtp-ssl  perl-mime-tools
+$ sudo pacman -S git perl-authen-sasl perl-net-smtp-ssl perl-mime-tools
 ```
 
 Configure your identity:
@@ -517,7 +516,7 @@ $ mkdir ~/AUR
 ### X Server
 
 ```
-$ sudo pacman -S xorg-server xorg-server-utils xorg-xinit xorg
+$ sudo pacman -S xorg-server xorg-apps xorg-xinit xorg
 ```
 
 When asked, it is generally better to install `xf86-input-libinput`, especially on laptops.
@@ -558,7 +557,7 @@ Edit `~/.Xresources` and add:
 
 ```
 ! XTerm settings
-xterm*faceName: Ubuntu Monospace:size=9:antialias=true
+xterm*faceName: DejaVu Sans Mono:size=9:antialias=true
 xterm*pointerColor: white
 xterm*pointerColorBackground: black
 xterm*cursorColor: yellow
@@ -602,7 +601,7 @@ $ sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-d
 
 ### Autostart X At Login
 
-Edit the `~/.bash_profile` and add following into it:
+Edit the `~/.zshrc` and add following into it:
 
 ```
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> /dev/null
@@ -1308,7 +1307,7 @@ To install plugin, just execute the command in the terminal listed in the plugin
 Install the plugin:
 
 ```
-$ code --install-extension bracket-pair-colorizer
+$ code --install-extension CoenraadS.bracket-pair-colorizer
 ```
 
 ##### Path Intellisense
@@ -1357,6 +1356,7 @@ Install the plugin:
 
 ```
 $ code --install-extension dbaeumer.jshint
+$ sudo npm install -g jshint
 ```
 
 ##### Docker
@@ -1389,7 +1389,7 @@ Install the plugin:
 
 ```
 $ code --install-extension dbaeumer.vscode-eslint
-$ npm install -g eslint
+$ sudo npm install -g eslint
 ```
 
 ##### Go
@@ -1510,14 +1510,6 @@ Install the plugin:
 
 ```
 $ code --install-extension AlanWalk.markdown-toc
-```
-
-##### Guides
-
-Install the plugin:
-
-```
-$ code --install-extension spywhere.guides
 ```
 
 ##### change-case
@@ -1666,7 +1658,7 @@ $ sudo pacman -S ckermit
 ### Network Protocol Analyzer
 
 ```
-$ sudo pacman -S wireshark-cli wireshark-gtk
+$ sudo pacman -S wireshark-gtk
 ```
 
 ### Linux Syscall Tracer
@@ -1814,7 +1806,7 @@ set selection-clipboard clipboard
 ### Archive Manager
 
 ```
-$ sudo pacman -S p7zip unrar zip
+$ sudo pacman -S p7zip unrar zip unzip
 ```
 
 ### Source Code Analysis Tool
