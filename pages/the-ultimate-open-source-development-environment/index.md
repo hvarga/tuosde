@@ -36,7 +36,7 @@
     - [Download Manager](#download-manager)
     - [Versioning Control](#versioning-control)
     - [Install and Configure a Modern Shell](#install-and-configure-a-modern-shell)
-    - [AUR Packages Directory](#aur-packages-directory)
+    - [AUR Package Management Tool](#aur-package-management-tool)
     - [X Server](#x-server)
     - [Window Manager](#window-manager)
     - [Terminal Emulator](#terminal-emulator)
@@ -432,11 +432,7 @@ $ sudo pacman -S gvim
 #### Visual Studio Code
 
 ```
-$ cd ~/AUR
-$ git clone https://aur.archlinux.org/visual-studio-code.git
-$ cd visual-studio-code
-$ makepkg
-$ sudo pacman -U code-<VERSION>.pkg.tar.xz
+$ pacaur -S code
 ```
 
 ### Download Manager
@@ -503,15 +499,24 @@ ZSH_THEME="<THEME_NAME>"
 >
 > "oh-my-zsh" has a theming support and few of possible good themes are: `crunch`, `nebirhos`, `wezm`, `ys` and `robbyrussell`.
 
-### AUR Packages Directory
-
-```
-$ mkdir ~/AUR
-```
+### AUR Package Management Tool
 
 > **Note:**
 >
-> There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. There are tools like Yaurt that can be used instead but are not officially supported by Arch Linux. This is why I am recommending to create a folder which will be used to store the source code of those packages. Those packages will be build and installed manually. Yes, in this case you don't have a automatic dependancy management! But look at the bright side, you will look cool in front of your friends!
+> There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. For this purpose, `pacaur` will be used instead.
+
+```
+$ sudo pacman -S expac yajl --noconfirm
+$ mkdir ~/temp
+$ cd ~/temp
+$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+$ makepkg -i PKGBUILD --noconfirm
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+$ makepkg -i PKGBUILD --noconfirm
+$ cd ~
+$ rm -r ~/temp
+```
 
 ### X Server
 
@@ -1611,11 +1616,7 @@ $ code --install-extension foxundermoon.shell-format
 ### Visual Merge and Diff Tool
 
 ```
-$ cd ~/AUR
-$ git clone https://aur.archlinux.org/p4v.git
-$ cd p4v
-$ makepkg
-$ sudo pacman -U p4v-<VERSION>.pkg.tar.xz
+$ pacaur -S p4v
 ```
 
 Configure Git to use P4Merge for its `difftool` and `mergetool` commands:
@@ -1832,12 +1833,7 @@ maxwait = 2
 ### Terminal Sharing
 
 ```
-$ sudo pacman -S msgpack-c cmake ruby
-$ cd ~/AUR
-$ git clone https://aur.archlinux.org/tmate.git
-$ cd tmate
-$ makepkg
-$ sudo pacman -U tmate-<VERSION>.pkg.tar.xz
+$ pacaur -S tmate
 ```
 
 ### WebSocket Client
@@ -1944,11 +1940,7 @@ $ sudo pacman -S arandr
 ### Universal Database Tool For Developers and Database Administrators
 
 ```
-$ cd ~/AUR
-$ git clone https://aur.archlinux.org/dbeaver.git
-$ cd dbeaver
-$ makepkg
-$ sudo pacman -U dbeaver-<VERSION>.pkg.tar.xz
+$ pacaur -S dbeaver
 ```
 
 ### Fast Incremental File Transfer Utility
@@ -2018,11 +2010,7 @@ $ sudo pacman -S hedgewars
 Official page: <http://www.freeorion.org>
 
 ```
-$ cd ~/AUR
-$ git clone https://aur.archlinux.org/freeorion.git
-$ cd freeorion
-$ makepkg
-$ sudo pacman -U freeorion-<VERSION>.pkg.tar.xz
+$ pacaur -S freeorion
 ```
 
 #### Red Alert Engine Using .NET/Mono and OpenGL
