@@ -189,10 +189,10 @@ Third and the final part, [Post-Installation Guide](#post-installation-guide), c
 >
 > If you still insist on using Microsoft Windows to create a bootable installation media then head over to [USB flash installation media](https://wiki.archlinux.org/index.php/USB_flash_installation_media#In_Windows). Try to make it on your own. When finished, jump to the chapter "Installation Guide".
 
-Download the latest ISO image from one of the mirrors listed on [Arch Linux Downloads](https://www.archlinux.org/download/) page. I have used the [iskon.hr](http://archlinux.iskon.hr/iso/latest/) mirror located in Croatia and the version 2016.08.01 of Arch Linux.
+Download the latest ISO image from one of the mirrors listed on [Arch Linux Downloads](https://www.archlinux.org/download/) page. I have used the [iskon.hr](http://archlinux.iskon.hr/iso/latest/) mirror located in Croatia and the version 2017.07.01 of Arch Linux.
 
 ```
-$ wget http://archlinux.iskon.hr/iso/2016.08.01/archlinux-2016.08.01 dual.iso
+$ wget http://archlinux.iskon.hr/iso/2017.07.01/archlinux-2017.07.01-x86_64.iso
 ```
 
 Now plug in your USB device and run `lsblk` command to print a list of connected storage devices. Identify and note for later the USB device that you are going to use as install media.
