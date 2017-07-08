@@ -1795,13 +1795,7 @@ $ sudo pacman -S gpicview
 ### Document Viewer
 
 ```
-$ sudo pacman -S zathura zathura-pdf-poppler
-```
-
-Put this into the `~/.config/zathura/zathurarc` to configure Zathura:
-
-```
-set selection-clipboard clipboard
+$ pacaur -S qpdfview
 ```
 
 ### Archive Manager
