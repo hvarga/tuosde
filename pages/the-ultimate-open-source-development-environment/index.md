@@ -152,6 +152,7 @@
     - [Count Lines of Code](#count-lines-of-code)
     - [Screenshot Tool](#screenshot-tool)
     - [BitTorrent Client](#bittorrent-client)
+    - [Music Player](#music-player)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1967,6 +1968,12 @@ $ pacaur -S shutter
 
 ```
 $ sudo pacman -S transmission-gtk
+```
+
+### Music Player
+
+```
+$ sudo pacman -S deadbeef
 ```
 
 ### Video Games
