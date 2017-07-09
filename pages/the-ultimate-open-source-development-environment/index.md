@@ -154,6 +154,7 @@
     - [BitTorrent Client](#bittorrent-client)
     - [Music Player](#music-player)
     - [Email Client](#email-client)
+    - [Multi-protocol Instant Messaging Client](#multi-protocol-instant-messaging-client)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1982,6 +1983,12 @@ $ sudo pacman -S deadbeef
 
 ```
 $ sudo pacman -S claws-mail
+```
+
+### Multi-protocol Instant Messaging Client
+
+```
+$ sudo pacman -S pidgin
 ```
 
 ### Video Games
