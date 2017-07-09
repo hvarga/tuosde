@@ -150,6 +150,7 @@
     - [Fast Incremental File Transfer Utility](#fast-incremental-file-transfer-utility)
     - [Command-line JSON Processor](#command-line-json-processor)
     - [Count Lines of Code](#count-lines-of-code)
+    - [Screenshot Tool](#screenshot-tool)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1953,6 +1954,12 @@ $ sudo pacman -S jq
 
 ```
 $ sudo pacman -S cloc
+```
+
+### Screenshot Tool
+
+```
+$ pacaur -S shutter
 ```
 
 ### Video Games
