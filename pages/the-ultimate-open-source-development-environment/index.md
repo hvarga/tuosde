@@ -162,6 +162,7 @@
         - [Turn-Based Space Empire And Galactic Conquest (4x) Computer Game](#turn-based-space-empire-and-galactic-conquest-4x-computer-game)
         - [Red Alert Engine Using .NET/Mono and OpenGL](#red-alert-engine-using-netmono-and-opengl)
         - [Engine for Running Transport Tycoon Deluxe](#engine-for-running-transport-tycoon-deluxe)
+        - [Clone of Voxlap Ace of Spades](#clone-of-voxlap-ace-of-spades)
 
 <!-- /TOC -->
 
@@ -2058,3 +2059,11 @@ $ sudo pacman -S openttd
 > **Note:**
 >
 > Despite the statement that OpenTTD is a game engine, it will prompt you to download graphics, sounds and music. This will allow you to play a full open source clone of the popular Transport Tycoon Deluxe game. Since it is an open source project which is actively maintained, it comes with massive improvements over the original!
+
+#### Clone of Voxlap Ace of Spades
+
+Official page: <http://openspades.yvt.jp/>
+
+```
+$ pacaur -S openspades
+```
