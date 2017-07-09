@@ -447,6 +447,14 @@ $ pacaur -S code
 $ sudo pacman -S wget
 ```
 
+> **Note:**
+>
+> If you prefere to use a GUI tool instead install `uget`.
+
+```
+$ sudo pacman -S uget
+```
+
 ### Versioning Control
 
 ```
