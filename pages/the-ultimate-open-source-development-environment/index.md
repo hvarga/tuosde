@@ -155,6 +155,7 @@
     - [Music Player](#music-player)
     - [Email Client](#email-client)
     - [Multi-protocol Instant Messaging Client](#multi-protocol-instant-messaging-client)
+    - [Desktop Wiki](#desktop-wiki)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -1997,6 +1998,12 @@ $ sudo pacman -S claws-mail
 
 ```
 $ sudo pacman -S pidgin
+```
+
+### Desktop Wiki
+
+```
+$ sudo pacman -S zim
 ```
 
 ### Video Games
