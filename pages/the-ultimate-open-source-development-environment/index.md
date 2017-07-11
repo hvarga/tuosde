@@ -394,13 +394,27 @@ $ ip link
 Find the name of your interface. In my case, interface name is `enp0s3`.
 
 ```
-$ sudo systemctl start dhcpcd@<NETWORK_INTERFACE>.service
-$ sudo systemctl enable dhcpcd@<NETWORK_INTERFACE>.service
+$ cat <<EOF | sudo tee -a  /etc/netctl/ethernet-dhcp
+Description='A basic dhcp ethernet connection'
+Interface=enp0s3
+Connection=ethernet
+IP=dhcp
+EOF
+$ sudo pacman -S ifplugd
+$ sudo systemctl start netctl-ifplugd@<NETWORK_INTERFACE>.service
+$ sudo systemctl enable netctl-ifplugd@<NETWORK_INTERFACE>.service
+```
+
+For wireless interfaces, in my case `wlp2sp`, enable service and later use `wifi-menu` tool:
+
+```
+$ sudo systemctl start netctl-auto@<WIRELESS_INTERFACE>.service
+$ sudo systemctl enable netctl-auto@<WIRELESS_INTERFACE>.service
 ```
 
 > **Note:**
 >
-> Don't forget to replace `<NETWORK_INTERFACE>` in above command with the interface name that your system has.
+> Don't forget to replace `<NETWORK_INTERFACE>` and `<WIRELESS_INTERFACE>` in above command with the interface name that your system has.
 
 ### Update Package Repository
 
@@ -545,7 +559,7 @@ Now, create file `~/.xserverrc` and add following lines:
 
 ```
 #!/bin/sh
-exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTR
+exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
 ```
 
 ### Window Manager
@@ -566,6 +580,10 @@ Remove unnecessary lines and add the following line to the end:
 ```
 exec i3
 ```
+> **Note:**
+>
+> Optionally, if there is a need for a different keyboard layout, add the following before `exec i3` line:
+> `setxkbmap hr`
 
 ### Terminal Emulator
 
@@ -1676,6 +1694,12 @@ $ sudo pacman -S ckermit
 ```
 $ sudo pacman -S wireshark-gtk
 ```
+Only `root` user and members of `wireshark` group can capture packets on network interfaces:
+```
+$ sudo usermod -aG wireshark $USER
+```
+Log out and log back in so that your group membership is re-evaluated.
+
 
 ### Linux Syscall Tracer
 
@@ -1938,6 +1962,10 @@ Create `~/.config/dunst/dunstrc` and add the following lines to the file:
     background = "#801515"
     foreground = "#D46A6A"
     timeout = 0
+```
+To start `dunst` with `i3`, add the following line to `~/.config/i3/config` file:
+```
+exec --no-startup-id "dunst"
 ```
 
 ### Visual Front End For XRandR
