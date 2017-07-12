@@ -166,6 +166,7 @@
         - [Red Alert Engine Using .NET/Mono and OpenGL](#red-alert-engine-using-netmono-and-opengl)
         - [Engine for Running Transport Tycoon Deluxe](#engine-for-running-transport-tycoon-deluxe)
         - [Clone of Voxlap Ace of Spades](#clone-of-voxlap-ace-of-spades)
+        - [3D Game Similar To Super Monkey Ball](#3d-game-similar-to-super-monkey-ball)
 
 <!-- /TOC -->
 
@@ -2123,4 +2124,12 @@ Official page: <http://openspades.yvt.jp/>
 
 ```
 $ pacaur -S openspades
+```
+
+#### 3D Game Similar To Super Monkey Ball
+
+Official page: <http://neverball.org/>
+
+```
+$ sudo pacman -S neverball
 ```
