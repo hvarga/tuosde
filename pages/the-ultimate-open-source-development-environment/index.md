@@ -36,7 +36,6 @@
     - [Download Manager](#download-manager)
     - [Versioning Control](#versioning-control)
     - [Install and Configure a Modern Shell](#install-and-configure-a-modern-shell)
-    - [AUR Package Management Tool](#aur-package-management-tool)
     - [X Server](#x-server)
     - [Window Manager](#window-manager)
     - [Terminal Emulator](#terminal-emulator)
@@ -46,6 +45,7 @@
     - [Screenshot and Image Manipulation Tool](#screenshot-and-image-manipulation-tool)
     - [i3 Configuration](#i3-configuration)
     - [Set User Locale](#set-user-locale)
+    - [AUR Package Management Tool](#aur-package-management-tool)
     - [Text Editor Configuration](#text-editor-configuration)
         - [VIM Plugins](#vim-plugins)
             - [VimPlug](#vimplug)
@@ -528,25 +528,6 @@ ZSH_THEME="<THEME_NAME>"
 >
 > "oh-my-zsh" has a theming support and few of possible good themes are: `crunch`, `nebirhos`, `wezm`, `ys` and `robbyrussell`.
 
-### AUR Package Management Tool
-
-> **Note:**
->
-> There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. For this purpose, `pacaur` will be used instead.
-
-```
-$ sudo pacman -S expac yajl --noconfirm
-$ mkdir ~/temp
-$ cd ~/temp
-$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
-$ makepkg -i PKGBUILD --noconfirm
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
-$ makepkg -i PKGBUILD --noconfirm
-$ cd ~
-$ rm -r ~/temp
-```
-
 ### X Server
 
 ```
@@ -712,6 +693,25 @@ Open `~/.zshrc` and add following line to the end:
 export LANG=en_US.UTF-8
 export LC_MESSAGES="C"
 export LC_ALL=en_US.UTF-8
+```
+
+### AUR Package Management Tool
+
+> **Note:**
+>
+> There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. For this purpose, `pacaur` will be used instead.
+
+```
+$ sudo pacman -S expac yajl --noconfirm
+$ mkdir ~/temp
+$ cd ~/temp
+$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+$ makepkg -i PKGBUILD --noconfirm
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+$ makepkg -i PKGBUILD --noconfirm
+$ cd ~
+$ rm -r ~/temp
 ```
 
 ### Text Editor Configuration
