@@ -40,6 +40,7 @@
     - [Window Manager](#window-manager)
     - [Terminal Emulator](#terminal-emulator)
     - [Improve Font Rendering](#improve-font-rendering)
+    - [Improve Look of GUI Applications](#improve-look-of-gui-applications)
     - [Autostart X At Login](#autostart-x-at-login)
     - [Web Browser](#web-browser)
     - [Screenshot and Image Manipulation Tool](#screenshot-and-image-manipulation-tool)
@@ -616,6 +617,12 @@ Install additional fonts:
 
 ```
 $ sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-linux-libertine ttf-liberation wqy-zenhei
+```
+
+### Improve Look of GUI Applications
+
+```
+$ sudo pacman -S gnome-themes-standard
 ```
 
 ### Autostart X At Login
