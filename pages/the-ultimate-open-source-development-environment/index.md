@@ -2033,6 +2033,10 @@ function disconnect(){
 
 xrandr | grep "HDMI-1 connected" &> /dev/null && connect || disconnect
 ```
+Reload `udev` rules:
+```
+$ sudo udevadm control --reload
+```
 
 ### Universal Database Tool For Developers and Database Administrators
 
