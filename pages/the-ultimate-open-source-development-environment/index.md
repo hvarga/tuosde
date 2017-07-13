@@ -147,6 +147,7 @@
     - [Recursive Directory Listing Command](#recursive-directory-listing-command)
     - [Desktop Notifications Server](#desktop-notifications-server)
     - [Visual Front End For XRandR](#visual-front-end-for-xrandr)
+        - [External Monitors](#external-monitors)
     - [Universal Database Tool For Developers and Database Administrators](#universal-database-tool-for-developers-and-database-administrators)
     - [Fast Incremental File Transfer Utility](#fast-incremental-file-transfer-utility)
     - [Command-line JSON Processor](#command-line-json-processor)
@@ -1980,6 +1981,57 @@ exec --no-startup-id "dunst"
 
 ```
 $ sudo pacman -S arandr
+```
+
+#### External Monitors
+
+Hotplug of external monitors can be handled using `udev` rules. 
+> **Note:**
+>
+> The following will only work for your user with id 1000, so remember to replace `<USERNAME>` with your real user name.
+
+Start the following command and plug external monitor in and out:
+```
+$ udevadm monitor --property
+
+KERNEL[13404.874072] change   /devices/pci0000:00/0000:00:02.0/drm/card0 (drm)
+ACTION=change
+DEVNAME=/dev/dri/card0
+DEVPATH=/devices/pci0000:00/0000:00:02.0/drm/card0
+DEVTYPE=drm_minor
+HOTPLUG=1
+MAJOR=226
+MINOR=0
+SEQNUM=2678
+SUBSYSTEM=drm
+```
+Remeber card number (in my example `card0`) and define custom rule `/etc/udev/rules.d/99-monitor-hotplug.rules` with the content:
+```
+KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/<USERNAME>/.Xauthority", RUN+="/usr/local/bin/hotplug.sh"
+```
+Open `arandr` tool and save layout for each monitor setup you want to use. In my case, there are laptop monitor and external HDMI monitor, so there will be 2 scripts in `/home/<USERNAME>/.screenlayout/` directory representing laptop-only and laptop-monitor layouts. In this case the `/usr/local/bin/hotplug.sh` script would look like this:
+```
+#!/bin/bash
+
+export DISPLAY=:0
+export XAUTHORITY=/home/<USERNAME>/.Xauthority
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+#LOG=/tmp/hotplug.log
+LOG=/dev/null
+
+/usr/bin/sleep 2
+/bin/date 2>&1 >> $LOG
+
+function connect(){
+    /home/<USERNAME>/.screenlayout/laptop-monitor.sh >> $LOG 2>&1
+}
+
+function disconnect(){
+    /home/<USERNAME>/.screenlayout/laptop-only.sh >> $LOG 2>&1 
+}
+
+xrandr | grep "HDMI-1 connected" &> /dev/null && connect || disconnect
 ```
 
 ### Universal Database Tool For Developers and Database Administrators
