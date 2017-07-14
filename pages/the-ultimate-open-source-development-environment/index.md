@@ -2098,6 +2098,95 @@ $ sudo pacman -S pidgin
 $ sudo pacman -S zim
 ```
 
+Install additional packages needed by plugins:
+
+```
+$ sudo pacman -S graphviz pygtksourceview2
+```
+
+Finally, create a new file `~/.config/zim/preferences.conf` if doesn't exist and add or replace its contents with following lines:
+
+```
+[General]
+plugins=["calendar","insertsymbol","printtobrowser","versioncontrol","bookmarksbar","linkmap","sourceview","tableofcontents","tags","tasklist","trayicon"]
+
+[CalendarPlugin]
+embedded=False
+pane=('left_pane', 'top')
+granularity=Day
+namespace=Journal
+auto_expand_in_index=True
+
+[VersionControlPlugin]
+autosave=False
+autosave_at_interval=False
+autosave_interval=10
+
+[GtkInterface]
+tearoff_menus=False
+toggle_on_ctrlspace=True
+remove_links_on_delete=True
+always_use_last_cursor_pos=True
+gtk_bell=False
+autosave_timeout=15
+toggle_on_altspace=False
+mouse_nav_button_back=8
+mouse_nav_button_forw=9
+toolbar_style=None
+toolbar_size=None
+
+[PageView]
+follow_on_enter=True
+read_only_cursor=False
+autolink_camelcase=False
+autolink_files=False
+autoselect=True
+unindent_on_backspace=True
+cycle_checkbox_type=True
+recursive_indentlist=True
+recursive_checklist=False
+auto_reformat=False
+copy_format=Text
+file_templates_folder=~/Templates
+
+[BookmarksBarPlugin]
+max_bookmarks=15
+save=True
+add_bookmarks_to_beginning=False
+
+[SourceViewPlugin]
+auto_indent=True
+smart_home_end=True
+highlight_current_line=True
+show_right_margin=False
+right_margin_position=72
+tab_width=4
+
+[ToCPlugin]
+pane=left_pane
+floating=False
+show_h1=False
+
+[TagsPlugin]
+pane=left_pane
+
+[TaskListPlugin]
+embedded=False
+pane=right_pane
+all_checkboxes=True
+labels=FIXME, TODO
+integrate_with_journal=start
+included_subtrees=
+excluded_subtrees=
+nonactionable_tags=
+tag_by_page=False
+use_workweek=False
+
+[TrayIconPlugin]
+classic=False
+standalone=False
+```
+
 ### Video Games
 
 > **Note:**
