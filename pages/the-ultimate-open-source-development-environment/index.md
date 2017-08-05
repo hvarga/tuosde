@@ -131,6 +131,7 @@
     - [Cross-platform Asynchronous I/O Library](#cross-platform-asynchronous-io-library)
     - [Calendar and Scheduling Application](#calendar-and-scheduling-application)
     - [GDB Frontend](#gdb-frontend)
+    - [Recording and Deterministic Debugging](#recording-and-deterministic-debugging)
     - [Multipurpose Relay](#multipurpose-relay)
     - [Terminal Multiplexer](#terminal-multiplexer)
     - [File Manager](#file-manager)
@@ -1798,6 +1799,12 @@ $ sudo pacman -S calcurse
 
 ```
 $ sudo pacman -S cgdb
+```
+
+### Recording and Deterministic Debugging
+
+```
+$ pacaur --noedit -S rr
 ```
 
 ### Multipurpose Relay
