@@ -160,6 +160,7 @@
     - [Desktop Wiki](#desktop-wiki)
     - [Disk Usage Analyzer](#disk-usage-analyzer)
     - [SSHFS/SFTP File Systems Mounting](#sshfssftp-file-systems-mounting)
+    - [Delete Unneeded Files](#delete-unneeded-files)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -2199,6 +2200,12 @@ $ sudo pacman -S baobab
 
 ```
 $ pacaur --noedit -S sftpman-gtk
+```
+
+### Delete Unneeded Files
+
+```
+$ sudo pacman -S bleachbit
 ```
 
 ### Video Games
