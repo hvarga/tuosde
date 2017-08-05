@@ -30,6 +30,7 @@
     - [Network Access Configuration](#network-access-configuration)
     - [Update Package Repository](#update-package-repository)
     - [Sound Configuration](#sound-configuration)
+    - [AUR Package Management Tool](#aur-package-management-tool)
     - [Text Editor Installation](#text-editor-installation)
         - [Vim](#vim)
         - [Visual Studio Code](#visual-studio-code)
@@ -46,7 +47,6 @@
     - [Screenshot and Image Manipulation Tool](#screenshot-and-image-manipulation-tool)
     - [i3 Configuration](#i3-configuration)
     - [Set User Locale](#set-user-locale)
-    - [AUR Package Management Tool](#aur-package-management-tool)
     - [Text Editor Configuration](#text-editor-configuration)
         - [VIM Plugins](#vim-plugins)
             - [VimPlug](#vimplug)
@@ -445,6 +445,25 @@ $ sudo pacman -S alsa-utils
 >
 > To enable your microphone, switch to the Capture tab with `F4` and enable a channel with `Space`. Set the recording volume with the up arrow key.
 
+### AUR Package Management Tool
+
+> **Note:**
+>
+> There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. For this purpose, `pacaur` will be used instead.
+
+```
+$ sudo pacman -S expac yajl --noconfirm
+$ mkdir ~/temp
+$ cd ~/temp
+$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+$ makepkg -i PKGBUILD --noconfirm
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+$ makepkg -i PKGBUILD --noconfirm
+$ cd ~
+$ rm -r ~/temp
+```
+
 ### Text Editor Installation
 
 #### Vim
@@ -705,25 +724,6 @@ Open `~/.zshrc` and add following line to the end:
 export LANG=en_US.UTF-8
 export LC_MESSAGES="C"
 export LC_ALL=en_US.UTF-8
-```
-
-### AUR Package Management Tool
-
-> **Note:**
->
-> There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. For this purpose, `pacaur` will be used instead.
-
-```
-$ sudo pacman -S expac yajl --noconfirm
-$ mkdir ~/temp
-$ cd ~/temp
-$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
-$ makepkg -i PKGBUILD --noconfirm
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
-$ makepkg -i PKGBUILD --noconfirm
-$ cd ~
-$ rm -r ~/temp
 ```
 
 ### Text Editor Configuration
