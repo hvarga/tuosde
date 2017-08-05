@@ -2083,7 +2083,7 @@ $ sudo pacman -S deadbeef
 ### Email Client
 
 ```
-$ sudo pacman -S claws-mail
+$ sudo pacman -S sylpheed
 ```
 
 ### Multi-protocol Instant Messaging Client
