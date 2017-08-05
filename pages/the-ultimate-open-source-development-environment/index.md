@@ -158,6 +158,7 @@
     - [Email Client](#email-client)
     - [Multi-protocol Instant Messaging Client](#multi-protocol-instant-messaging-client)
     - [Desktop Wiki](#desktop-wiki)
+    - [Disk Usage Analyzer](#disk-usage-analyzer)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -2185,6 +2186,12 @@ use_workweek=False
 [TrayIconPlugin]
 classic=False
 standalone=False
+```
+
+### Disk Usage Analyzer
+
+```
+$ sudo pacman -S baobab
 ```
 
 ### Video Games
