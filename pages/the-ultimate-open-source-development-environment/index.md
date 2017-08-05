@@ -1810,7 +1810,7 @@ $ pacaur --noedit -S rr
 ### Multipurpose Relay
 
 ```
-sudo pacman -S socat
+$ sudo pacman -S socat
 ```
 
 ### Terminal Multiplexer
