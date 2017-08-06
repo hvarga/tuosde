@@ -1840,8 +1840,16 @@ setw -g pane-base-index 1
 
 ### File Manager
 
+Text based:
+
 ```
 $ sudo pacman -S mc
+```
+
+Graphical based:
+
+```
+$ sudo pacman -S gnome-commander
 ```
 
 ### Image Viewer
