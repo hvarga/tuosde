@@ -163,6 +163,7 @@
     - [SSHFS/SFTP File Systems Mounting](#sshfssftp-file-systems-mounting)
     - [Delete Unneeded Files](#delete-unneeded-files)
     - [Graphical Frontend For su](#graphical-frontend-for-su)
+    - [Command-line Todo List Manager](#command-line-todo-list-manager)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -2236,6 +2237,12 @@ $ sudo pacman -S bleachbit
 
 ```
 $ sudo pacman -S gksu
+```
+
+### Command-line Todo List Manager
+
+```
+$ sudo pacman -S task
 ```
 
 ### Video Games
