@@ -164,6 +164,7 @@
     - [Delete Unneeded Files](#delete-unneeded-files)
     - [Graphical Frontend For su](#graphical-frontend-for-su)
     - [Command-line Todo List Manager](#command-line-todo-list-manager)
+    - [Curses-based Scrolling 'Matrix'-like Screensaver](#curses-based-scrolling-matrix-like-screensaver)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -2243,6 +2244,12 @@ $ sudo pacman -S gksu
 
 ```
 $ sudo pacman -S task
+```
+
+### Curses-based Scrolling 'Matrix'-like Screensaver
+
+```
+$ sudo pacman -S cmatrix
 ```
 
 ### Video Games
