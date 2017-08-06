@@ -1797,8 +1797,16 @@ $ sudo pacman -S calcurse
 
 ### GDB Frontend
 
+Lightweight interface:
+
 ```
 $ sudo pacman -S cgdb
+```
+
+Modular visual interface:
+
+```
+$ pacaur --noedit -S gdb-dashboard
 ```
 
 ### Recording and Deterministic Debugging
