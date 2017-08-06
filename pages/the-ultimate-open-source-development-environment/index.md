@@ -162,6 +162,7 @@
     - [Disk Usage Analyzer](#disk-usage-analyzer)
     - [SSHFS/SFTP File Systems Mounting](#sshfssftp-file-systems-mounting)
     - [Delete Unneeded Files](#delete-unneeded-files)
+    - [Graphical Frontend For su](#graphical-frontend-for-su)
     - [Video Games](#video-games)
         - [Single Player Rougelike Dungeon Exploration Game With ASCII Graphics](#single-player-rougelike-dungeon-exploration-game-with-ascii-graphics)
         - [Turn-Based Tactical Strategy Game With a High Fantasy Theme](#turn-based-tactical-strategy-game-with-a-high-fantasy-theme)
@@ -2229,6 +2230,12 @@ $ pacaur --noedit -S sftpman-gtk
 
 ```
 $ sudo pacman -S bleachbit
+```
+
+### Graphical Frontend For su
+
+```
+$ sudo pacman -S gksu
 ```
 
 ### Video Games
