@@ -141,6 +141,7 @@
     - [Source Code Analysis Tool](#source-code-analysis-tool)
     - [Terminal Recorder](#terminal-recorder)
     - [Terminal Sharing](#terminal-sharing)
+	- [Command-line Fuzzy Search](#command-line-fuzzy-search)
     - [WebSocket Client](#websocket-client)
     - [Modern Programming Language](#modern-programming-language)
     - [Shell Script Analysis Tool](#shell-script-analysis-tool)
@@ -1906,6 +1907,22 @@ maxwait = 2
 ```
 $ pacaur -S tmate
 ```
+
+### Command-line Fuzzy Search
+
+```
+$ sudo pacman -S fzf
+```
+
+Add this to your `~/.zshrc`
+
+```
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+```
+
+You can add more functionalities by sourcing more scripts in `~/.zshrc`, example scripts can be found [here](https://github.com/junegunn/fzf/wiki/Examples)
 
 ### WebSocket Client
 
