@@ -141,7 +141,7 @@
     - [Source Code Analysis Tool](#source-code-analysis-tool)
     - [Terminal Recorder](#terminal-recorder)
     - [Terminal Sharing](#terminal-sharing)
-	- [Command-line Fuzzy Search](#command-line-fuzzy-search)
+    - [Command-line Fuzzy Search](#command-line-fuzzy-search)
     - [WebSocket Client](#websocket-client)
     - [Modern Programming Language](#modern-programming-language)
     - [Shell Script Analysis Tool](#shell-script-analysis-tool)
@@ -209,16 +209,16 @@ Third and the final part, [Post-Installation Guide](#post-installation-guide), c
 
 Download the latest ISO image from one of the mirrors listed on [Arch Linux Downloads](https://www.archlinux.org/download/) page. I have used the [iskon.hr](http://archlinux.iskon.hr/iso/latest/) mirror located in Croatia and the version 2017.07.01 of Arch Linux.
 
-```
-$ wget http://archlinux.iskon.hr/iso/2017.07.01/archlinux-2017.07.01-x86_64.iso
+```plain
+wget http://archlinux.iskon.hr/iso/2017.07.01/archlinux-2017.07.01-x86_64.iso
 ```
 
 Now plug in your USB device and run `lsblk` command to print a list of connected storage devices. Identify and note for later the USB device that you are going to use as install media.
 
 Open the terminal and run the `dd` command using the following pattern:
 
-```
-$ sudo dd if=archlinux-<VERSION>-dual.iso of=/dev/<DEVICE> bs=1M
+```plain
+sudo dd if=archlinux-<VERSION>-dual.iso of=/dev/<DEVICE> bs=1M
 ```
 
 > **Note:**
@@ -231,14 +231,14 @@ Boot into the live Arch Linux using the bootable installation media and wait for
 
 ### Check Internet Connection
 
-```
-$ ping www.google.com
+```plain
+ping www.google.com
 ```
 
 ### Destination Disk
 
-```
-$ fdisk -l
+```plain
+fdisk -l
 ```
 
 > **Note:**
@@ -251,78 +251,78 @@ $ fdisk -l
 >
 > If you need a full disk encryption then follow [How to install Arch Linux with Full Disk Encryption](https://www.howtoforge.com/tutorial/how-to-install-arch-linux-with-full-disk-encryption). Otherwise, continue with the next steps.
 
-```
-$ cfdisk /dev/<DEVICE>
+```plain
+cfdisk /dev/<DEVICE>
 ```
 
 > **Note:**
 >
 > Don't forget to change the `<DEVICE>` with the device that you have choosen in previous step. In my case, it was `sda`.
-
+>
 > **Note:**
 >
 > Using the `cfdisk`, create partitions as you like. In my configuration, I have created three partitions; first one is the root partition, the second one is the boot partition and the third and the last one is used as a swap. Below commands are using the same configuration so if your differs, you need to change the below commands accordingly.
 
-```
-$ mkfs.ext4 /dev/<DEVICE>1
-$ mkfs.ext4 /dev/<DEVICE>2
-$ mkswap /dev/<DEVICE>3
-$ swapon /dev/<DEVICE>3
-$ mount -t ext4 /dev/<DEVICE>1 /mnt
-$ mkdir /mnt/boot
-$ mount -t ext4 /dev/<DEVICE>2 /mnt/boot
+```plain
+mkfs.ext4 /dev/<DEVICE>1
+mkfs.ext4 /dev/<DEVICE>2
+mkswap /dev/<DEVICE>3
+swapon /dev/<DEVICE>3
+mount -t ext4 /dev/<DEVICE>1 /mnt
+mkdir /mnt/boot
+mount -t ext4 /dev/<DEVICE>2 /mnt/boot
 ```
 
 > **Note:**
 >
-> Don't forget to change the `<DEVICE>` with the device that you have choosen in previous step. In my case, it was `sda`.
+> Don't forget to change the `<DEVICE>` with the device that you have chosen in previous step. In my case, it was `sda`.
 
 ### Mirror List
 
-```
-$ vi /etc/pacman.d/mirrorlist
+```plain
+vi /etc/pacman.d/mirrorlist
 ```
 
 > **Note:**
 >
-> File `/etc/pacman.d/mirrorlist` contains the list of all available mirrors. The one at the top will be used as your mirror. If you want to choose another one, you need to move it all the way to the top. For example, I have choosen the mirror called "Croatia" as it is closest to my physical location.
+> File `/etc/pacman.d/mirrorlist` contains the list of all available mirrors. The one at the top will be used as your mirror. If you want to choose another one, you need to move it all the way to the top. For example, I have chosen the mirror called "Croatia" as it is closest to my physical location.
 
 ### System Files Installation
 
-```
-$ pacstrap -i /mnt base base-devel zsh zsh-completions polkit
+```plain
+pacstrap -i /mnt base base-devel zsh zsh-completions polkit
 ```
 
 ### Filesystem Information Generation
 
-```
-$ genfstab -U /mnt > /mnt/etc/fstab
+```plain
+genfstab -U /mnt > /mnt/etc/fstab
 ```
 
 ### Change Root
 
-```
-$ arch-chroot /mnt /bin/bash
+```plain
+arch-chroot /mnt /bin/bash
 ```
 
 ### Locale Configuration
 
-```
-$ vi /etc/locale.gen
+```plain
+vi /etc/locale.gen
 ```
 
 Find and uncomment your language. In my case it is `en_US.UTF-8`. Save and exit.
 
-```
-$ locale-gen
-$ echo LANG=en_US.UTF-8 > /etc/locale.conf
+```plain
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 
 ### Timezone Configuration
 
-```
-$ ln -fs /usr/share/zoneinfo/<ZONE>/<SUBZONE> /etc/localtime
-$ hwclock --systohc
+```plain
+ln -fs /usr/share/zoneinfo/<ZONE>/<SUBZONE> /etc/localtime
+hwclock --systohc
 ```
 
 > **Note:**
@@ -331,31 +331,31 @@ $ hwclock --systohc
 
 ### Time Configuration
 
-```
-$ pacman -S ntp
-$ systemctl enable ntpd.service
+```plain
+pacman -S ntp
+systemctl enable ntpd.service
 ```
 
 ### Boot Manager
 
-```
-$ pacman -S grub
-$ grub-install --recheck /dev/<DEVICE>
-$ grub-mkconfig -o /boot/grub/grub.cfg
+```plain
+pacman -S grub
+grub-install --recheck /dev/<DEVICE>
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 > **Note:**
 >
 > Replace `<DEVICE>` with your device choosen at the beggining of the installation guide. In my case, it was `sda`.
-
+>
 > **Note:**
 >
 > If you want to use a full disk encryption then you need to make an additional changes to the GRUB. For details, see [How to install Arch Linux with Full Disk Encryption](https://www.howtoforge.com/tutorial/how-to-install-arch-linux-with-full-disk-encryption).
 
 ### Hostname Configuration
 
-```
-$ echo <HOSTANAME> > /etc/hostname
+```plain
+echo <HOSTANAME> > /etc/hostname
 ```
 
 > **Note:**
@@ -364,16 +364,16 @@ $ echo <HOSTANAME> > /etc/hostname
 
 ### Root Password
 
-```
-$ passwd
+```plain
+passwd
 ```
 
 ### Non-Administrative User Setup
 
-```
-$ useradd -m -G wheel,users -s /bin/zsh <USERNAME>
-$ passwd <USERNAME>
-$ visudo
+```plain
+useradd -m -G wheel,users -s /bin/zsh <USERNAME>
+passwd <USERNAME>
+visudo
 ```
 
 > **Note:**
@@ -384,10 +384,10 @@ In the newly opened editor, uncomment line `%wheel ALL=(ALL) ALL`, save and exit
 
 ### Exit Live Boot Environment
 
-```
-$ exit
-$ umount -R /mnt
-$ reboot
+```plain
+exit
+umount -R /mnt
+reboot
 ```
 
 ## Post-Installation Guide
@@ -398,29 +398,30 @@ Login for the first time with the user that you created in the end of the [Insta
 
 ### Network Access Configuration
 
-```
-$ ip link
+```plain
+ip link
 ```
 
 Find the name of your interface. In my case, interface name is `enp0s3`.
 
-```
-$ cat <<EOF | sudo tee -a  /etc/netctl/ethernet-dhcp
+```plain
+cat <<EOF | sudo tee -a  /etc/netctl/ethernet-dhcp
 Description='A basic dhcp ethernet connection'
 Interface=enp0s3
 Connection=ethernet
 IP=dhcp
 EOF
-$ sudo pacman -S ifplugd
-$ sudo systemctl start netctl-ifplugd@<NETWORK_INTERFACE>.service
-$ sudo systemctl enable netctl-ifplugd@<NETWORK_INTERFACE>.service
+
+sudo pacman -S ifplugd
+sudo systemctl start netctl-ifplugd@<NETWORK_INTERFACE>.service
+sudo systemctl enable netctl-ifplugd@<NETWORK_INTERFACE>.service
 ```
 
 For wireless interfaces, in my case `wlp2sp`, enable service and later use `wifi-menu` tool:
 
-```
-$ sudo systemctl start netctl-auto@<WIRELESS_INTERFACE>.service
-$ sudo systemctl enable netctl-auto@<WIRELESS_INTERFACE>.service
+```plain
+sudo systemctl start netctl-auto@<WIRELESS_INTERFACE>.service
+sudo systemctl enable netctl-auto@<WIRELESS_INTERFACE>.service
 ```
 
 > **Note:**
@@ -429,8 +430,8 @@ $ sudo systemctl enable netctl-auto@<WIRELESS_INTERFACE>.service
 
 ### Update Package Repository
 
-```
-$ sudo pacman -Sy
+```plain
+sudo pacman -Sy
 ```
 
 ### Sound Configuration
@@ -438,14 +439,14 @@ $ sudo pacman -Sy
 No special installation necessary sice the needed GNU/Linux kernel modules are already present on your system and `udev` will automatically detect your hardware and select needed drivers at boot time.
 However, your sound may be initially muted. In that case install `alsa-utils` to gain `alsamixer` tool which can be used to unmute the sound card.
 
-```
-$ sudo pacman -S alsa-utils
+```plain
+sudo pacman -S alsa-utils
 ```
 
 > **Note:**
 >
 > The `MM` label below a channel indicates that the channel is muted, and `00` indicates that it is open. Scroll to the `Master` and `PCM` channels with the left and right keys and unmute them by pressing the `m` key. Use the up arrow key to increase the volume and obtain a value of `0` dB gain.
-
+>
 > **Note:**
 >
 > To enable your microphone, switch to the Capture tab with `F4` and enable a channel with `Space`. Set the recording volume with the up arrow key.
@@ -456,24 +457,25 @@ $ sudo pacman -S alsa-utils
 >
 > There are a couple of packages that I am using in this document that are missing from the official Arch Linux repository. They are available in [AUR](https://aur.archlinux.org/) which means that the `pacman` can not be used to install such packages. For this purpose, `pacaur` will be used instead.
 
-```
-$ sudo pacman -S expac yajl --noconfirm
-$ mkdir ~/temp
-$ cd ~/temp
-$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
-$ makepkg -i PKGBUILD --noconfirm
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
-$ makepkg -i PKGBUILD --noconfirm
-$ cd ~
-$ rm -r ~/temp
+```plain
+sudo pacman -S expac yajl --noconfirm
+mkdir ~/temp
+cd ~/temp
+gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+makepkg -i PKGBUILD --noconfirm
+curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+makepkg -i PKGBUILD --noconfirm
+cd ~
+rm -r ~/temp
 ```
 
 ### Text Editor Installation
 
 #### Vim
-```
-$ sudo pacman -S gvim
+
+```plain
+sudo pacman -S gvim
 ```
 
 > **Note:**
@@ -482,35 +484,35 @@ $ sudo pacman -S gvim
 
 #### Visual Studio Code
 
-```
-$ pacaur -S code
+```plain
+pacaur -S code
 ```
 
 ### Download Manager
 
-```
-$ sudo pacman -S wget
+```plain
+sudo pacman -S wget
 ```
 
 > **Note:**
 >
 > If you prefere to use a GUI tool instead install `uget`.
 
-```
-$ sudo pacman -S uget
+```plain
+sudo pacman -S uget
 ```
 
 ### Versioning Control
 
-```
-$ sudo pacman -S git perl-authen-sasl perl-net-smtp-ssl perl-mime-tools
+```plain
+sudo pacman -S git perl-authen-sasl perl-net-smtp-ssl perl-mime-tools
 ```
 
 Configure your identity:
 
-```
-$ git config --global user.name "<USERNAME>"
-$ git config --global user.email <EMAIL>
+```plain
+git config --global user.name "<USERNAME>"
+git config --global user.email <EMAIL>
 ```
 
 > **Note:**
@@ -519,20 +521,20 @@ $ git config --global user.email <EMAIL>
 
 Set push behavior to simple:
 
-```
-$ git config --global push.default simple
+```plain
+git config --global push.default simple
 ```
 
 Configure aliases:
 
-```
-$ git config --global alias.incoming '!git fetch && git log --pretty=oneline --abbrev-commit ..@{u}'
-$ git config --global alias.outgoing 'log --pretty=oneline --abbrev-commit @{u}..'
+```plain
+git config --global alias.incoming '!git fetch && git log --pretty=oneline --abbrev-commit ..@{u}'
+git config --global alias.outgoing 'log --pretty=oneline --abbrev-commit @{u}..'
 ```
 
 Configure pull with rebase:
 
-```
+```plain
 git config --global pull.rebase true
 ```
 
@@ -540,8 +542,8 @@ git config --global pull.rebase true
 
 Install [oh-my-zsh](http://ohmyz.sh/) by executing the following command:
 
-```
-$ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+```plain
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
 > **Note:**
@@ -550,7 +552,7 @@ $ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/insta
 
 After the "oh-my-zsh" is successfully installed, configure a theme by setting the value for `ZSH_THEME` into `~/.zshrc`:
 
-```
+```plain
 ZSH_THEME="<THEME_NAME>"
 ```
 
@@ -560,37 +562,38 @@ ZSH_THEME="<THEME_NAME>"
 
 ### X Server
 
-```
-$ sudo pacman -S xorg-server xorg-apps xorg-xinit xorg
+```plain
+sudo pacman -S xorg-server xorg-apps xorg-xinit xorg
 ```
 
 When asked, it is generally better to install `xf86-input-libinput`, especially on laptops.
 
 Now, create file `~/.xserverrc` and add following lines:
 
-```
+```plain
 #!/bin/sh
 exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
 ```
 
 ### Window Manager
 
-```
-$ sudo pacman -S i3 rofi
+```plain
+sudo pacman -S i3 rofi
 ```
 
 Configure i3 to be launched when Xorg starts:
 
-```
-$ cp /etc/X11/xinit/xinitrc ~/.xinitrc
-$ vim ~/.xinitrc
+```plain
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+vim ~/.xinitrc
 ```
 
 Remove unnecessary lines and add the following line to the end:
 
-```
+```plain
 exec i3
 ```
+
 > **Note:**
 >
 > Optionally, if there is a need for a different keyboard layout, add the following before `exec i3` line:
@@ -598,13 +601,13 @@ exec i3
 
 ### Terminal Emulator
 
-```
-$ sudo pacman -S xterm
+```plain
+sudo pacman -S xterm
 ```
 
 Edit `~/.Xresources` and add:
 
-```
+```plain
 ! XTerm settings
 xterm*faceName: DejaVu Sans Mono:size=9:antialias=true
 xterm*pointerColor: white
@@ -638,47 +641,47 @@ rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 
 Disable bitmaps fonts:
 
-```
-$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+```plain
+sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 ```
 
 Install additional fonts:
 
-```
-$ sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-linux-libertine ttf-liberation wqy-zenhei
+```plain
+sudo pacman -S ttf-bitstream-vera ttf-inconsolata ttf-ubuntu-font-family ttf-dejavu ttf-freefont ttf-linux-libertine ttf-liberation wqy-zenhei
 ```
 
 ### Improve Look of GUI Applications
 
-```
-$ sudo pacman -S gnome-themes-standard
+```plain
+sudo pacman -S gnome-themes-standard
 ```
 
 ### Autostart X At Login
 
 Edit the `~/.zshrc` and add following into it:
 
-```
+```plain
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx &> /dev/null
 ```
 
 ### Web Browser
 
-```
-$ sudo pacman –S chromium
+```plain
+sudo pacman –S chromium
 ```
 
 ### Screenshot and Image Manipulation Tool
 
-```
-$ sudo pacman -S imagemagick
+```plain
+sudo pacman -S imagemagick
 ```
 
 ### i3 Configuration
 
 Create a shell script in `/bin/i3lock.sh` with the folowing contents:
 
-```
+```plain
 #!/bin/bash
 
 IMAGE=/tmp/i3lock.png
@@ -697,7 +700,7 @@ Make the script `/bin/i3lock.sh` executable by executing `sudo chmod +x /bin/i3l
 
 Edit `~/.config/i3/config` and add the following to the end of a file:
 
-```
+```plain
 set $Locker /bin/i3lock.sh && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r)reboot, (Shift+s) shutdown
@@ -719,13 +722,14 @@ bindsym $mod+Escape mode "$mode_system"
 bindsym $mod+d exec "rofi -show drun"
 bindsym $mod+Tab exec "rofi -show window"
 ```
+
 Also, delete the line `bindsym $mod+d exec dmenu_run` from `~/.config/i3/config`.
 
 ### Set User Locale
 
 Open `~/.zshrc` and add following line to the end:
 
-```
+```plain
 export LANG=en_US.UTF-8
 export LC_MESSAGES="C"
 export LC_ALL=en_US.UTF-8
@@ -735,14 +739,14 @@ export LC_ALL=en_US.UTF-8
 
 Edit the file `~/.zshrc` and add following into it:
 
-```
+```plain
 export VISUAL=vim
 export EDITOR=vim
 ```
 
 Add the following lines to the `~/.vimrc` to make Vim more user friendly:
 
-```
+```plain
 set nocompatible
 filetype plugin on
 filetype indent on
@@ -794,14 +798,14 @@ set belloff=all
 
 Install the VimPlug:
 
-```
+```plain
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 Edit the `~/.vimrc` and add the following at the end:
 
-```
+```plain
 call plug#begin('~/.vim/plugged')
 call plug#end()
 ```
@@ -814,33 +818,33 @@ call plug#end()
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'valloric/youcompleteme'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Install the `clang` and `cmake` package:
 
-```
-$ sudo pacman -S clang cmake
+```plain
+sudo pacman -S clang cmake
 ```
 
 Compile the `ycm_core.so`:
 
-```
-$ cd ~/.vim/plugged/youcompleteme
-$ ./install.sh --clang-completer --system-libclang
+```plain
+cd ~/.vim/plugged/youcompleteme
+./install.sh --clang-completer --system-libclang
 ```
 
 Add following line to the `~/.vimrc`:
 
-```
+```plain
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 0
@@ -851,20 +855,20 @@ let g:ycm_add_preview_to_completeopt = 1
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'itchyny/lightline.vim'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Add the following line to the `~/.vimrc`:
 
-```
+```plain
 set laststatus=2
 ```
 
@@ -872,26 +876,26 @@ set laststatus=2
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'majutsushi/tagbar'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Install the `ctags` package:
 
-```
-$ sudo pacman -S ctags
+```plain
+sudo pacman -S ctags
 ```
 
 Add the following line to the `~/.vimrc`:
 
-```
+```plain
 nmap <F8> :TagbarToggle<CR>
 autocmd VimEnter * nested :call tagbar#autoopen(1)
 autocmd BufEnter * nested :call tagbar#autoopen(0)
@@ -901,20 +905,20 @@ autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'scrooloose/nerdtree'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Add the following to the `~/.vimrc`:
 
-```
+```plain
 autocmd BufWinEnter * :silent NERDTreeMirror
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F7> :NERDTreeToggle<CR>
@@ -932,20 +936,20 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'ctrlpvim/ctrlp.vim'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Add the following to the `~/.vimrc`:
 
-```
+```plain
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['line', 'dir', 'smarttabs']
@@ -957,13 +961,13 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'tpope/vim-fugitive'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
@@ -972,13 +976,13 @@ Now, install the plugin:
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'conradirwin/vim-bracketed-paste'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
@@ -987,13 +991,13 @@ Now, install the plugin:
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'bronson/vim-trailing-whitespace'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
@@ -1002,13 +1006,13 @@ Now, install the plugin:
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'farmergreg/vim-lastplace'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
@@ -1017,20 +1021,20 @@ Now, install the plugin:
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'airblade/vim-gitgutter'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Add the following to the `~/.vimrc`:
 
-```
+```plain
 let g:gitgutter_sign_column_always=1
 ```
 
@@ -1038,13 +1042,13 @@ let g:gitgutter_sign_column_always=1
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'gregsexton/gitv'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
@@ -1053,58 +1057,58 @@ Now, install the plugin:
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'rhysd/vim-clang-format'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 let g:clang_format#command = 'clang-format'
 let g:clang_format#code_style = "LLVM"
 let g:clang_format#style_options = {
-		\"TabWidth" : 4,
-		\"UseTab" : "Always",
-		\"ColumnLimit" : 150,
-		\"AllowShortIfStatementsOnASingleLine" : "false",
-		\"BreakBeforeBraces" : "Linux",
-		\"Language" : "Cpp",
-		\"AllowShortFunctionsOnASingleLine" : "Empty",
-		\"BinPackParameters" : "false",
-		\"BinPackArguments" : "false",
-		\"AllowAllParametersOfDeclarationOnNextLine" : "true",
-		\"AlignTrailingComments" : "true",
-		\"IndentCaseLabels" : "true",
-		\"SpaceAfterCStyleCast" : "true",
-		\"SortIncludes" : "false"
-		\}
+        \"TabWidth" : 4,
+        \"UseTab" : "Always",
+        \"ColumnLimit" : 150,
+        \"AllowShortIfStatementsOnASingleLine" : "false",
+        \"BreakBeforeBraces" : "Linux",
+        \"Language" : "Cpp",
+        \"AllowShortFunctionsOnASingleLine" : "Empty",
+        \"BinPackParameters" : "false",
+        \"BinPackArguments" : "false",
+        \"AllowAllParametersOfDeclarationOnNextLine" : "true",
+        \"AlignTrailingComments" : "true",
+        \"IndentCaseLabels" : "true",
+        \"SpaceAfterCStyleCast" : "true",
+        \"SortIncludes" : "false"
+        \}
 ```
 
 ##### NERD Commenter
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'scrooloose/nerdcommenter'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the shortcut:
 
-```
+```plain
 nnoremap ,c :call NERDComment(0,"toggle")<CR>
 vnoremap ,c :call NERDComment(0,"toggle")<CR>
 ```
@@ -1113,20 +1117,20 @@ vnoremap ,c :call NERDComment(0,"toggle")<CR>
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'klen/python-mode'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_rope = 1
@@ -1136,20 +1140,20 @@ let g:pymode_rope = 1
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'fatih/vim-go'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -1163,13 +1167,13 @@ let g:go_fmt_command = "goimports"
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'davidegx/ctrlp-smarttabs'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
@@ -1178,26 +1182,26 @@ Now, install the plugin:
 
 Install the `the_silver_searcher` package:
 
-```
-$ sudo pacman -S the_silver_searcher
+```plain
+sudo pacman -S the_silver_searcher
 ```
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'dyng/ctrlsf.vim'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
@@ -1221,20 +1225,20 @@ let g:ctrlsf_winsize = '20%'
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'sjl/badwolf'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 colorscheme badwolf
 highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=White
 ```
@@ -1243,13 +1247,13 @@ highlight CursorLine cterm=NONE ctermbg=DarkYellow ctermfg=White
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'scrooloose/syntastic'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
@@ -1260,7 +1264,7 @@ Now, install the plugin:
 
 Configure the plugin:
 
-```
+```plain
 let g:syntastic_check_on_open = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -1270,20 +1274,20 @@ let g:syntastic_auto_loc_list = 1
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'sjl/gundo.vim'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 nnoremap <silent><F5> :GundoToggle<CR>
 let g:gundo_help = 0
 ```
@@ -1292,20 +1296,20 @@ let g:gundo_help = 0
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 nnoremap <silent><F9> :YcmGenerateConfig<CR>
 ```
 
@@ -1313,20 +1317,20 @@ nnoremap <silent><F9> :YcmGenerateConfig<CR>
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'easymotion/vim-easymotion'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 let g:EasyMotion_off_screen_search = 0
 let g:EasyMotion_verbose = 0
 let g:EasyMotion_verbose = 0
@@ -1336,20 +1340,20 @@ let g:EasyMotion_verbose = 0
 
 Edit the `~/.vimrc` with Vim and add the following line between lines `call plug#begin()` and `call plug#end()`:
 
-```
+```plain
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 ```
 
 Now, install the plugin:
 
-```
+```plain
 :source %
 :PlugInstall
 ```
 
 Configure the plugin:
 
-```
+```plain
 let g:NumberToggleTrigger="<F2>"
 ```
 
@@ -1361,479 +1365,481 @@ To install plugin, just execute the command in the terminal listed in the plugin
 
 Install the plugin:
 
-```
-$ code --install-extension CoenraadS.bracket-pair-colorizer
+```plain
+code --install-extension CoenraadS.bracket-pair-colorizer
 ```
 
 ##### Path Intellisense
 
 Install the plugin:
 
-```
-$ code --install-extension christian-kohler.path-intellisense
+```plain
+code --install-extension christian-kohler.path-intellisense
 ```
 
 ##### Bookmarks
 
 Install the plugin:
 
-```
-$ code --install-extension alefragnani.Bookmarks
+```plain
+code --install-extension alefragnani.Bookmarks
 ```
 
 ##### VSCodeVim
 
 Install the plugin:
 
-```
-$ code --install-extension vscodevim.vim
+```plain
+code --install-extension vscodevim.vim
 ```
 
 ##### AutoFileName
 
 Install the plugin:
 
-```
-$ code --install-extension JerryHong.autofilename
+```plain
+code --install-extension JerryHong.autofilename
 ```
 
 ##### HTML Snippets
 
 Install the plugin:
 
-```
-$ code --install-extension abusaidm.html-snippets
+```plain
+code --install-extension abusaidm.html-snippets
 ```
 
 ##### jshint
 
 Install the plugin:
 
-```
-$ code --install-extension dbaeumer.jshint
-$ sudo npm install -g jshint
+```plain
+code --install-extension dbaeumer.jshint
+sudo npm install -g jshint
 ```
 
 ##### Docker
 
 Install the plugin:
 
-```
-$ code --install-extension PeterJausovec.vscode-docker
+```plain
+code --install-extension PeterJausovec.vscode-docker
 ```
 
 ##### Auto Close Tag
 
 Install the plugin:
 
-```
-$ code --install-extension formulahendry.auto-close-tag
+```plain
+code --install-extension formulahendry.auto-close-tag
 ```
 
 ##### Auto Rename Tag
 
 Install the plugin:
 
-```
-$ code --install-extension formulahendry.auto-rename-tag
+```plain
+code --install-extension formulahendry.auto-rename-tag
 ```
 
 ##### ESLint
 
 Install the plugin:
 
-```
-$ code --install-extension dbaeumer.vscode-eslint
-$ sudo npm install -g eslint
+```plain
+code --install-extension dbaeumer.vscode-eslint
+sudo npm install -g eslint
 ```
 
 ##### Go
 
 Install the plugin:
 
-```
-$ code --install-extension lukehoban.Go
+```plain
+code --install-extension lukehoban.Go
 ```
 
 ##### JavaScript (ES6) code snippets
 
 Install the plugin:
 
-```
-$ code --install-extension xabikos.JavaScriptSnippets
+```plain
+code --install-extension xabikos.JavaScriptSnippets
 ```
 
 ##### npm
 
 Install the plugin:
 
-```
-$ code --install-extension eg2.vscode-npm-script
+```plain
+code --install-extension eg2.vscode-npm-script
 ```
 
 ##### npm Intellisense
 
 Install the plugin:
 
-```
-$ code --install-extension christian-kohler.npm-intellisense
+```plain
+code --install-extension christian-kohler.npm-intellisense
 ```
 
 ##### vetur
 
 Install the plugin:
 
-```
-$ code --install-extension octref.vetur
+```plain
+code --install-extension octref.vetur
 ```
 
 ##### vscode-icons
 
 Install the plugin:
 
-```
-$ code --install-extension robertohuertasm.vscode-icons
+```plain
+code --install-extension robertohuertasm.vscode-icons
 ```
 
 ##### VueHelper
 
 Install the plugin:
 
-```
-$ code --install-extension oysun.vuehelper
+```plain
+code --install-extension oysun.vuehelper
 ```
 
 ##### Debugger for Chrome
 
 Install the plugin:
 
-```
-$ code --install-extension msjsdiag.debugger-for-chrome
+```plain
+code --install-extension msjsdiag.debugger-for-chrome
 ```
 
 ##### Copy Relative Path
 
 Install the plugin:
 
-```
-$ code --install-extension alexdima.copy-relative-path
+```plain
+code --install-extension alexdima.copy-relative-path
 ```
 
 ##### Dash
 
 Install the plugin:
 
-```
-$ code --install-extension deerawan.vscode-dash
+```plain
+code --install-extension deerawan.vscode-dash
 ```
 
 ##### Git Lens
 
 Install the plugin:
 
-```
-$ code --install-extension eamodio.gitlens
+```plain
+code --install-extension eamodio.gitlens
 ```
 
 ##### LaTeX Workshop
 
 Install the plugin:
 
-```
-$ code --install-extension James-Yu.latex-workshop
+```plain
+code --install-extension James-Yu.latex-workshop
 ```
 
 ##### Trailing Spaces
 
 Install the plugin:
 
-```
-$ code --install-extension James-Yu.latex-workshop
+```plain
+code --install-extension James-Yu.latex-workshop
 ```
 
 ##### PlantUML
 
 Install the plugin:
 
-```
-$ code --install-extension jebbs.plantuml
+```plain
+code --install-extension jebbs.plantuml
 ```
 
 ##### Markdown TOC
 
 Install the plugin:
 
-```
-$ code --install-extension AlanWalk.markdown-toc
+```plain
+code --install-extension AlanWalk.markdown-toc
 ```
 
 ##### change-case
 
 Install the plugin:
 
-```
-$ code --install-extension wmaurer.change-case
+```plain
+code --install-extension wmaurer.change-case
 ```
 
 ##### markdownlint
 
 Install the plugin:
 
-```
-$ code --install-extension DavidAnson.vscode-markdownlint
+```plain
+code --install-extension DavidAnson.vscode-markdownlint
 ```
 
 ##### Markdown Navigate
 
 Install the plugin:
 
-```
-$ code --install-extension jrieken.md-navigate
+```plain
+code --install-extension jrieken.md-navigate
 ```
 
 ##### LLDB Debugger
 
 Install the plugin:
 
-```
-$ code --install-extension vadimcn.vscode-lldb
+```plain
+code --install-extension vadimcn.vscode-lldb
 ```
 
 ##### Native Debug
 
 Install the plugin:
 
-```
-$ code --install-extension webfreak.debug
+```plain
+code --install-extension webfreak.debug
 ```
 
 ##### Clang-Format
 
 Install the plugin:
 
-```
-$ code --install-extension xaver.clang-format
+```plain
+code --install-extension xaver.clang-format
 ```
 
 ##### CMake Tools
 
 Install the plugin:
 
-```
-$ code --install-extension vector-of-bool.cmake-tools
+```plain
+code --install-extension vector-of-bool.cmake-tools
 ```
 
 ##### CMake
 
 Install the plugin:
 
-```
-$ code --install-extension twxs.cmake
+```plain
+code --install-extension twxs.cmake
 ```
 
 ##### Code Spellchecker
 
 Install the plugin:
 
-```
-$ code --install-extension streetsidesoftware.code-spell-checker
+```plain
+code --install-extension streetsidesoftware.code-spell-checker
 ```
 
 ##### C/C++ Clang Command Adapter
 
 Install the plugin:
 
-```
-$ code --install-extension mitaki28.vscode-clang
+```plain
+code --install-extension mitaki28.vscode-clang
 ```
 
 ##### shellcheck
 
 Install the plugin:
 
-```
-$ code --install-extension timonwong.shellcheck
+```plain
+code --install-extension timonwong.shellcheck
 ```
 
 ##### shell-format
 
 Install the plugin:
 
-```
-$ code --install-extension foxundermoon.shell-format
+```plain
+code --install-extension foxundermoon.shell-format
 ```
 
 ### Visual Merge and Diff Tool
 
-```
-$ pacaur -S p4v
+```plain
+pacaur -S p4v
 ```
 
 Configure Git to use P4Merge for its `difftool` and `mergetool` commands:
 
-```
-$ git config --global diff.tool p4merge
-$ git config --global merge.tool p4merge
+```plain
+git config --global diff.tool p4merge
+git config --global merge.tool p4merge
 ```
 
 ### X Selection Manipulation
 
-```
-$ sudo pacman -S xsel
+```plain
+sudo pacman -S xsel
 ```
 
 ### Secure Shell
 
-```
-$ sudo pacman -S openssh
+```plain
+sudo pacman -S openssh
 ```
 
 ### Offline API Documentation Browser
 
-```
-$ sudo pacman -S zeal
+```plain
+sudo pacman -S zeal
 ```
 
 ### Interactive Process Viewer
 
-```
-$ sudo pacman -S htop
+```plain
+sudo pacman -S htop
 ```
 
 ### Serial Communication
 
-```
-$ sudo pacman -S ckermit
+```plain
+sudo pacman -S ckermit
 ```
 
 ### Network Protocol Analyzer
 
+```plain
+sudo pacman -S wireshark-gtk
 ```
-$ sudo pacman -S wireshark-gtk
-```
-Only `root` user and members of `wireshark` group can capture packets on network interfaces:
-```
-$ sudo usermod -aG wireshark $USER
-```
-Log out and log back in so that your group membership is re-evaluated.
 
+Only `root` user and members of `wireshark` group can capture packets on network interfaces:
+
+```plain
+sudo usermod -aG wireshark $USER
+```
+
+Log out and log back in so that your group membership is re-evaluated.
 
 ### Linux Syscall Tracer
 
-```
-$ sudo pacman -S strace
+```plain
+sudo pacman -S strace
 ```
 
 ### Containerization and Virtualization
 
-```
-$ sudo pacman -S docker
+```plain
+sudo pacman -S docker
 ```
 
 Manage Docker as a non-root user:
 
-```
-$ sudo groupadd docker
-$ sudo usermod -aG docker $USER
+```plain
+sudo groupadd docker
+sudo usermod -aG docker $USER
 ```
 
 Log out and log back in so that your group membership is re-evaluated.
 
 Configure Docker to start on boot:
 
-```
-$ sudo systemctl enable docker
+```plain
+sudo systemctl enable docker
 ```
 
 ### Debugger
 
-```
-$ sudo pacman -S gdb
+```plain
+sudo pacman -S gdb
 ```
 
 ### TCP/IP Swiss Army Tool
 
-```
-$ sudo pacman -S gnu-netcat
+```plain
+sudo pacman -S gnu-netcat
 ```
 
 ### TFTP Server
 
-```
-$ sudo pacman -S tftp-hpa
+```plain
+sudo pacman -S tftp-hpa
 ```
 
 ### LaTeX Distribution
 
-```
-$ sudo pacman -S texlive-most
+```plain
+sudo pacman -S texlive-most
 ```
 
 ### LaTeX Integrated Writing Environment
 
-```
-$ sudo pacman -S texstudio
+```plain
+sudo pacman -S texstudio
 ```
 
 ### Patch Management
 
-```
-$ sudo pacman -S quilt
+```plain
+sudo pacman -S quilt
 ```
 
 ### Office Suite
 
-```
-$ sudo pacman -S libreoffice-fresh
+```plain
+sudo pacman -S libreoffice-fresh
 ```
 
 ### Cross-platform Asynchronous I/O Library
 
-```
-$ sudo pacman -S libuv
+```plain
+sudo pacman -S libuv
 ```
 
 ### Calendar and Scheduling Application
 
-```
-$ sudo pacman -S calcurse
+```plain
+sudo pacman -S calcurse
 ```
 
 ### GDB Frontend
 
 Lightweight interface:
 
-```
-$ sudo pacman -S cgdb
+```plain
+sudo pacman -S cgdb
 ```
 
 Modular visual interface:
 
-```
-$ pacaur --noedit -S gdb-dashboard
+```plain
+pacaur --noedit -S gdb-dashboard
 ```
 
 ### Recording and Deterministic Debugging
 
-```
-$ pacaur --noedit -S rr
+```plain
+pacaur --noedit -S rr
 ```
 
 ### Multipurpose Relay
 
-```
-$ sudo pacman -S socat
+```plain
+sudo pacman -S socat
 ```
 
 ### Terminal Multiplexer
 
-```
-$ sudo pacman -S tmux
+```plain
+sudo pacman -S tmux
 ```
 
 Put this into the `~/.tmux.conf` to configure tmux:
 
-```
+```plain
 set -g default-terminal "xterm-256color"
 set -g mouse off
 unbind C-b
@@ -1854,49 +1860,49 @@ setw -g pane-base-index 1
 
 Text based:
 
-```
-$ sudo pacman -S mc
+```plain
+sudo pacman -S mc
 ```
 
 Graphical based:
 
-```
-$ sudo pacman -S gnome-commander
+```plain
+sudo pacman -S gnome-commander
 ```
 
 ### Image Viewer
 
-```
-$ sudo pacman -S gpicview
+```plain
+sudo pacman -S gpicview
 ```
 
 ### Document Viewer
 
-```
-$ pacaur -S qpdfview
+```plain
+pacaur -S qpdfview
 ```
 
 ### Archive Manager
 
-```
-$ sudo pacman -S p7zip unrar zip unzip
+```plain
+sudo pacman -S p7zip unrar zip unzip
 ```
 
 ### Source Code Analysis Tool
 
-```
-$ sudo pacman -S valgrind
+```plain
+sudo pacman -S valgrind
 ```
 
 ### Terminal Recorder
 
-```
-$ sudo pacman -S asciinema
+```plain
+sudo pacman -S asciinema
 ```
 
 Put this into the `~/.config/asciinema/config` to configure Asciinema:
 
-```
+```plain
 [record]
 command = /bin/bash -l
 maxwait = 2
@@ -1904,19 +1910,19 @@ maxwait = 2
 
 ### Terminal Sharing
 
-```
-$ pacaur -S tmate
+```plain
+pacaur -S tmate
 ```
 
 ### Command-line Fuzzy Search
 
-```
-$ sudo pacman -S fzf
+```plain
+sudo pacman -S fzf
 ```
 
 Add this to your `~/.zshrc`
 
-```
+```plain
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
@@ -1926,21 +1932,21 @@ You can add more functionalities by sourcing more scripts in `~/.zshrc`, example
 
 ### WebSocket Client
 
-```
-$ sudo pacman -S nodejs
-$ sudo pacman -S npm
-$ sudo npm install -g wscat
+```plain
+sudo pacman -S nodejs
+sudo pacman -S npm
+sudo npm install -g wscat
 ```
 
 ### Modern Programming Language
 
-```
-$ sudo pacman -S go glide
+```plain
+sudo pacman -S go glide
 ```
 
 Open `~/.zshrc` and add following line to the end:
 
-```
+```plain
 export GOPATH=<PATH>
 export PATH=$PATH:$GOPATH/bin
 ```
@@ -1951,31 +1957,31 @@ export PATH=$PATH:$GOPATH/bin
 
 ### Shell Script Analysis Tool
 
-```
-$ sudo pacman -S shellcheck
+```plain
+sudo pacman -S shellcheck
 ```
 
 ### Network Discovery and Security Auditing
 
-```
-$ sudo pacman -S nmap
+```plain
+sudo pacman -S nmap
 ```
 
 ### Recursive Directory Listing Command
 
-```
-$ sudo pacman -S tree
+```plain
+sudo pacman -S tree
 ```
 
 ### Desktop Notifications Server
 
-```
-$ sudo pacman -S dunst
+```plain
+sudo pacman -S dunst
 ```
 
 Create `~/.config/dunst/dunstrc` and add the following lines to the file:
 
-```
+```plain
 [global]
     font = "Droid Sans 8"
     allow_markup = yes
@@ -2018,26 +2024,29 @@ Create `~/.config/dunst/dunstrc` and add the following lines to the file:
     foreground = "#D46A6A"
     timeout = 0
 ```
+
 To start `dunst` with `i3`, add the following line to `~/.config/i3/config` file:
-```
+
+```plain
 exec --no-startup-id "dunst"
 ```
 
 ### Visual Front End For XRandR
 
-```
-$ sudo pacman -S arandr
+```plain
+sudo pacman -S arandr
 ```
 
 #### External Monitors
 
-Hotplug of external monitors can be handled using `udev` rules. 
+Hotplug of external monitors can be handled using `udev` rules.
 > **Note:**
 >
 > The following will only work for your user with id 1000, so remember to replace `<USERNAME>` with your real user name.
 
 Start the following command and plug external monitor in and out:
-```
+
+```plain
 $ udevadm monitor --property
 
 KERNEL[13404.874072] change   /devices/pci0000:00/0000:00:02.0/drm/card0 (drm)
@@ -2051,12 +2060,16 @@ MINOR=0
 SEQNUM=2678
 SUBSYSTEM=drm
 ```
+
 Remeber card number (in my example `card0`) and define custom rule `/etc/udev/rules.d/99-monitor-hotplug.rules` with the content:
-```
+
+```plain
 KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/<USERNAME>/.Xauthority", RUN+="/usr/local/bin/hotplug.sh"
 ```
+
 Open `arandr` tool and save layout for each monitor setup you want to use. In my case, there are laptop monitor and external HDMI monitor, so there will be 2 scripts in `/home/<USERNAME>/.screenlayout/` directory representing laptop-only and laptop-monitor layouts. In this case the `/usr/local/bin/hotplug.sh` script would look like this:
-```
+
+```plain
 #!/bin/bash
 
 export DISPLAY=:0
@@ -2074,85 +2087,87 @@ function connect(){
 }
 
 function disconnect(){
-    /home/<USERNAME>/.screenlayout/laptop-only.sh >> $LOG 2>&1 
+    /home/<USERNAME>/.screenlayout/laptop-only.sh >> $LOG 2>&1
 }
 
 xrandr | grep "HDMI-1 connected" &> /dev/null && connect || disconnect
 ```
+
 Reload `udev` rules:
-```
-$ sudo udevadm control --reload
+
+```plain
+sudo udevadm control --reload
 ```
 
 ### Universal Database Tool For Developers and Database Administrators
 
-```
-$ pacaur -S dbeaver
+```plain
+pacaur -S dbeaver
 ```
 
 ### Fast Incremental File Transfer Utility
 
-```
-$ sudo pacman -S rsync
+```plain
+sudo pacman -S rsync
 ```
 
 ### Command-line JSON Processor
 
-```
-$ sudo pacman -S jq
+```plain
+sudo pacman -S jq
 ```
 
 ### Count Lines of Code
 
-```
-$ sudo pacman -S cloc
+```plain
+sudo pacman -S cloc
 ```
 
 ### Screenshot Tool
 
-```
-$ pacaur -S shutter
+```plain
+pacaur -S shutter
 ```
 
 ### BitTorrent Client
 
-```
-$ sudo pacman -S transmission-gtk
+```plain
+sudo pacman -S transmission-gtk
 ```
 
 ### Music Player
 
-```
-$ sudo pacman -S deadbeef
+```plain
+sudo pacman -S deadbeef
 ```
 
 ### Email Client
 
-```
-$ sudo pacman -S sylpheed
+```plain
+sudo pacman -S sylpheed
 ```
 
 ### Multi-protocol Instant Messaging Client
 
-```
-$ sudo pacman -S pidgin
+```plain
+sudo pacman -S pidgin
 ```
 
 ### Desktop Wiki
 
-```
-$ sudo pacman -S zim
+```plain
+sudo pacman -S zim
 ```
 
 Install additional packages needed by plugins:
 
-```
-$ sudo pacman -S graphviz pygtksourceview2
+```plain
+sudo pacman -S graphviz pygtksourceview2
 ```
 
 Finally, create a new file `~/.config/zim/preferences.conf` if doesn't exist and add or replace its contents with following lines:
 
-```
+```plain
 [General]
 plugins=["calendar","insertsymbol","printtobrowser","versioncontrol","bookmarksbar","linkmap","sourceview","tableofcontents","tags","tasklist","trayicon"]
 
@@ -2235,38 +2250,38 @@ standalone=False
 
 ### Disk Usage Analyzer
 
-```
-$ sudo pacman -S baobab
+```plain
+sudo pacman -S baobab
 ```
 
 ### SSHFS/SFTP File Systems Mounting
 
-```
-$ pacaur --noedit -S sftpman-gtk
+```plain
+pacaur --noedit -S sftpman-gtk
 ```
 
 ### Delete Unneeded Files
 
-```
-$ sudo pacman -S bleachbit
+```plain
+sudo pacman -S bleachbit
 ```
 
 ### Graphical Frontend For su
 
-```
-$ sudo pacman -S gksu
+```plain
+sudo pacman -S gksu
 ```
 
 ### Command-line Todo List Manager
 
-```
-$ sudo pacman -S task
+```plain
+sudo pacman -S task
 ```
 
 ### Curses-based Scrolling 'Matrix'-like Screensaver
 
-```
-$ sudo pacman -S cmatrix
+```plain
+sudo pacman -S cmatrix
 ```
 
 ### Video Games
@@ -2279,24 +2294,24 @@ $ sudo pacman -S cmatrix
 
 Official page: <http://www.nethack.org/>
 
-```
-$ sudo pacman -S nethack
+```plain
+sudo pacman -S nethack
 ```
 
 #### Turn-Based Tactical Strategy Game With a High Fantasy Theme
 
 Official page: <https://www.wesnoth.org/>
 
-```
-$ sudo pacman -S wesnoth
+```plain
+sudo pacman -S wesnoth
 ```
 
 #### Realtime Strategy Game On a Future Earth
 
 Official page: <https://wz2100.net/>
 
-```
-$ sudo pacman -S warzone2100
+```plain
+sudo pacman -S warzone2100
 ```
 
 The installation package misses the original video files, which you can get at [SourceForge](https://sourceforge.net/projects/warzone2100/files/warzone2100/Videos/).
@@ -2309,16 +2324,16 @@ The installation package misses the original video files, which you can get at [
 
 Official page: <http://www.hedgewars.org/>
 
-```
-$ sudo pacman -S hedgewars
+```plain
+sudo pacman -S hedgewars
 ```
 
 #### Turn-Based Space Empire And Galactic Conquest (4x) Computer Game
 
 Official page: <http://www.freeorion.org>
 
-```
-$ pacaur -S freeorion
+```plain
+pacaur -S freeorion
 ```
 
 #### Red Alert Engine Using .NET/Mono and OpenGL
@@ -2329,16 +2344,16 @@ Official page: <http://www.openra.net>
 >
 > Despite the statement that OpenRA is a game engine, it will prompt you to download the full games. This will allow you to play a full open source clone of the popular games like the Tiberian Dawn, Dune 2000 and Red Alert. Since it is an open source project which is actively maintained, the games have a massive improvements over the originals!
 
-```
-$ sudo pacman -S openra
+```plain
+sudo pacman -S openra
 ```
 
 #### Engine for Running Transport Tycoon Deluxe
 
 Official page: <http://www.openttd.org>
 
-```
-$ sudo pacman -S openttd
+```plain
+sudo pacman -S openttd
 ```
 
 > **Note:**
@@ -2349,14 +2364,14 @@ $ sudo pacman -S openttd
 
 Official page: <http://openspades.yvt.jp/>
 
-```
-$ pacaur -S openspades
+```plain
+pacaur -S openspades
 ```
 
 #### 3D Game Similar To Super Monkey Ball
 
 Official page: <http://neverball.org/>
 
-```
-$ sudo pacman -S neverball
+```plain
+sudo pacman -S neverball
 ```
