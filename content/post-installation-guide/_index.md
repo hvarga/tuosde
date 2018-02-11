@@ -2,7 +2,6 @@
 title: "Post Installation Guide"
 weight: 4
 date: 2018-02-11T10:52:37+01:00
-draft: true
 ---
 
 ## Z Shell Initial Configuration

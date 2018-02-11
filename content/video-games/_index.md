@@ -2,7 +2,6 @@
 title: "Video Games"
 weight: 5
 date: 2018-02-11T13:31:09+01:00
-draft: true
 ---
 
 All work and no play makes the developer a dull boy! Because of that, here is a few quality open source video games.

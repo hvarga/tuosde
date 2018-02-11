@@ -2,7 +2,6 @@
 title: "Installation Guide"
 weight: 3
 date: 2018-02-11T09:58:42+01:00
-draft: true
 ---
 
 Installation Guide covers the installation of the operating system, Arch Linux.

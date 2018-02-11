@@ -2,7 +2,6 @@
 title: "Pre-Installation Guide"
 weight: 2
 date: 2018-02-11T08:29:21+01:00
-draft: true
 ---
 
 Here, we will describe the creation of an Arch Linux bootable installation media. This media will be used to live boot the Arch Linux from where you can finally start the installation of the operating system itself.
