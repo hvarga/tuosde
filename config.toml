@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://tuosde.netlify.com/"
 languageCode = "en-us"
 title = "The Ultimate Open Source Development Environmnet"
 theme = "hugo-theme-learn"
