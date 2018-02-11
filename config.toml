@@ -1,0 +1,13 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "The Ultimate Open Source Development Environmnet"
+theme = "hugo-theme-learn"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+author = "Hrvoje Varga"
+showVisitedLinks = true
+ordersectionsby = "weight"
+themeVariant = "blue"
