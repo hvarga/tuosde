@@ -11,3 +11,4 @@ author = "Hrvoje Varga"
 showVisitedLinks = true
 ordersectionsby = "weight"
 themeVariant = "blue"
+editURL = "https://github.com/hvarga/tuosde/edit/master/content/"
