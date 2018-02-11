@@ -5,7 +5,7 @@ date: 2018-02-11T14:48:53+01:00
 
 The idea of this article is to collect and document the bits, nuts and bolts scattered all over the Internet about the Arch Linux and its tools in a one central place. And all for a single purpose - to create the ultimate development environment consisting of open source tools. Just look at the Vim in action below.
 
-![Vim](http://i.imgur.com/dl2pA0y.png)
+![Vim](http://i.imgur.com/dl2pA0y.png?classes=shadow)
 
 If you like what you see, then follow this document.
 
