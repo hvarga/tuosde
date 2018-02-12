@@ -7,7 +7,7 @@ The idea of this document is to collect and document the bits, nuts and bolts sc
 
 Just look at the Vim in action below.
 
-![Vim](http://i.imgur.com/dl2pA0y.png?classes=shadow)
+![Vim](https://i.imgur.com/dl2pA0y.png?classes=shadow)
 
 If you like what you see, then follow this document.
 
