@@ -1063,7 +1063,7 @@ sudo npm install -g eslint
 Install the plugin:
 
 ```plain
-code --install-extension lukehoban.Go
+code --install-extension ms-vscode.Go
 ```
 
 #### JavaScript (ES6) code snippets
@@ -1159,7 +1159,7 @@ code --install-extension James-Yu.latex-workshop
 Install the plugin:
 
 ```plain
-code --install-extension James-Yu.latex-workshop
+code --install-extension shardulm94.trailing-spaces
 ```
 
 #### PlantUML
